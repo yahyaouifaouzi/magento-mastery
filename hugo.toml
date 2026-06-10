@@ -41,3 +41,8 @@ theme = "mastery"
 
 [minify]
   minifyOutput = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
