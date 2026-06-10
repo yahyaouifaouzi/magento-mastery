@@ -5,8 +5,14 @@ theme = "mastery"
 
 [params]
   description = "Magento 2 specialist — custom modules, performance & e-commerce consulting"
-  author = "Faouzi"
+  author = "Faouzi yahyaoui"
   darkModeDefault = true
+  available = true   # false = "Currently fully booked"
+  twitter     = "yahyaouifaouzi"
+
+[sitemap]
+  changefreq = "weekly"
+  priority   = 0.5
 
 [menu]
   [[menu.main]]
@@ -29,3 +35,9 @@ theme = "mastery"
     name = "Contact"
     url = "/contact/"
     weight = 5
+
+[permalinks]
+  posts = "/blog/:slug/"
+
+[minify]
+  minifyOutput = true
