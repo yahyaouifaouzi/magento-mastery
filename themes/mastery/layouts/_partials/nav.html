@@ -1,0 +1,26 @@
+<header class="site-header">
+    <nav class="nav container">
+        <a href="/" class="nav-logo">
+            <span class="logo-bracket">[</span>Magento<span class="logo-accent">Mastery</span><span class="logo-bracket">]</span>
+        </a>
+
+        <ul class="nav-links">
+            {{ range site.Menus.main }}
+            <li>
+                <a href="{{ .URL }}" class="{{ if $.IsMenuCurrent `main` . }}active{{ end }}">
+                    {{ .Name }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+        </button>
+
+        <button class="nav-burger" id="navBurger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+</header>

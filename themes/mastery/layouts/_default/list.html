@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="container" style="padding-top:4rem; padding-bottom:5rem;">
+
+    <div class="section-header">
+        <p class="section-label">// articles</p>
+        <h1>Blog</h1>
+        <p>Magento 2 development tips, module walkthroughs, and e-commerce insights.</p>
+    </div>
+
+    <div class="post-list">
+        {{ range .Pages }}
+        <div class="post-item">
+            <div>
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+                {{ with .Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+            </div>
+            <span class="post-arrow">→</span>
+        </div>
+        {{ end }}
+    </div>
+
+</div>
+{{ end }}

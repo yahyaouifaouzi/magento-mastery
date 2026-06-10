@@ -1,0 +1,89 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <span class="hero-tag">⚡ Magento 2 Specialist</span>
+        <h1>Custom Magento 2<br><span>modules & solutions</span></h1>
+        <p>I build high-performance Magento 2 modules, optimize slow stores, and solve complex e-commerce problems.</p>
+        <div class="hero-actions">
+            <a href="/services/" class="btn btn-primary">View Services</a>
+            <a href="/portfolio/" class="btn btn-outline">See My Work</a>
+        </div>
+    </div>
+</section>
+
+<!-- Services preview -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-label">// what I do</p>
+            <h2>Services</h2>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🧩</div>
+                <h3>Custom Module Development</h3>
+                <p>Tailor-made Magento 2 modules built to Magento best practices — DI, plugins, observers, EAV.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Performance Optimization</h3>
+                <p>Full-stack store audits — FPC, Varnish, JS/CSS bundling, database query profiling.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Theme & Frontend</h3>
+                <p>Custom themes, Hyva & Breeze integration, LESS/BEM, responsive and accessible UI.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h3>API & Integrations</h3>
+                <p>Third-party integrations — payment gateways, ERP, CRM, shipping providers via REST/GraphQL.</p>
+            </div>
+        </div>
+        <div style="margin-top:2rem;">
+            <a href="/services/" class="btn btn-outline">All Services →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Recent posts -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-label">// latest articles</p>
+            <h2>Blog</h2>
+        </div>
+        {{ $posts := first 3 (where .Site.RegularPages "Section" "blog") }}
+        {{ if $posts }}
+        <div class="post-list">
+            {{ range $posts }}
+            <div class="post-item">
+                <div>
+                    <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                    <p class="post-meta">{{ .Date.Format "Jan 2, 2006" }}</p>
+                    {{ with .Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+                </div>
+                <span class="post-arrow">→</span>
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+        <div style="margin-top:2rem;">
+            <a href="/blog/" class="btn btn-outline">All Articles →</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="border-bottom:none;">
+    <div class="container" style="text-align:center; padding: 2rem 0;">
+        <p class="section-label">// let's work together</p>
+        <h2 style="margin-bottom:1rem;">Have a Magento project?</h2>
+        <p style="color:var(--text-2); margin-bottom:2rem;">Let's discuss your requirements and build something great.</p>
+        <a href="/contact/" class="btn btn-primary">Get In Touch</a>
+    </div>
+</section>
+
+{{ end }}
