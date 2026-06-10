@@ -30,3 +30,6 @@ theme = "mastery"
     name = "Contact"
     url = "/contact/"
     weight = 5
+
+[permalinks]
+  posts = "/blog/:slug/"

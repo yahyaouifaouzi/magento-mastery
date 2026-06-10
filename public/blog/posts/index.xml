@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Red on Magento Mastery</title>
-		<link>http://localhost:1313/tags/red/</link>
-		<description>Recent content in Red on Magento Mastery</description>
+		<title>Posts on Magento Mastery</title>
+		<link>http://localhost:1313/blog/posts/</link>
+		<description>Recent content in Posts on Magento Mastery</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
@@ -12,7 +12,7 @@
 		
 			<lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/tags/red/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/blog/posts/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Post 3</title>
 				<link>http://localhost:1313/blog/posts/post-3/</link>
