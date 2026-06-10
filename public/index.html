@@ -107,7 +107,7 @@
       <h2>How I can help</h2>
       <p>From a single bug fix to a full custom module — I cover the full Magento 2 stack.</p>
     </div>
-    <div class="card-grid">
+    <div class="card-grid reveal-stagger">
       <div class="card">
         <div class="card-icon">🧩</div>
         <h3>Custom module development</h3>
@@ -143,7 +143,7 @@
       <p class="section-label">// how it works</p>
       <h2>Simple process, no surprises</h2>
     </div>
-    <div class="process">
+    <div class="process reveal-stagger">
       <div class="process-step">
         <div class="process-num">01</div>
         <h3>Discovery</h3>
@@ -178,7 +178,7 @@
       <p class="section-label">// client feedback</p>
       <h2>What clients say</h2>
     </div>
-    <div class="testimonials">
+    <div class="testimonials reveal-stagger">
       <div class="testimonial">
         <p class="testimonial-text">"Fixed a critical checkout bug in under 2 hours that 3 other developers couldn't solve in a week. Exceptional Magento 2 knowledge."</p>
         <div class="testimonial-author">
@@ -216,14 +216,26 @@
 
 <section class="section">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header reveal">
       <p class="section-label">// latest articles</p>
       <h2>From the blog</h2>
       <p>Magento 2 tips, module walkthroughs, and e-commerce insights.</p>
     </div>
     
     
-    <div class="post-list">
+    <div class="post-list reveal-stagger">
+      
+      <div class="post-item">
+        <div>
+          <h3><a href="http://localhost:1313/blog/hello-world-2/">Building a Custom Magento 2 Module from Scratch</a></h3>
+          <p class="post-meta">
+            Jun 10, 2026 · 1 min read
+            
+          </p>
+          <p class="post-summary">A step-by-step walkthrough of creating a production-ready Magento 2 module following best practices.</p>
+        </div>
+        <span class="post-arrow">→</span>
+      </div>
       
       <div class="post-item">
         <div>
@@ -265,6 +277,31 @@
 
 </main>
 
+<script>
+    (function () {
+        const io = new IntersectionObserver(
+            (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }),
+            { threshold: 0.12 }
+        );
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+    })();
+</script>
+<script>
+    (function () {
+        document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
+            const target = +el.dataset.count;
+            const suffix = el.textContent.replace(/[0-9]/g, '');
+            let start = 0;
+            const step = () => {
+                start += Math.ceil(target / 30);
+                if (start >= target) { el.textContent = target + suffix; return; }
+                el.textContent = start + suffix;
+                requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        });
+    })();
+</script>
 <footer class="site-footer">
     <div class="container">
         <p>© 2026 Magento Mastery · Built with Hugo</p>

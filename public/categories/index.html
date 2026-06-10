@@ -70,6 +70,31 @@
 
 </main>
 
+<script>
+    (function () {
+        const io = new IntersectionObserver(
+            (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }),
+            { threshold: 0.12 }
+        );
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+    })();
+</script>
+<script>
+    (function () {
+        document.querySelectorAll('.hero-stat-num[data-count]').forEach(el => {
+            const target = +el.dataset.count;
+            const suffix = el.textContent.replace(/[0-9]/g, '');
+            let start = 0;
+            const step = () => {
+                start += Math.ceil(target / 30);
+                if (start >= target) { el.textContent = target + suffix; return; }
+                el.textContent = start + suffix;
+                requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        });
+    })();
+</script>
 <footer class="site-footer">
     <div class="container">
         <p>© 2026 Magento Mastery · Built with Hugo</p>
