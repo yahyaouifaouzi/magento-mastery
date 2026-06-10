@@ -1,9 +1,203 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
-  {{ end }}
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-availability">
+      {{ if site.Params.available }}
+      <span class="avail-dot"></span> Available for new projects
+      {{ else }}
+      <span class="avail-dot unavailable"></span> Currently fully booked
+      {{ end }}
+    </div>
+    <h1>Your Magento 2 problems,<br><span>solved permanently.</span></h1>
+    <p>I build custom Magento 2 modules, fix what others can't, and optimize stores that are losing revenue to slow load times.</p>
+    <div class="hero-actions">
+      <a href="/contact/" class="btn btn-primary">Start a project →</a>
+      <a href="/portfolio/" class="btn btn-outline">See my work</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">50+</span>
+        <span class="hero-stat-lbl">Modules built</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">8+</span>
+        <span class="hero-stat-lbl">Years Magento 2</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">100%</span>
+        <span class="hero-stat-lbl">Best practices</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services preview -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">// what I do</p>
+      <h2>How I can help</h2>
+      <p>From a single bug fix to a full custom module — I cover the full Magento 2 stack.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>Custom module development</h3>
+        <p>Tailor-made modules following M2 best practices — DI, plugins, observers, EAV, layout XML, RequireJS AMD.</p>
+        <a href="/services/" class="card-link">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Performance optimization</h3>
+        <p>Full-stack store audits — FPC, Varnish, JS/CSS bundling, database query profiling, server-level tuning.</p>
+        <a href="/services/" class="card-link">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>Theme & frontend</h3>
+        <p>Custom themes, Hyva & Breeze Evolution integration, LESS/BEM, responsive and accessible UI.</p>
+        <a href="/services/" class="card-link">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔗</div>
+        <h3>API & integrations</h3>
+        <p>Payment gateways, ERP/CRM, shipping providers — REST and GraphQL, clean service layer architecture.</p>
+        <a href="/services/" class="card-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">// how it works</p>
+      <h2>Simple process, no surprises</h2>
+    </div>
+    <div class="process">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Discovery</h3>
+        <p>We talk about your project, requirements, and timeline. Free 30-min call.</p>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Spec & quote</h3>
+        <p>I send a clear scope of work and fixed price. No hourly surprises.</p>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Development</h3>
+        <p>I build it, test it on a staging environment, and keep you updated.</p>
+      </div>
+      <div class="process-arrow">→</div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Delivery</h3>
+        <p>Clean code, documented, deployed. 30-day bug-fix guarantee included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">// client feedback</p>
+      <h2>What clients say</h2>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p class="testimonial-text">"Fixed a critical checkout bug in under 2 hours that 3 other developers couldn't solve in a week. Exceptional Magento 2 knowledge."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">GH</div>
+          <div>
+            <p class="testimonial-name">Great Hire UK</p>
+            <p class="testimonial-company">options-greathire.co.uk</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Built a complete custom module with admin grid, frontend widget, and API integration — delivered on time, zero rework needed."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">QJ</div>
+          <div>
+            <p class="testimonial-name">Qartaj</p>
+            <p class="testimonial-company">qartaj.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"Migrated 519 redirects, cleaned up the database, and boosted our SEO rankings significantly. Knows Magento inside out."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-initials">LI</div>
+          <div>
+            <p class="testimonial-name">Librairie Imen</p>
+            <p class="testimonial-company">librairie-imen.tn</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent posts -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">// latest articles</p>
+      <h2>From the blog</h2>
+      <p>Magento 2 tips, module walkthroughs, and e-commerce insights.</p>
+    </div>
+    {{ $posts := first 3 (where .Site.RegularPages "Section" "blog") }}
+    {{ if $posts }}
+    <div class="post-list">
+      {{ range $posts }}
+      <div class="post-item">
+        <div>
+          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+          <p class="post-meta">
+            {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read
+            {{ with .Params.tags }}
+            {{ range first 1 . }}<span class="post-tag">{{ . }}</span>{{ end }}
+            {{ end }}
+          </p>
+          {{ with .Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+        </div>
+        <span class="post-arrow">→</span>
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+    <div style="margin-top:2rem;">
+      <a href="/blog/" class="btn btn-outline">All articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <div>
+        <p class="section-label">// let's build something</p>
+        <h2>Have a Magento 2 project?</h2>
+        <p>Tell me what you're building. I'll tell you if I can help and what it'll cost — no commitment required.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn-primary">Start a conversation →</a>
+        <a href="/services/#pricing" class="btn btn-outline">View pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{ end }}

@@ -7,6 +7,7 @@ theme = "mastery"
   description = "Magento 2 specialist — custom modules, performance & e-commerce consulting"
   author = "Faouzi"
   darkModeDefault = true
+  available = true   # false = "Currently fully booked"
 
 [menu]
   [[menu.main]]
