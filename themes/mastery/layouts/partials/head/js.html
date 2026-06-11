@@ -1,3 +1,34 @@
+{{ if not hugo.IsDevelopment }}
+<script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "where": {
+          "and": [
+            { "href_matches": "/*" },
+            { "not": { "href_matches": "/cdn-cgi/*" } },
+            { "not": { "href_matches": "*.xml" } },
+            { "not": { "href_matches": "*.json" } }
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ],
+    "prerender": [
+      {
+        "where": {
+          "and": [
+            { "href_matches": "/*" },
+            { "not": { "href_matches": "/cdn-cgi/*" } }
+          ]
+        },
+        "eagerness": "conservative"
+      }
+    ]
+  }
+</script>
+{{ end }}
+
 {{- with resources.Get "js/main.js" }}
   {{- $opts := dict
     "minify" (cond hugo.IsDevelopment false true)

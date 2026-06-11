@@ -1,4 +1,4 @@
-baseURL = "https://magento-mastery.com/"
+baseURL = "https://www.magento-mastery.com/"
 languageCode = "en-us"
 title = "Magento Mastery"
 theme = "mastery"
@@ -46,3 +46,6 @@ theme = "mastery"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
