@@ -1,19 +1,11 @@
-{{- with resources.Get "css/main.css" }}
-  {{- $opts := dict
-    "minify" (cond hugo.IsDevelopment false true)
-    "sourceMap" (cond hugo.IsDevelopment "linked" "none")
-  }}
-  {{- with . | css.Build $opts }}
-    {{- if hugo.IsDevelopment }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}">
-    {{- else }}
-      {{- with . | fingerprint }}
-        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-      {{- end }}
-    {{- end }}
-  {{- end }}
+{{- $css := resources.Get "css/style.css" }}
+{{- if hugo.IsDevelopment }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- else }}
+{{- with $css | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{- end }}
 {{- end }}
 
-<link rel="stylesheet" href="/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
