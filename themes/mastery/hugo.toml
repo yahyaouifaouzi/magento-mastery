@@ -46,3 +46,6 @@ theme = "mastery"
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]

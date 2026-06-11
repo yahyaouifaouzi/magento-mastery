@@ -1,6 +1,7 @@
 ---
 title: "How to Improve Performance in Magento 2 (2026 Practical Optimization Checklist)"
 date: 2026-06-10
+lastmod: 2026-06-10
 summary: "A complete, developer-tested Magento 2 performance optimization checklist covering caching, image compression, database tuning, and Core Web Vitals for 2026."
 author: "Faouzi Yahyaoui"
 tags: ["magento 2", "performance optimization", "ecommerce speed", "core web vitals", "magento caching", "varnish", "redis"]

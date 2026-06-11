@@ -1,25 +1,28 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
 <!-- Primary SEO -->
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
 <meta name="author" content="{{ site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
-<!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+<!-- Open Graph -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
-{{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "/images/og-default.jpg" | absURL }}{{ end }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
-<!-- Twitter / X card -->
+<!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
-{{ with .Params.image }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+<meta name="twitter:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "/images/og-default.jpg" | absURL }}{{ end }}">
 {{ with site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
 
 <!-- Article specific -->
@@ -29,27 +32,60 @@
 {{ with .Params.tags }}{{ range . }}<meta property="article:tag" content="{{ . }}">{{ end }}{{ end }}
 {{ end }}
 
-<!-- Schema.org JSON-LD -->
+<!-- JSON-LD Schema -->
 {{ if .IsPage }}
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": "{{ .Title }}",
-        "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}",
-        "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
-        "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
-        "author": { "@type": "Person", "name": "{{ site.Params.author }}" },
-        "url": "{{ .Permalink }}"
+        "headline": {{ .Title | jsonify }},
+    "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }},
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    "url": "{{ .Permalink }}",
+    "image": "{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "/images/og-default.jpg" | absURL }}{{ end }}",
+    "author": {
+    "@type": "Person",
+    "name": "{{ site.Params.author }}",
+    "url": "{{ site.BaseURL }}"
+    },
+    "publisher": {
+    "@type": "Organization",
+    "name": {{ site.Title | jsonify }},
+    "url": "{{ site.BaseURL }}"
+    },
+    "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+    }
+    {{ with .Params.tags }},
+    "keywords": {{ . | jsonify }}
+    {{ end }}
+    }
+</script>
+{{ else if .IsHome }}
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": {{ site.Title | jsonify }},
+    "url": "{{ site.BaseURL }}",
+    "description": {{ site.Params.description | jsonify }},
+    "founder": {
+    "@type": "Person",
+    "name": "{{ site.Params.author }}"
+    },
+    "knowsAbout": ["Magento 2", "Adobe Commerce", "PHP", "E-commerce", "Custom Module Development"]
     }
 </script>
 {{ else }}
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "{{ site.Title }}",
-        "url": "{{ site.BaseURL }}"
+        "@type": "WebPage",
+        "name": {{ .Title | jsonify }},
+    "url": "{{ .Permalink }}",
+    "description": {{ with .Description }}{{ . | jsonify }}{{ else }}{{ site.Params.description | jsonify }}{{ end }}
     }
 </script>
 {{ end }}
