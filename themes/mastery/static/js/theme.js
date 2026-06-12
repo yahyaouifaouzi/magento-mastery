@@ -21,3 +21,16 @@
         burger.classList.toggle('open');
     });
 })();
+
+function copyPostLink() {
+    navigator.clipboard.writeText(window.location.href);
+
+    const btn = document.querySelector('.share-copy-btn');
+    const original = btn.textContent;
+
+    btn.textContent = 'Copied!';
+
+    setTimeout(() => {
+        btn.textContent = original;
+    }, 2000);
+}

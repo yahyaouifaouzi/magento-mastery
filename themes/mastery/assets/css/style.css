@@ -1165,3 +1165,39 @@ img { max-width: 100%; display: block; }
     border-color: var(--accent);
     background: var(--bg-2);
 }
+
+.post-share {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+}
+
+.post-share-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.post-share a,
+.share-copy-btn {
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    text-decoration: none;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.875rem;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.post-share a:hover,
+.share-copy-btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+}
+
+.share-copy-btn {
+    font-family: inherit;
+}

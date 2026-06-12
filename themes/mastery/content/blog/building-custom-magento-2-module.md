@@ -1,5 +1,5 @@
 ---
-title: "Building a Custom Magento 2 Module from Scratch (2026 Guide)"
+title: "Building a Magento 2 Module from Scratch (2026)"
 date: 2026-06-10
 lastmod: 2026-06-10
 summary: "Learn how to build a production-ready Magento 2 custom module step by step."
@@ -16,8 +16,6 @@ categories:
   - PHP Development
 draft: false
 ---
-
-# Building a Custom Magento 2 Module from Scratch (2026 Guide)
 
 Magento 2 is one of the most extensible eCommerce platforms available. Creating a custom module from scratch is a fundamental skill that enables business customizations, third-party integrations, and performance optimizations without modifying Magento core files.
 
