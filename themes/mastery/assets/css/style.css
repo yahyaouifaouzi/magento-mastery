@@ -14,7 +14,7 @@
     --border: rgba(255,255,255,0.08);
     --text: #e8e8e8;
     --text-2: #999;
-    --text-3: #555;
+    --text-3: #808080;
     --accent: #f97316;
     --accent-2: #fb923c;
     --tag-bg: #1e1e1e;
@@ -28,7 +28,7 @@
     --border: rgba(0,0,0,0.08);
     --text: #1a1a1a;
     --text-2: #666;
-    --text-3: #aaa;
+    --text-3: #767676;
     --accent: #ea580c;
     --accent-2: #f97316;
     --tag-bg: #fff7ed;
@@ -193,11 +193,11 @@ img { max-width: 100%; display: block; }
 }
 .btn-primary {
     background: var(--accent);
-    color: #fff;
+    color: #1a1a1a;
 }
 .btn-primary:hover {
     background: var(--accent-2);
-    color: #fff;
+    color: #1a1a1a;
 }
 .btn-outline {
     background: transparent;
@@ -1175,7 +1175,7 @@ img { max-width: 100%; display: block; }
 }
 
 .post-share-label {
-    color: var(--text-muted);
+    color: var(--text);
     font-size: 0.9rem;
 }
 
@@ -1185,7 +1185,7 @@ img { max-width: 100%; display: block; }
     border: 1px solid var(--border);
     border-radius: 999px;
     text-decoration: none;
-    background: var(--surface);
+    background: var(--bg-3);
     color: var(--text);
     font-size: 0.875rem;
     transition: all .2s ease;

@@ -1,11 +1,8 @@
-{{- $css := resources.Get "css/style.css" }}
-{{- if hugo.IsDevelopment }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}">
-{{- else }}
-{{- with $css | fingerprint }}
-<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-{{- end }}
-{{- end }}
+{{ $css := resources.Get "css/style.css" | minify }}
+
+<style>
+    {{ $css.Content | safeCSS }}
+</style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
