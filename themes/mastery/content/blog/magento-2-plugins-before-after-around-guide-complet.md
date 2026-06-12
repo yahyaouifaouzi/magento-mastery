@@ -336,12 +336,3 @@ A **preference** (`<preference>`) entirely replaces the target class. A **plugin
 | The difference between Plugin and Observer | Document your architectural choice |
 
 > 📹 **YouTube Suggestion** : Create a video titled *"Magento 2 Plugins EXPLAINED : Before, After, Around (avec exemples concrets)"* — targets the query *"magento 2 plugins tutorial"* (estimated volume : 1 900/mois sur YouTube Search).
-
-> 🔗 **Recommended Internal Links** :
-> - [Create a Magento 2 module from scratch](/tutoriels/module-magento-2-from-scratch/)
-> - [Dependency Injection in Magento 2](/tutoriels/dependency-injection-magento-2/)
-> - [Event Observers vs Plugins: The Comparison](/tutoriels/magento-2-event-observers-vs-plugins/)
-
----
-
-*Article updated on 11 juin 2026. Last compatibility check : Magento Open Source 2.4.7 / Adobe Commerce 2.4.7.*
