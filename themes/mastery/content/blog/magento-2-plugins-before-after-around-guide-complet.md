@@ -12,10 +12,6 @@ keywords: ["magento 2 plugin before after around", "magento 2 interceptor", "mag
 slug: "magento-2-plugins-before-after-around-complete-guide"
 ---
 
-> 🔍 **Quick SEO Analysis** : This guide targets long-tail technical queries with high intent (estimated difficulty: 35/100, combined monthly volume ~2,400 searches). Main keywords are positioned in the H1, first paragraph, alt tags, and URL slug.
-
----
-
 ## Table of Contents
 
 1. [What is a Magento 2 Plugin (Interceptor)?](#quest-ce-quun-plugin-intercepteur-magento-2)
@@ -37,8 +33,6 @@ A **plugin**, also called an **interceptor**, is a class that modifies the behav
 
 Unlike class rewrites (*class preferences*), plugins do not modify the target class itself. They allow extending or altering core code in a **safe and update-compatible** way. Adobe Commerce and Magento Open Source execute these interceptors sequentially according to a configured `sortOrder`, thus avoiding conflicts between extensions.
 
-> 💡 **SEO Tip** : This paragraph targets the query *"qu'est-ce qu'un intercepteur magento 2"* (estimated volume : 320/mois, difficulty : 28/100).
-
 ---
 
 ## The 3 Types of Plugins: Before, After, Around
@@ -48,8 +42,6 @@ Unlike class rewrites (*class preferences*), plugins do not modify the target cl
 | **Before** | `before` + NomMéthode | Before the observed method | Modify input arguments | Low |
 | **After** | `after` + NomMéthode | After the observed method | Modify returned result | Low |
 | **Around** | `around` + NomMéthode | Before **AND** after | Total control, conditional | ⚠️ High |
-
-> 🎯 **Targeted Long-Tail Keywords** : *"magento 2 before plugin example"*, *"after plugin magento 2 tutorial"*, *"around plugin magento 2 when to use"*.
 
 ---
 
@@ -148,10 +140,6 @@ class LoggedInCustomerLoyaltyDiscount
 }
 ```
 
-> 📝 **SEO Note** : This code block targets the query *"magento 2 after plugin modify price"* (estimated volume : 170/mois).
-
----
-
 ## Around Plugin: Total Control (Use with Caution)
 
 The **Around Plugin** offers maximum control: it executes **before and after** the observed method. It receives a `callable $proceed` that represents the original method (or the next plugin in the chain).
@@ -236,7 +224,7 @@ Every plugin must be declared in the `etc/di.xml` file (or `etc/frontend/di.xml`
 | `sortOrder` | ❌ | Execution order (smaller = executed first) |
 | `disabled` | ❌ | `true` to disable a core/third-party plugin without removing the code |
 
-> 🔗 **Internal Link Suggestion** : Link to your article on [Magento 2 module structure](/tutoriels/structure-module-magento-2/) from this paragraph.
+> 🔗 If you're creating your first extension, start by understanding the fundamentals of Magento module development. Follow our step-by-step guide on [building a custom Magento 2 module](https://www.magento-mastery.com/blog/building-custom-magento-2-module/) before implementing plugins, observers, or preferences.
 
 ---
 
@@ -334,5 +322,3 @@ A **preference** (`<preference>`) entirely replaces the target class. A **plugin
 | The `di.xml` syntax and `sortOrder` | Create your first plugin on a test environment |
 | Limitations and performance pitfalls | Audit your existing plugins — replace unnecessary `around` plugins |
 | The difference between Plugin and Observer | Document your architectural choice |
-
-> 📹 **YouTube Suggestion** : Create a video titled *"Magento 2 Plugins EXPLAINED : Before, After, Around (avec exemples concrets)"* — targets the query *"magento 2 plugins tutorial"* (estimated volume : 1 900/mois sur YouTube Search).
