@@ -3,66 +3,85 @@
 
     <div class="section-header">
         <p class="section-label">// selected work</p>
-        <h1>Portfolio</h1>
-        <p>A selection of modules and projects built for real Magento 2 stores.</p>
+        <h1>Magento 2 Portfolio — Custom Modules &amp; E-commerce Solutions</h1>
+        <p class="intro">
+            A curated selection of Magento 2 modules, integrations, and technical projects built and deployed
+            for real stores. Each project below solves a specific business problem — from streamlining checkout
+            and blocking spam to managing in-store bookings and migrating SEO-critical redirects. Every module
+            follows Magento 2 best practices: dependency injection, plugin architecture, and clean separation
+            of frontend and backend concerns.
+        </p>
     </div>
 
+    <h2 style="padding-bottom:2rem;">Custom Magento 2 Modules</h2>
     <div class="card-grid">
 
         <div class="card">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
-                <span class="hero-tag" style="margin:0;">Module</span>
+                <span class="hero-tag" style="margin:0;">Custom Module</span>
             </div>
-            <h3>Store Locator & Booking</h3>
-            <p>Custom module with jQuery UI datepicker, congé date ranges, and admin management grid.</p>
+            <h3>Store Locator &amp; Booking</h3>
+            <p>Admin-managed store locator with jQuery UI datepicker integration, configurable congé date-range blocking, and a full Magento admin grid for managing location entries and unavailable periods.</p>
             <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">PHP · Magento 2 · jQuery UI</p>
         </div>
 
         <div class="card">
             <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
-                <span class="hero-tag" style="margin:0;">Module</span>
+                <span class="hero-tag" style="margin:0;">Security Integration</span>
             </div>
-            <h3>Cloudflare Turnstile</h3>
-            <p>Full replacement for Google reCAPTCHA — integrated on registration, contact, and checkout forms.</p>
+            <h3>Cloudflare Turnstile CAPTCHA</h3>
+            <p>Full replacement for Google reCAPTCHA using Cloudflare's Turnstile API — integrated on registration, contact, and checkout forms. Reduces friction for real users while blocking automated abuse.</p>
             <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">PHP · Magento 2 · Cloudflare API</p>
         </div>
 
         <div class="card">
             <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
-                <span class="hero-tag" style="margin:0;">Module</span>
+                <span class="hero-tag" style="margin:0;">Custom Module</span>
             </div>
-            <h3>Fast Checkout</h3>
-            <p>Simplified Breeze Evolution checkout — removed friction fields, COD only, locked to Tunisia, MutationObserver for async re-rendering.</p>
-            <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">PHP · Breeze · JS</p>
+            <h3>Fast Checkout for Breeze</h3>
+            <p>Simplified Breeze Evolution checkout for Tunisian stores — friction fields removed, country locked, COD-only payment, with MutationObserver handling async DOM re-rendering across theme updates.</p>
+            <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">PHP · Breeze Evolution · JS</p>
         </div>
 
         <div class="card">
             <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
-                <span class="hero-tag" style="margin:0;">Module</span>
+                <span class="hero-tag" style="margin:0;">Admin Extension</span>
             </div>
             <h3>International Telephone Input</h3>
-            <p>Admin config extension with phone/mobile toggles across registration, contact, and checkout contexts.</p>
+            <p>Per-form phone and mobile field configuration via Magento admin, with intl-tel-input integrated across registration, contact, and checkout contexts through a clean config extension model.</p>
             <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">PHP · Magento 2 · intl-tel-input</p>
         </div>
 
         <div class="card">
             <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
-                <span class="hero-tag" style="margin:0;">SEO</span>
-            </div>
-            <h3>Bulk 301 Redirect Migration</h3>
-            <p>SQL script handling 519 URL redirects from Google Search Console data for qartaj.com replatforming.</p>
-            <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">MySQL · Magento 2</p>
-        </div>
-
-        <div class="card">
-            <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
-                <span class="hero-tag" style="margin:0;">Module</span>
+                <span class="hero-tag" style="margin:0;">Custom Module</span>
             </div>
             <h3>Search Autocomplete</h3>
-            <p>Production-ready search autocomplete using x-magento-init pattern and RequireJS AMD define for reliable JS loading.</p>
-            <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--font-mono);">RequireJS · Magento 2</p>
+            <p>Production-ready search autocomplete built with the <code>x-magento-init</code> pattern and RequireJS AMD define — ensuring reliable script loading across Magento's asset pipeline in production deployments.</p>
+            <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">RequireJS · Magento 2 · JS</p>
         </div>
 
     </div>
+
+    <h2 style="padding-top:2rem; padding-bottom:2rem;">SEO &amp; Migration</h2>
+    <div class="card-grid">
+
+        <div class="card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:0.75rem;">
+                <span class="hero-tag" style="margin:0;">SEO</span>
+            </div>
+            <h3>Bulk 301 Redirect Migration Script</h3>
+            <p>MySQL script that processed 519 URL redirects sourced from Google Search Console data for the qartaj.com replatforming. Preserved organic rankings and eliminated crawl errors during a full Magento 2 site migration.</p>
+            <p style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-3); font-family:var(--font-mono);">MySQL · Magento 2</p>
+        </div>
+
+    </div>
+
+    <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid var(--border); font-size:0.9rem; color:var(--text-2); line-height:1.7;">
+        All modules follow Magento 2 coding standards — dependency injection, observer and plugin patterns,
+        and proper <code>di.xml</code> / <code>events.xml</code> declarations. Available for custom module
+        development, code audits, and Magento 2 performance optimization.
+    </div>
+
 </div>
 {{ end }}
