@@ -1,0 +1,33 @@
+{{ if not hugo.IsDevelopment }}
+<script>
+    (function() {
+        var GA_ID = '{{ .Site.Params.googleAnalyticsID }}';
+        if (!GA_ID) return;
+
+        function loadGA() {
+            if (window._gaLoaded) return;
+            window._gaLoaded = true;
+
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+            document.head.appendChild(s);
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', GA_ID, { 'anonymize_ip': true });
+        }
+
+        // Fire after 3s, or on first scroll/click — whichever comes first
+        var timer = setTimeout(loadGA, 3000);
+        ['scroll', 'click', 'keydown', 'touchstart'].forEach(function(evt) {
+            window.addEventListener(evt, function() {
+                clearTimeout(timer);
+                loadGA();
+            }, { once: true, passive: true });
+        });
+    })();
+</script>
+{{- end -}}
