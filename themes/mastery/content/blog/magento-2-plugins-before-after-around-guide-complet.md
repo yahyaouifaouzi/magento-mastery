@@ -1,10 +1,10 @@
 ---
 title: "Magento 2 Plugins: Before, After & Around Methods Explained"
 date: 2026-06-12
-lastmod: 2026-06-12
+lastmod: 2026-06-15
 draft: false
 author: "Faouzi Yahyaoui"
-description: "Complete guide on Magento 2 plugins (interceptors): before, after, around. Learn how to modify public method behavior without touching core code, with concrete examples, best practices, and pitfalls to avoid."
+description: "Complete guide to Magento 2 plugins (before, after, around). Learn how to modify public methods without core changes, with examples and best practices."
 summary: "Master the 3 types of Magento 2 plugins (interceptors): before, after, and around. This technical guide covers syntax, use cases, limitations, and best practices for clean and maintainable code."
 tags: ["magento 2", "plugins", "interceptors", "before after around", "magento development", "php", "e-commerce", "tutorial"]
 categories: ["Magento 2", "Développement", "Tutoriels"]
