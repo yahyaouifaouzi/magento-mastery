@@ -1,5 +1,5 @@
 ---
-title: "Magento 2 Plugins : Before, After, Around — Complete Interceptors Guide"
+title: "Magento 2 Plugins: Before, After & Around Methods Explained"
 date: 2026-06-12
 lastmod: 2026-06-12
 draft: false

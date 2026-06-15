@@ -1,5 +1,5 @@
 ---
-title: "Configure Varnish Cache in Magento 2 (Step-by-Step Guide for Maximum Performance)"
+title: "Magento 2 Varnish Cache Configuration Guide"
 date: 2026-06-10
 lastmod: 2026-06-10
 summary: "Learn how to configure Varnish Cache in Magento 2 for ultra-fast page load times, improved TTFB, and better Core Web Vitals scores."

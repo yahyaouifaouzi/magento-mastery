@@ -1,5 +1,5 @@
 ---
-title: "How to Improve Performance in Magento 2 (2026 Practical Optimization Checklist)"
+title: "Magento 2 Performance Optimization Checklist (2026)"
 date: 2026-06-10
 lastmod: 2026-06-10
 summary: "A complete, developer-tested Magento 2 performance optimization checklist covering caching, image compression, database tuning, and Core Web Vitals for 2026."
