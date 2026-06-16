@@ -1,5 +1,5 @@
 ---
-title: "Magento 2 Guides"
+title: "Magento 2 Tutorials & Implementation Guides"
 description: "Explore articles about Magento 2 Guides on Magento Mastery."
 seo_title: "Magento 2 Guides & Tutorials"
 ---
