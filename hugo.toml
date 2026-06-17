@@ -9,6 +9,7 @@ theme = "mastery"
   darkModeDefault = true
   available = true   # false = "Currently fully booked"
   twitter     = "yahyaouifaouzi"
+  googleAnalyticsID = "G-PXSV18RMC2"
 
 [sitemap]
   changefreq = "weekly"

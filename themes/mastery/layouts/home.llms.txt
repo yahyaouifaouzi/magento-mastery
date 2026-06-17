@@ -1,0 +1,59 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+Website: {{ .Site.BaseURL }}
+
+## About
+
+Magento Mastery is a website focused on Magento 2 and Adobe Commerce development, including tutorials, guides, performance optimization, custom module development, integrations, Hyvä themes, and e-commerce best practices.
+
+## Services
+
+- Services: {{ .Site.BaseURL }}services/
+- Portfolio: {{ .Site.BaseURL }}portfolio/
+- Blog: {{ .Site.BaseURL }}blog/
+- Contact: {{ .Site.BaseURL }}contact/
+
+## Expertise
+
+- Magento 2 Development
+- Adobe Commerce
+- Custom Module Development
+- API Integrations
+- Performance Optimization
+- Hyvä Themes
+- Checkout Customization
+- Shipping Integrations
+- Search Optimization
+- PHP Development
+- MySQL
+- Elasticsearch / OpenSearch
+
+## Categories
+
+{{ range $name, $_ := .Site.Taxonomies.categories }}
+- {{ $name }}: {{ site.BaseURL }}categories/{{ $name | urlize }}/
+{{ end }}
+
+## Tags
+
+{{ range $name, $_ := .Site.Taxonomies.tags }}
+- {{ $name }}: {{ site.BaseURL }}tags/{{ $name | urlize }}/
+{{ end }}
+
+## Recent Articles
+
+{{ range first 100 (sort .Site.RegularPages "Date" "desc") }}
+- {{ .Title }}: {{ .Permalink }}
+{{ end }}
+
+## All Articles
+
+{{ range .Site.RegularPages }}
+- {{ .Title }}: {{ .Permalink }}
+{{ end }}
+
+## Preferred Citation
+
+Magento Mastery. Retrieved from {{ .Site.BaseURL }}
