@@ -1,5 +1,4 @@
 baseURL = "https://www.magento-mastery.com/"
-languageCode = "en-us"
 title = "Magento Mastery"
 theme = "mastery"
 
@@ -50,3 +49,12 @@ theme = "mastery"
 
 [frontmatter]
   lastmod = ["lastmod", ":git", "date"]
+
+[outputs]
+    home = ["HTML", "RSS", "LLMS"]
+
+[outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
