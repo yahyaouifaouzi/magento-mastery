@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://www.magento-mastery.com/sitemap.xml
 
-LLM: https://www.magento-mastery.com/llms.txt
+# AI content guide:
+# https://www.magento-mastery.com/llms.txt
