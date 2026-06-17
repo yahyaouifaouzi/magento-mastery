@@ -2,58 +2,50 @@
 
 > {{ .Site.Params.description }}
 
-Website: {{ .Site.BaseURL }}
-
 ## About
 
-Magento Mastery is a website focused on Magento 2 and Adobe Commerce development, including tutorials, guides, performance optimization, custom module development, integrations, Hyvä themes, and e-commerce best practices.
+Magento Mastery is a resource for Magento 2 and Adobe Commerce developers.
+It covers Magento development, custom modules, integrations, performance optimization, Hyvä themes, and e-commerce engineering.
 
-## Services
+## Main Pages
 
-- Services: {{ .Site.BaseURL }}services/
-- Portfolio: {{ .Site.BaseURL }}portfolio/
-- Blog: {{ .Site.BaseURL }}blog/
-- Contact: {{ .Site.BaseURL }}contact/
+- [Home]({{ .Site.BaseURL }})
+- [Services]({{ .Site.BaseURL }}services/)
+- [Portfolio]({{ .Site.BaseURL }}portfolio/)
+- [Blog]({{ .Site.BaseURL }}blog/)
+- [Contact]({{ .Site.BaseURL }}contact/)
 
-## Expertise
+## Topics
 
 - Magento 2 Development
 - Adobe Commerce
-- Custom Module Development
+- Magento Extensions
+- Hyvä Themes
+- PHP Development
 - API Integrations
 - Performance Optimization
-- Hyvä Themes
-- Checkout Customization
-- Shipping Integrations
-- Search Optimization
-- PHP Development
-- MySQL
-- Elasticsearch / OpenSearch
+- E-commerce Architecture
 
 ## Categories
 
-{{ range $name, $_ := .Site.Taxonomies.categories }}
-- {{ $name }}: {{ site.BaseURL }}categories/{{ $name | urlize }}/
+{{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+- [{{ $name }}]({{ $.Site.BaseURL }}categories/{{ $name | urlize }}/)
 {{ end }}
 
 ## Tags
 
-{{ range $name, $_ := .Site.Taxonomies.tags }}
-- {{ $name }}: {{ site.BaseURL }}tags/{{ $name | urlize }}/
+{{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+- [{{ $name }}]({{ $.Site.BaseURL }}tags/{{ $name | urlize }}/)
 {{ end }}
 
-## Recent Articles
+## Articles
 
-{{ range first 100 (sort .Site.RegularPages "Date" "desc") }}
-- {{ .Title }}: {{ .Permalink }}
+{{ range first 100 (where .Site.RegularPages "Type" "blog") }}
+- [{{ .Title }}]({{ .Permalink }})
 {{ end }}
 
-## All Articles
+## All Content
 
 {{ range .Site.RegularPages }}
-- {{ .Title }}: {{ .Permalink }}
+- [{{ .Title }}]({{ .Permalink }})
 {{ end }}
-
-## Preferred Citation
-
-Magento Mastery. Retrieved from {{ .Site.BaseURL }}
