@@ -1,7 +1,7 @@
 ---
 title: "Magento 2 Plugins: Before, After & Around Methods Explained"
 date: 2026-06-12
-lastmod: 2026-06-15
+lastmod: 2026-06-17
 draft: false
 author: "Faouzi Yahyaoui"
 description: "Complete guide to Magento 2 plugins (before, after, around). Learn how to modify public methods without core changes, with examples and best practices."
@@ -12,18 +12,22 @@ keywords: ["magento 2 plugin before after around", "magento 2 interceptor", "mag
 slug: "magento-2-plugins-before-after-around-complete-guide"
 ---
 
+Magento 2 plugins (also called interceptors) let you customize core or third-party behavior without touching the original source code — a critical requirement for staying upgrade-safe. This guide breaks down the three plugin types — **before**, **after**, and **around** — with real-world examples, `di.xml` syntax, common pitfalls, and the rules Magento enforces under the hood.
+
+> **In short:** A Magento 2 plugin intercepts a public method on a class to run code **before**, **after**, or **around** it, without modifying the original class. Use `before` to alter arguments, `after` to alter the result, and `around` only when you need both — or need to block execution entirely.
+
 ## Table of Contents
 
-1. [What is a Magento 2 Plugin (Interceptor)?](#quest-ce-quun-plugin-intercepteur-magento-2)
-2. [The 3 Types of Plugins: Before, After, Around](#les-3-types-de-plugins-before-after-around)
-3. [Before Plugin: Modifying Arguments Before Execution](#before-plugin-modifier-les-arguments-avant-exécution)
-4. [After Plugin: Transforming the Result](#after-plugin-transformer-le-résultat)
-5. [Around Plugin: Total Control (Use with Caution)](#around-plugin-contrôle-total-avec-prudence)
-6. [Declaration in di.xml: Syntax and sortOrder](#déclaration-dans-dixml-syntaxe-et-sortorder)
-7. [Limitations and Forbidden Methods](#limitations-et-méthodes-interdites)
-8. [Plugins vs Event Observers: When to Choose What?](#plugins-vs-event-observers-quand-choisir-quoi)
-9. [Best Practices and Performance](#bonnes-pratiques-et-performance)
-10. [Technical FAQ](#faq-technique)
+1. [What is a Magento 2 Plugin (Interceptor)?](#what-is-a-magento-2-plugin-interceptor)
+2. [The 3 Types of Plugins: Before, After, Around](#the-3-types-of-plugins-before-after-around)
+3. [Before Plugin: Modifying Arguments Before Execution](#before-plugin-modifying-arguments-before-execution)
+4. [After Plugin: Transforming the Result](#after-plugin-transforming-the-result)
+5. [Around Plugin: Total Control (Use with Caution)](#around-plugin-total-control-use-with-caution)
+6. [Declaration in di.xml: Syntax and sortOrder](#declaration-in-dixml-syntax-and-sortorder)
+7. [Limitations and Forbidden Methods](#limitations-and-forbidden-methods)
+8. [Plugins vs Event Observers: When to Choose What?](#plugins-vs-event-observers-when-to-choose-what)
+9. [Best Practices and Performance](#best-practices-and-performance)
+10. [Technical FAQ](#technical-faq)
 
 ---
 
@@ -39,9 +43,9 @@ Unlike class rewrites (*class preferences*), plugins do not modify the target cl
 
 | Type | Prefix | Execution Time | Primary Use Case | Performance Impact |
 |------|---------|-------------------|----------------------|--------------|
-| **Before** | `before` + NomMéthode | Before the observed method | Modify input arguments | Low |
-| **After** | `after` + NomMéthode | After the observed method | Modify returned result | Low |
-| **Around** | `around` + NomMéthode | Before **AND** after | Total control, conditional | ⚠️ High |
+| **Before** | `before` + MethodName | Before the observed method | Modify input arguments | Low |
+| **After** | `after` + MethodName | After the observed method | Modify returned result | Low |
+| **Around** | `around` + MethodName | Before **AND** after | Total control, conditional | ⚠️ High |
 
 ---
 
@@ -174,7 +178,7 @@ class ProductSaveLogger
     ) {
         $this->logger->info('Before save: ID ' . $subject->getId());
 
-        $result = $proceed(); // Exécute la méthode originale
+        $result = $proceed(); // Executes the original method
 
         $this->logger->info('After save: ID ' . $subject->getId());
 
@@ -215,7 +219,7 @@ Every plugin must be declared in the `etc/di.xml` file (or `etc/frontend/di.xml`
 </config>
 ```
 
-### `<plugin>` Node Attributees
+### `<plugin>` Node Attributes
 
 | Attribute | Required | Description |
 |----------|-------------|-------------|
@@ -236,11 +240,11 @@ Plugins **cannot** be used on:
 - ❌ Non-public methods (`private`, `protected`)
 - ❌ Static methods (`static`)
 - ❌ `__construct` and `__destruct`
-- ❌ Virtual types (*virtual types*)
+- ❌ Virtual types
 - ❌ Objects instantiated before `Magento\Framework\Interception` initialization
 - ❌ Classes implementing `Magento\Framework\ObjectManager\NoninterceptableInterface`
 
-> 🚨 **Common Pitfall** : Trying to intercept a `protected` method generates a silent error — the plugin is simply ignored.
+> 🚨 **Common Pitfall**: Trying to intercept a `protected` method generates a silent error — the plugin is simply ignored.
 
 ---
 
@@ -250,14 +254,14 @@ Plugins **cannot** be used on:
 |---------|--------|----------------|
 | **Target** | Specific method of a class | Event dispersed throughout the system |
 | **Control** | Fine (arguments, result, flow) | Limited (reaction to an event) |
-| **Coupling** | Strong (tied to a class) | Low (découplé) |
+| **Coupling** | Strong (tied to a class) | Low (decoupled) |
 | **Performance** | Direct | May be triggered multiple times |
 
 ### Decision Rule
-- **Plugin** : vous modifiez le comportement d'une méthode spécifique, ses entrées ou ses sorties.
-- **Observer** : vous réagissez à un événement qui peut survenir à plusieurs endroits (ex. : `checkout_cart_save_after`).
+- **Plugin**: you need to modify the behavior of a specific method, its inputs, or its outputs.
+- **Observer**: you need to react to an event that can occur in multiple places (e.g., `checkout_cart_save_after`).
 
-> ⚠️ **Warning** : Do not mix plugins and observers for the same logic without mastering the execution order. An observer triggered before a `before` plugin modifies data can cause inconsistencies.
+> ⚠️ **Warning**: Do not mix plugins and observers for the same logic without mastering the execution order. An observer triggered before a `before` plugin modifies data can cause inconsistencies.
 
 ---
 
@@ -299,7 +303,7 @@ This allows quickly verifying whether a bug comes from your interception.
 **Yes.** Magento chains them automatically according to their `sortOrder`. If two plugins have the same `sortOrder`, the module loading order (defined in `module.xml`) determines the sequence.
 
 ### Can a plugin prevent the original method from executing?
-**Uniquement un Around Plugin** — en ne pas appelant `$proceed()`. C'est une pratique **déconseillée** sauf cas exceptionnel (feature flag, maintenance).
+**Only an Around Plugin can do this** — by not calling `$proceed()`. This is **discouraged** except in exceptional cases (feature flags, maintenance mode).
 
 ### Why is my plugin not executing?
 Check in this order:
