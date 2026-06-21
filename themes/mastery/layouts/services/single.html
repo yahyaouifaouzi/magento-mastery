@@ -1,35 +1,48 @@
 {{ define "main" }}
-{{ $service := . }}
-<div class="container" style="padding-top:4rem; padding-bottom:5rem;">
+<div class="container svc-page">
 
     {{/* ── Breadcrumb ── */}}
-    <nav class="post-back" style="margin-bottom:2.5rem;" aria-label="Breadcrumb">
-        <a href="/services/" class="post-back" style="display:inline-flex; align-items:center; gap:0.4rem;">
-            ← Back to Services
-        </a>
+    <nav class="svc-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        <a href="/services/">Services</a>
+        <span>›</span>
+        <span>{{ .Title }}</span>
     </nav>
 
     {{/* ── Hero ── */}}
-    <div class="section-header" style="margin-bottom:3rem; max-width:720px;">
-        <p class="section-label">// {{ .Params.label | default "service" }}</p>
-        <h1 style="font-size:clamp(1.75rem,4vw,2.75rem); font-weight:600; letter-spacing:-0.02em; margin-bottom:1rem; line-height:1.2;">
-            {{ .Title }}
-        </h1>
-        <p style="font-size:1.1rem; color:var(--text-2); max-width:600px; line-height:1.7;">
-            {{ .Params.summary }}
-        </p>
+    <div class="svc-hero">
+        <div class="svc-hero-left">
+            <p class="svc-label">{{ .Params.label | default "service" }}</p>
+            <h1 class="svc-title">{{ .Params.hero_title | default .Title | safeHTML }}</h1>
+            <p class="svc-desc">{{ .Params.summary }}</p>
+            <div class="svc-actions">
+                <a href="/contact/" class="btn btn-primary">Start a project →</a>
+                <a href="/services/" class="btn btn-outline">View all services</a>
+            </div>
+        </div>
+        <div class="svc-hero-right">
+            {{ range .Params.stats }}
+            <div class="svc-stat">
+                <div class="svc-stat-num">{{ .num | safeHTML }}</div>
+                <div class="svc-stat-label">{{ .label }}</div>
+            </div>
+            {{ end }}
+            <div class="svc-avail">
+                <div class="svc-avail-status"><span class="svc-avail-dot"></span>{{ .Params.avail_status | default "Available for new projects" }}</div>
+                <div class="svc-avail-sub">// {{ .Params.avail_sub | default "contact me to check availability" }}</div>
+            </div>
+        </div>
     </div>
 
-    {{/* ── What's included cards ── */}}
+    {{/* ── Features grid ── */}}
     {{ with .Params.features }}
-    <section style="margin-bottom:3.5rem;">
-        <h2 style="font-size:1.15rem; font-weight:600; font-family:var(--font-mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1.5rem;">
-            // What's included
-        </h2>
-        <div class="card-grid">
+    <section class="svc-section">
+        <p class="svc-section-label">what's included</p>
+        <div class="svc-features-grid">
             {{ range . }}
-            <div class="card">
-                <div class="card-icon">{{ .icon }}</div>
+            <div class="svc-feature-card">
+                <div class="svc-feature-icon">{{ .icon }}</div>
                 <h3>{{ .title }}</h3>
                 <p>{{ .desc }}</p>
             </div>
@@ -38,62 +51,121 @@
     </section>
     {{ end }}
 
-    {{/* ── Main body content ── */}}
+    {{/* ── Process + Why me ── */}}
+    <section class="svc-section svc-two-col">
+
+        {{ with .Params.process }}
+        <div>
+            <p class="svc-section-label">how it works</p>
+            <div class="svc-process-list">
+                {{ range $i, $step := . }}
+                <div class="svc-process-item">
+                    <span class="svc-process-num">{{ printf "%02d" (add $i 1) }}</span>
+                    <div>
+                        <h4>{{ .title }}</h4>
+                        <p>{{ .desc }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        {{ with .Params.why }}
+        <div>
+            <p class="svc-section-label">why work with me</p>
+            <div class="svc-why-list">
+                {{ range . }}
+                <div class="svc-why-item">
+                    <div class="svc-why-icon">{{ .icon }}</div>
+                    <div>
+                        <h4>{{ .title }}</h4>
+                        <p>{{ .desc }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+    </section>
+
+    {{/* ── Testimonial ── */}}
+    {{ with .Params.testimonial }}
+    <div class="svc-testimonial">
+        <p class="svc-testimonial-text">"{{ .quote }}"</p>
+        <div class="svc-testimonial-meta">
+            <div class="svc-testimonial-avatar">{{ .initials }}</div>
+            <div>
+                <div class="svc-testimonial-name">{{ .name }}</div>
+                <div class="svc-testimonial-role">// {{ .role }}</div>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+
+    {{/* ── Body content (markdown) ── */}}
     {{ with .Content }}
-    <section class="post-body" style="max-width:720px; margin-bottom:3.5rem;">
+    <section class="svc-section post-body" style="max-width:720px;">
         {{ . }}
     </section>
     {{ end }}
 
-    {{/* ── Process steps ── */}}
-    {{ with .Params.process }}
-    <section style="margin-bottom:3.5rem;">
-        <h2 style="font-size:1.15rem; font-weight:600; font-family:var(--font-mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1.5rem;">
-            // How it works
-        </h2>
-        <div style="display:flex; flex-direction:column; gap:1rem; max-width:680px;">
-            {{ range $i, $step := . }}
-            <div style="display:flex; gap:1.25rem; align-items:flex-start; padding:1.25rem 1.5rem; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-lg);">
-                <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--accent); background:var(--tag-bg); border:1px solid var(--border); border-radius:999px; padding:0.2rem 0.6rem; flex-shrink:0; margin-top:0.15rem;">
-                    {{ printf "%02d" (add $i 1) }}
-                </span>
-                <div>
-                    <h3 style="font-size:0.95rem; font-weight:600; margin-bottom:0.3rem;">{{ .title }}</h3>
-                    <p style="font-size:0.875rem; color:var(--text-2); margin:0; line-height:1.6;">{{ .desc }}</p>
-                </div>
+    {{/* ── Stack ── */}}
+    {{ with .Params.stack }}
+    <section class="svc-section">
+        <p class="svc-section-label">tech & tools</p>
+        <div class="svc-stack">
+            {{ range $i, $tag := . }}
+            <span class="svc-tag{{ if lt $i 4 }} svc-tag--primary{{ end }}">{{ $tag }}</span>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    {{/* ── FAQ ── */}}
+    {{ with .Params.faq }}
+    <section class="svc-section">
+        <p class="svc-section-label">common questions</p>
+        <div class="svc-faq">
+            {{ range . }}
+            <div class="svc-faq-item">
+                <div class="svc-faq-q">{{ .q }}</div>
+                <div class="svc-faq-a">{{ .a }}</div>
             </div>
             {{ end }}
         </div>
     </section>
     {{ end }}
 
-    {{/* ── Tech/Stack tags ── */}}
-    {{ with .Params.stack }}
-    <section style="margin-bottom:3.5rem;">
-        <h2 style="font-size:1.15rem; font-weight:600; font-family:var(--font-mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">
-            // Tech &amp; Tools
-        </h2>
-        <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+    {{/* ── CTA ── */}}
+    <div class="svc-cta">
+        <div>
+            <h3>{{ .Params.cta_title | default "Ready to get started?" }}</h3>
+            <p>{{ .Params.cta_desc | default "Tell me about your project and I'll get back to you within 24 hours." }}</p>
+        </div>
+        <div class="svc-cta-actions">
+            <a href="/contact/" class="btn btn-primary">Contact Me →</a>
+            <a href="/services/" class="btn btn-outline">All services</a>
+        </div>
+    </div>
+
+    {{/* ── Related services ── */}}
+    {{ with .Params.related }}
+    <section class="svc-related">
+        <p class="svc-section-label">related services</p>
+        <div class="svc-related-grid">
             {{ range . }}
-            <span style="font-family:var(--font-mono); font-size:0.78rem; background:var(--tag-bg); color:var(--tag-text); border:1px solid var(--border); border-radius:999px; padding:0.3rem 0.85rem;">
-                {{ . }}
-            </span>
+            <a href="{{ .url }}" class="svc-related-card">
+                <div class="svc-related-icon">{{ .icon }}</div>
+                <h4>{{ .title }}</h4>
+                <p>{{ .desc }}</p>
+                <span class="svc-related-link">View service →</span>
+            </a>
             {{ end }}
         </div>
     </section>
     {{ end }}
-
-    {{/* ── CTA ── */}}
-    <div style="padding:2rem; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-lg); max-width:600px;">
-        <h3 style="margin-bottom:0.5rem;">{{ .Params.cta_title | default "Ready to get started?" }}</h3>
-        <p style="color:var(--text-2); margin-bottom:1.25rem; font-size:0.95rem;">
-            {{ .Params.cta_desc | default "Tell me about your project and I'll get back to you within 24 hours." }}
-        </p>
-        <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-            <a href="/contact/" class="btn btn-primary">Contact Me</a>
-            <a href="/services/" class="btn btn-outline">← All Services</a>
-        </div>
-    </div>
 
 </div>
 {{ end }}
