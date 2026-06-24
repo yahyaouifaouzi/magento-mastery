@@ -14,6 +14,10 @@ theme = "mastery"
   changefreq = "weekly"
   priority   = 0.5
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
 [menu]
   [[menu.main]]
     name = "Home"
