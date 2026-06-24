@@ -5,15 +5,33 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 {{ partial "nav.html" . }}
 
-<main>
+<main id="main-content">
   {{ block "main" . }}{{ end }}
 </main>
 
 {{ partial "footer.html" . }}
 
+<!-- Cookie consent -->
+<div class="cookie-bar" id="cookieBar">
+  <div class="container">
+    <div class="shell">
+      <div class="shell__core">
+        <p>This site uses cookies for analytics and performance. <a href="/privacy/">Learn more</a></p>
+        <button class="btn btn--primary cookie-btn" id="cookieAccept">
+          <span>Accept</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="/js/theme.js" defer></script>
+{{ $js := resources.Get "js/main.js" | minify }}
+<script>{{ $js.Content | safeJS }}</script>
 {{ partial "analytics.html" . }}
 </body>
 </html>

@@ -1,23 +1,29 @@
 {{ define "main" }}
-<div class="container">
-    <div class="not-found reveal">
-        <div class="not-found-code">404</div>
-        <div class="not-found-divider"></div>
-        <h1>Page not found</h1>
-        <p>The page you're looking for doesn't exist or has been moved.</p>
-        <div class="not-found-actions">
-            <a href="/" class="btn btn-primary">← Back to home</a>
-            <a href="/blog/" class="btn btn-outline">Browse articles</a>
-        </div>
-        <div class="not-found-suggestions">
-            <p class="section-label">// you might be looking for</p>
-            <div class="not-found-links">
-                <a href="/blog/">Blog</a>
-                <a href="/services/">Services</a>
-                <a href="/portfolio/">Portfolio</a>
-                <a href="/contact/">Contact</a>
-            </div>
-        </div>
+
+<div class="not-found reveal">
+  <div class="not-found-code">404</div>
+  <h1>Page not found</h1>
+  <p>The page you're looking for doesn't exist or has been moved.</p>
+  <div class="not-found-actions">
+    <a href="/" class="btn btn--primary group">
+      <span>Go home</span>
+      <span class="btn__icon">→</span>
+    </a>
+    <a href="/contact/" class="btn btn--outline group">
+      <span>Contact me</span>
+      <span class="btn__icon">↗</span>
+    </a>
+  </div>
+  <div class="shell">
+    <div class="shell__core">
+      <span class="badge">Try these</span>
+      <div class="not-found-try">
+        <a href="/services/" class="btn btn--ghost">Services</a>
+        <a href="/portfolio/" class="btn btn--ghost">Portfolio</a>
+        <a href="/blog/" class="btn btn--ghost">Blog</a>
+      </div>
     </div>
+  </div>
 </div>
+
 {{ end }}

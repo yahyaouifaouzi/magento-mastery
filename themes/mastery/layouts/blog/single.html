@@ -1,89 +1,101 @@
 {{ define "main" }}
 <div class="container">
-    <article class="post-content">
+  <article class="post-content">
 
-        <!-- Back link -->
-        <a href="/blog/" class="post-back reveal">
-            ← Back to articles
+    <a href="/blog/" class="post-back reveal">
+      ← Back to articles
+    </a>
+
+    <header class="post-header reveal">
+      {{ with .Params.tags }}
+      <div class="post-header-tags">
+        {{ range . }}<span class="blog-tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+      <h1>{{ .Title }}</h1>
+      <div class="post-header-meta">
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+        <span class="blog-meta-dot">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+      <div class="post-share">
+        <span class="post-share-label">Share:</span>
+
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Share on LinkedIn">
+          LinkedIn
         </a>
 
-        <!-- Header -->
-        <header class="post-header reveal">
-            {{ with .Params.tags }}
-            <div class="post-header-tags">
-                {{ range . }}<span class="post-tag">{{ . }}</span>{{ end }}
-            </div>
-            {{ end }}
-            <h1>{{ .Title }}</h1>
-            <div class="post-header-meta">
-                <span>{{ .Date.Format "January 2, 2006" }}</span>
-                <span class="post-meta-dot">·</span>
-                <span>{{ .ReadingTime }} min read</span>
-            </div>
-            <div class="post-share">
-                <span class="post-share-label">Share:</span>
+        <a href="https://twitter.com/intent/tweet?url={{ .Permalink | urlquery }}&text={{ .Title | urlquery }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Share on X">
+          X
+        </a>
 
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Share on LinkedIn">
-                    LinkedIn
-                </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Share on Facebook">
+          Facebook
+        </a>
 
-                <a href="https://twitter.com/intent/tweet?url={{ .Permalink | urlquery }}&text={{ .Title | urlquery }}"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Share on X">
-                    X
-                </a>
+        <button onclick="copyPostLink()" class="share-copy-btn">
+          Copy Link
+        </button>
+      </div>
+    </header>
 
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Share on Facebook">
-                    Facebook
-                </a>
+    <div class="post-body">
+      {{ .Content }}
+    </div>
 
-                <button onclick="copyPostLink()" class="share-copy-btn">
-                    Copy Link
-                </button>
-            </div>
-            <div style="width:48px; height:3px; background:var(--accent); border-radius:2px; margin-top:1.75rem; opacity:0.7;"></div>
-        </header>
-
-        <!-- Body -->
-        <div class="post-body">
-            {{ .Content }}
+    <footer class="post-footer reveal">
+      <div class="post-footer-inner">
+        {{ with .Params.tags }}
+        <div class="post-header-tags">
+          {{ range . }}<span class="blog-tag">{{ . }}</span>{{ end }}
         </div>
+        {{ end }}
+        <a href="/blog/" class="btn btn--outline group" style="margin-left:auto;">
+          <span>← All articles</span>
+        </a>
+      </div>
 
-        <!-- Footer -->
-        <footer class="post-footer reveal">
-            <div class="post-footer-inner">
-                {{ with .Params.tags }}
-                <div class="post-footer-tags">
-                    {{ range . }}<span class="post-tag">{{ . }}</span>{{ end }}
-                </div>
-                {{ end }}
-                <a href="/blog/" class="btn btn-outline" style="margin-left:auto;">← All articles</a>
-            </div>
+      <nav class="post-nav">
+        {{ with .PrevInSection }}
+        <a href="{{ .Permalink }}" class="shell post-nav-item post-nav-prev">
+          <div class="shell__core">
+            <span class="post-nav-label">← Previous</span>
+            <span class="post-nav-title">{{ .Title }}</span>
+          </div>
+        </a>
+        {{ else }}<div></div>{{ end }}
+        {{ with .NextInSection }}
+        <a href="{{ .Permalink }}" class="shell post-nav-item post-nav-next">
+          <div class="shell__core">
+            <span class="post-nav-label">Next →</span>
+            <span class="post-nav-title">{{ .Title }}</span>
+          </div>
+        </a>
+        {{ end }}
+      </nav>
+    </footer>
 
-            <!-- Prev / Next -->
-            <nav class="post-nav">
-                {{ with .PrevInSection }}
-                <a href="{{ .Permalink }}" class="post-nav-item post-nav-prev">
-                    <span class="post-nav-label">← Previous</span>
-                    <span class="post-nav-title">{{ .Title }}</span>
-                </a>
-                {{ else }}<div></div>{{ end }}
-                {{ with .NextInSection }}
-                <a href="{{ .Permalink }}" class="post-nav-item post-nav-next">
-                    <span class="post-nav-label">Next →</span>
-                    <span class="post-nav-title">{{ .Title }}</span>
-                </a>
-                {{ end }}
-            </nav>
-        </footer>
-
-    </article>
+  </article>
 </div>
+
+<script>
+function copyPostLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.querySelector('.share-copy-btn');
+    if (!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+</script>
 {{ end }}

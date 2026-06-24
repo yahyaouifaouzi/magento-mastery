@@ -1,68 +1,114 @@
 {{ define "main" }}
-<div class="container" style="padding-top:4rem; padding-bottom:5rem;">
+<div class="container svc-page">
 
-    <div class="section-header">
-        <p class="section-label">// what I offer</p>
-        <h1>Magento 2 Development Services</h1>
-        <h2>End-to-end development — from architecture to deployment.</h2>
-    </div>
+  <div class="svc-header reveal">
+    <span class="section-label">What I offer</span>
+    <h1>Magento 2 Development Services</h1>
+    <p>End-to-end development — from architecture to deployment.</p>
+  </div>
 
-    <div class="card-grid">
-        <a href="/services/magento-2-development/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">🧩</div>
-            <h3>Custom Module Development</h3>
-            <p>Full custom modules following M2 best practices: dependency injection, plugin/observer patterns, EAV architecture, layout XML, RequireJS AMD.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/performance-optimization/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Performance Optimization</h3>
-            <p>Store audits covering full-page cache, Varnish config, JS/CSS bundling, slow query analysis, and server-level tuning.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/magento-2-development/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">🎨</div>
-            <h3>Theme & Frontend</h3>
-            <p>Custom themes from scratch or on top of Hyva/Breeze Evolution. LESS/BEM, responsive design, accessible markup.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/magento-2-development/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">🔗</div>
-            <h3>API & Third-party Integrations</h3>
-            <p>Payment gateways, ERP/CRM connections, shipping providers — REST and GraphQL, clean service layer architecture.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/magento-2-development/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">🛠️</div>
-            <h3>Debugging & Code Audit</h3>
-            <p>Tracking down production bugs, DI compilation issues, layout conflicts, JS errors, and performance regressions.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/migration/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">📦</div>
-            <h3>Migration & Upgrades</h3>
-            <p>Magento version upgrades, data migration, Composer dependency resolution, and post-upgrade stabilization.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/vps-optimization/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">🖥️</div>
-            <h3>VPS & Server Optimization</h3>
-            <p>LEMP/LAMP stack tuning, Redis/Varnish setup, PHP-FPM configuration, SSL, and server hardening for Magento production environments.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-        <a href="/services/custom-modules/" style="text-decoration:none; color:inherit;" class="card">
-            <div class="card-icon">🔧</div>
-            <h3>Custom Module Packages</h3>
-            <p>Ready-to-install Magento 2 modules for common problems: checkout, tax, localization, and store-specific business logic.</p>
-            <span style="display:inline-block; margin-top:0.75rem; font-size:0.8rem; font-family:var(--font-mono); color:var(--accent);">Learn more →</span>
-        </a>
-    </div>
+  <div class="bento reveal-stagger">
+    <a href="/services/magento-2-development/" class="bento__item bento__item--col-2" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "puzzle") }}</span>
+          <h3>Custom Module Development</h3>
+          <p>Full custom modules following M2 best practices: dependency injection, plugin/observer patterns, EAV architecture, layout XML, RequireJS AMD.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
 
-    <div style="margin-top:3.5rem; padding:2rem; background:var(--bg-2); border:1px solid var(--border); border-radius:var(--radius-lg); max-width:600px;">
-        <h3 style="margin-bottom:0.5rem;">Ready to start?</h3>
-        <p style="color:var(--text-2); margin-bottom:1.25rem; font-size:0.95rem;">Tell me about your project and I'll get back to you within 24 hours.</p>
-        <a href="/contact/" class="btn btn-primary">Contact Me</a>
+    <a href="/services/performance-optimization/" class="bento__item" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "lightning") }}</span>
+          <h3>Performance Optimization</h3>
+          <p>Store audits covering full-page cache, Varnish config, JS/CSS bundling, slow query analysis, and server-level tuning.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/services/magento-2-development/" class="bento__item" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "palette") }}</span>
+          <h3>Theme &amp; Frontend</h3>
+          <p>Custom themes from scratch or on top of Hyva/Breeze Evolution. LESS/BEM, responsive design, accessible markup.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/services/magento-2-development/" class="bento__item" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "link") }}</span>
+          <h3>API &amp; Third-party Integrations</h3>
+          <p>Payment gateways, ERP/CRM connections, shipping providers — REST and GraphQL, clean service layer architecture.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/services/magento-2-development/" class="bento__item" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "tools") }}</span>
+          <h3>Debugging &amp; Code Audit</h3>
+          <p>Tracking down production bugs, DI compilation issues, layout conflicts, JS errors, and performance regressions.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/services/migration/" class="bento__item bento__item--col-2" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "package") }}</span>
+          <h3>Migration &amp; Upgrades</h3>
+          <p>Magento version upgrades, data migration, Composer dependency resolution, and post-upgrade stabilization. I handle the full migration lifecycle so your store stays operational throughout.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/services/vps-optimization/" class="bento__item bento__item--col-2" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "monitor") }}</span>
+          <h3>VPS &amp; Server Optimization</h3>
+          <p>LEMP/LAMP stack tuning, Redis/Varnish setup, PHP-FPM configuration, SSL, and server hardening for Magento production environments.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/services/custom-modules/" class="bento__item" style="text-decoration:none;color:inherit;">
+      <div class="shell">
+        <div class="shell__core">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "gear") }}</span>
+          <h3>Custom Module Packages</h3>
+          <p>Ready-to-install Magento 2 modules for common problems: checkout, tax, localization, and store-specific business logic.</p>
+          <span class="bento-link">Learn more →</span>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="shell reveal" style="margin-top:3rem;max-width:600px;">
+    <div class="shell__core" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+      <div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;">Ready to start?</h3>
+        <p style="color:var(--text-2);font-size:0.9rem;">Tell me about your project and I'll get back to you within 24 hours.</p>
+      </div>
+      <a href="/contact/" class="btn btn--primary group" style="flex-shrink:0;">
+        <span>Contact Me</span>
+        <span class="btn__icon">↗</span>
+      </a>
     </div>
+  </div>
 
 </div>
 {{ end }}

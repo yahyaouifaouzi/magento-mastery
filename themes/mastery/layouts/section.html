@@ -1,10 +1,21 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
-  {{ end }}
+<div class="container" style="padding-top:8rem;padding-bottom:5rem;">
+  <div class="reveal">
+    <h1 style="font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.03em;margin-bottom:1.5rem;">{{ .Title }}</h1>
+    {{ with .Content }}<div class="post-body" style="max-width:720px;">{{ . }}</div>{{ end }}
+  </div>
+  <div class="blog-list reveal-stagger" style="margin-top:2rem;">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="shell blog-item-link">
+      <div class="shell__core blog-item">
+        <div style="flex:1;min-width:0;">
+          <h3>{{ .LinkTitle }}</h3>
+          {{ with .Summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+        </div>
+        <span class="blog-arrow">→</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</div>
 {{ end }}

@@ -1,206 +1,263 @@
 {{ define "main" }}
-
-<!-- Hero -->
-<section class="hero">
+<section class="hero hero-anim">
   <div class="container">
-    <div class="hero-availability">
-      {{ if site.Params.available }}
-      <span class="avail-dot"></span> Available for new projects
-      {{ else }}
-      <span class="avail-dot unavailable"></span> Currently fully booked
-      {{ end }}
-    </div>
-    <h1>Your Magento 2 problems,<br><span>solved permanently.</span></h1>
-    <p>I build custom Magento 2 modules, fix what others can't, and optimize stores that are losing revenue to slow load times.</p>
-    <!-- SEO: prose that echoes H1 keywords "problems" and "permanently" -->
-    <p class="hero-intro">Magento 2 is a powerful platform — but also a deeply complex one. Whether you're dealing with a broken checkout, a slow store, or a feature your current team can't build, I've spent 13+ years solving exactly these kinds of problems for merchants worldwide. My goal is simple: deliver solutions that work permanently, not quick patches that break again in three months.</p>
-    <div class="hero-actions">
-      <a href="/contact/" class="btn btn-primary">Start a project →</a>
-      <a href="/portfolio/" class="btn btn-outline">View my portfolio</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="hero-stat-num">50+</span>
-        <span class="hero-stat-lbl">Modules built</span>
+    <div class="hero-inner">
+      <div class="badge {{ if site.Params.available }}badge--avail{{ else }}badge--unavail{{ end }}">
+        {{ if site.Params.available }}Available for new projects{{ else }}Currently fully booked{{ end }}
       </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">13+</span>
-        <span class="hero-stat-lbl">Years Magento 2</span>
+
+      <h1>Your Magento 2 problems,<br><span>solved permanently.</span></h1>
+
+      <p>I build custom Magento 2 modules, fix what others can't, and optimize stores that are losing revenue to slow load times.</p>
+
+      <div class="hero-actions">
+        <a href="/contact/" class="btn btn--primary group">
+          <span>Start a project</span>
+          <span class="btn__icon">↗</span>
+        </a>
+        <a href="/portfolio/" class="btn btn--outline group">
+          <span>View my portfolio</span>
+          <span class="btn__icon">→</span>
+        </a>
       </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">100%</span>
-        <span class="hero-stat-lbl">Best practices</span>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="50">0+</span>
+          <div class="hero-stat-lbl">Modules built</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="13">0+</span>
+          <div class="hero-stat-lbl">Years Magento 2</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <div class="hero-stat-lbl">Best practices</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services preview -->
-<section class="section">
+<section class="section reveal">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">// what I do</p>
+      <span class="section-label">What I do</span>
       <h2>How I can help</h2>
       <p>From a single bug fix to a full custom module — I cover the full Magento 2 stack.</p>
     </div>
-    <div class="card-grid reveal-stagger">
-      <div class="card">
-        <div class="card-icon">🧩</div>
-        <h3>Custom module development</h3>
-        <p>Tailor-made modules following M2 best practices — DI, plugins, observers, EAV, layout XML, RequireJS AMD. Whether you need a new checkout step, a custom pricing rule, or a full admin workflow, I architect solutions that survive Magento upgrades and scale with your store.</p>
-        <a href="/services/#custom-modules" class="card-link">Explore module development →</a>
+
+    <div class="bento reveal-stagger">
+      <div class="bento__item bento__item--col-2">
+        <div class="shell">
+          <div class="shell__core">
+            <span class="bento-icon">{{ partial "icon" (dict "name" "puzzle") }}</span>
+            <h3>Custom module development</h3>
+            <p>Tailor-made modules following M2 best practices — DI, plugins, observers, EAV, layout XML, RequireJS AMD. I architect solutions that survive Magento upgrades and scale with your store.</p>
+            <a href="/services/#custom-modules" class="bento-link">Explore module development →</a>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Performance optimization</h3>
-        <p>Full-stack store audits — FPC, Varnish, JS/CSS bundling, database query profiling, server-level tuning. Slow stores lose sales daily. I identify the real bottlenecks — not just surface-level tweaks — delivering measurable improvements to TTFB, Core Web Vitals, and conversion rates.</p>
-        <a href="/services/#performance" class="card-link">See performance services →</a>
+
+      <div class="bento__item">
+        <div class="shell">
+          <div class="shell__core">
+            <span class="bento-icon">{{ partial "icon" (dict "name" "lightning") }}</span>
+            <h3>Performance optimization</h3>
+            <p>Full-stack store audits — FPC, Varnish, JS/CSS bundling, database query profiling, server-level tuning delivering measurable improvements.</p>
+            <a href="/services/#performance" class="bento-link">See performance →</a>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🎨</div>
-        <h3>Theme & frontend</h3>
-        <p>Custom themes, Hyvä & Breeze Evolution integration, LESS/BEM, responsive and accessible UI. From pixel-perfect implementations of your design system to full Hyvä migrations, I build frontends that are fast, maintainable, and pass Core Web Vitals with room to spare.</p>
-        <a href="/services/#frontend" class="card-link">View frontend services →</a>
+
+      <div class="bento__item">
+        <div class="shell">
+          <div class="shell__core">
+            <span class="bento-icon">{{ partial "icon" (dict "name" "palette") }}</span>
+            <h3>Theme &amp; frontend</h3>
+            <p>Custom themes, Hyvä &amp; Breeze Evolution integration, responsive and accessible UI that passes Core Web Vitals with room to spare.</p>
+            <a href="/services/#frontend" class="bento-link">View frontend →</a>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">🔗</div>
-        <h3>API & integrations</h3>
-        <p>Payment gateways, ERP/CRM, shipping providers — REST and GraphQL, clean service layer architecture. I connect Magento to your business tools cleanly, with proper error handling, logging, and documentation so your team can maintain it long after delivery.</p>
-        <a href="/services/#integrations" class="card-link">Discover integration services →</a>
+
+      <div class="bento__item bento__item--col-2">
+        <div class="shell">
+          <div class="shell__core">
+            <span class="bento-icon">{{ partial "icon" (dict "name" "link") }}</span>
+            <h3>API &amp; integrations</h3>
+            <p>Payment gateways, ERP/CRM, shipping providers — REST and GraphQL, clean service layer architecture with proper error handling and documentation.</p>
+            <a href="/services/#integrations" class="bento-link">Discover integrations →</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Why work with me -->
-<section class="section why-section reveal-stagger">
+<section class="section reveal">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">// why me</p>
+      <span class="section-label">Why me</span>
       <h2>Why work with me</h2>
       <p>There are agencies, offshore teams, and generalist freelancers. Here's how working with a dedicated Magento 2 specialist is different.</p>
     </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-icon">🎯</div>
-        <div>
-          <h3>Magento 2 only</h3>
-          <p>I don't split my focus across five platforms. Magento 2 is all I do — which means I've already encountered your problem before, and I know exactly where to look.</p>
+
+    <div class="why-grid reveal-stagger">
+      <div class="shell">
+        <div class="shell__core why-item">
+          <span class="why-item-icon">{{ partial "icon" (dict "name" "target") }}</span>
+          <div>
+            <h3>Magento 2 only</h3>
+            <p>I don't split my focus across five platforms. Magento 2 is all I do.</p>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <div class="why-icon">💬</div>
-        <div>
-          <h3>You talk to the developer</h3>
-          <p>No account managers, no ticket queues, no lost context between calls. You communicate directly with the person writing the code — faster decisions, better outcomes.</p>
+
+      <div class="shell">
+        <div class="shell__core why-item">
+          <span class="why-item-icon">{{ partial "icon" (dict "name" "chat") }}</span>
+          <div>
+            <h3>You talk to the developer</h3>
+            <p>No account managers, no ticket queues. You communicate directly with the person writing the code.</p>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <div class="why-icon">📋</div>
-        <div>
-          <h3>Fixed price, clear scope</h3>
-          <p>Every project starts with a written spec and a fixed quote. No hourly billing that balloons unexpectedly. You know the cost before a single line of code is written.</p>
+
+      <div class="shell">
+        <div class="shell__core why-item">
+          <span class="why-item-icon">{{ partial "icon" (dict "name" "clipboard") }}</span>
+          <div>
+            <h3>Fixed price, clear scope</h3>
+            <p>Every project starts with a written spec and a fixed quote. No hourly billing.</p>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <div class="why-icon">🛡️</div>
-        <div>
-          <h3>Code that survives upgrades</h3>
-          <p>Agencies often ship fast and move on. I follow Magento's best practices — plugins over rewrites, proper DI, no core hacks — so your store upgrades without breaking.</p>
+
+      <div class="shell">
+        <div class="shell__core why-item">
+          <span class="why-item-icon">{{ partial "icon" (dict "name" "shield") }}</span>
+          <div>
+            <h3>Code that survives upgrades</h3>
+            <p>Plugins over rewrites, proper DI, no core hacks — your store upgrades without breaking.</p>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <div class="why-icon">⏱️</div>
-        <div>
-          <h3>Fast turnaround</h3>
-          <p>Most projects are delivered in one to two weeks. I take on a limited number of projects at a time so yours always gets full attention — not background treatment.</p>
+
+      <div class="shell">
+        <div class="shell__core why-item">
+          <span class="why-item-icon">{{ partial "icon" (dict "name" "clock") }}</span>
+          <div>
+            <h3>Fast turnaround</h3>
+            <p>Most projects delivered in 1–2 weeks. Limited projects at a time for full attention.</p>
+          </div>
         </div>
       </div>
-      <div class="why-item">
-        <div class="why-icon">✅</div>
-        <div>
-          <h3>30-day bug-fix guarantee</h3>
-          <p>If something I built breaks within 30 days of delivery, I fix it at no charge. No back-and-forth about whose fault it is — I just fix it.</p>
+
+      <div class="shell">
+        <div class="shell__core why-item">
+          <span class="why-item-icon">{{ partial "icon" (dict "name" "check") }}</span>
+          <div>
+            <h3>30-day bug-fix guarantee</h3>
+            <p>If something I built breaks within 30 days, I fix it at no charge.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Process -->
-<section class="section reveal-stagger">
+<section class="section reveal">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">// how it works</p>
+      <span class="section-label">How it works</span>
       <h2>Simple process, no surprises</h2>
       <p>I keep every engagement straightforward and transparent — from the first call to final deployment.</p>
     </div>
-    <div class="process">
-      <div class="process-step">
-        <div class="process-num">01</div>
-        <h3>Discovery</h3>
-        <p>We talk about your project, requirements, and timeline. Free 30-min call.</p>
+
+    <div class="process reveal-stagger">
+      <div class="shell">
+        <div class="shell__core process-step">
+          <span class="process-step-num">01</span>
+          <h3>Discovery</h3>
+          <p>We talk about your project, requirements, and timeline. Free 30-min call.</p>
+        </div>
       </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-num">02</div>
-        <h3>Spec & quote</h3>
-        <p>I send a clear scope of work and fixed price. No hourly surprises.</p>
+
+      <div class="shell">
+        <div class="shell__core process-step">
+          <span class="process-step-num">02</span>
+          <h3>Spec &amp; quote</h3>
+          <p>I send a clear scope of work and fixed price. No hourly surprises.</p>
+        </div>
       </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-num">03</div>
-        <h3>Development</h3>
-        <p>I build it, test it on a staging environment, and keep you updated throughout.</p>
+
+      <div class="shell">
+        <div class="shell__core process-step">
+          <span class="process-step-num">03</span>
+          <h3>Development</h3>
+          <p>I build it, test it on a staging environment, and keep you updated.</p>
+        </div>
       </div>
-      <div class="process-arrow">→</div>
-      <div class="process-step">
-        <div class="process-num">04</div>
-        <h3>Delivery</h3>
-        <p>Clean code, documented, deployed. 30-day bug-fix guarantee included.</p>
+
+      <div class="shell">
+        <div class="shell__core process-step">
+          <span class="process-step-num">04</span>
+          <h3>Delivery</h3>
+          <p>Clean code, documented, deployed. 30-day bug-fix guarantee included.</p>
+        </div>
       </div>
     </div>
-    <p class="process-closing">Most projects go from first message to delivered code in one to two weeks. I take on a limited number of projects at a time to ensure focused, high-quality work on every engagement — so the fix is genuinely permanent, not a band-aid that resurfaces later.</p>
+
+    <p class="process-closing">Most projects go from first message to delivered code in one to two weeks. I take on a limited number of projects at a time to ensure focused, high-quality work on every engagement.</p>
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="section">
+<section class="section reveal">
   <div class="container">
     <div class="section-header">
-      <p class="section-label">// client feedback</p>
+      <span class="section-label">Client feedback</span>
       <h2>What clients say</h2>
     </div>
+
     <div class="testimonials reveal-stagger">
-      <div class="testimonial">
-        <p class="testimonial-text">"Fixed a critical checkout bug in under 2 hours that 3 other developers couldn't solve in a week. Exceptional Magento 2 knowledge."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-initials">GH</div>
-          <div>
-            <p class="testimonial-name">Great Hire UK</p>
-            <p class="testimonial-company">options-greathire.co.uk</p>
+      <div class="shell">
+        <div class="shell__core">
+          <p class="testimonial-text">"Fixed a critical checkout bug in under 2 hours that 3 other developers couldn't solve in a week. Exceptional Magento 2 knowledge."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">GH</div>
+            <div>
+              <div class="testimonial-name">Great Hire UK</div>
+              <div class="testimonial-company">options-greathire.co.uk</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <p class="testimonial-text">"Built a complete custom module with admin grid, frontend widget, and API integration — delivered on time, zero rework needed."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-initials">QJ</div>
-          <div>
-            <p class="testimonial-name">Qartaj</p>
-            <p class="testimonial-company">qartaj.com</p>
+
+      <div class="shell">
+        <div class="shell__core">
+          <p class="testimonial-text">"Built a complete custom module with admin grid, frontend widget, and API integration — delivered on time, zero rework needed."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">QJ</div>
+            <div>
+              <div class="testimonial-name">Qartaj</div>
+              <div class="testimonial-company">qartaj.com</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <p class="testimonial-text">"Migrated 519 redirects, cleaned up the database, and boosted our SEO rankings significantly. Knows Magento inside out."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-initials">LI</div>
-          <div>
-            <p class="testimonial-name">Librairie Imen</p>
-            <p class="testimonial-company">librairie-imen.tn</p>
+
+      <div class="shell">
+        <div class="shell__core">
+          <p class="testimonial-text">"Migrated 519 redirects, cleaned up the database, and boosted our SEO rankings significantly. Knows Magento inside out."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">LI</div>
+            <div>
+              <div class="testimonial-name">Librairie Imen</div>
+              <div class="testimonial-company">librairie-imen.tn</div>
+            </div>
           </div>
         </div>
       </div>
@@ -208,52 +265,74 @@
   </div>
 </section>
 
-<!-- Recent posts -->
-<section class="section">
+<section class="section reveal">
   <div class="container">
-    <div class="section-header reveal">
-      <p class="section-label">// latest articles</p>
+    <div class="section-header">
+      <span class="section-label">Latest articles</span>
       <h2>From the blog</h2>
       <p>Magento 2 tips, module walkthroughs, and e-commerce insights.</p>
     </div>
+
     {{ $posts := first 3 (where .Site.RegularPages "Section" "blog") }}
     {{ if $posts }}
-    <div class="post-list reveal-stagger">
-      {{ range $posts }}
-      <div class="post-item">
-        <div>
-          <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-          <p class="post-meta">
-            {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read
-            {{ with .Params.tags }}
-            {{ range first 1 . }}<span class="post-tag">{{ . }}</span>{{ end }}
-            {{ end }}
-          </p>
-          {{ with .Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
+    <div class="blog-list reveal-stagger">
+      {{ range $i, $p := $posts }}
+      <a href="{{ $p.Permalink }}" class="shell blog-item-link">
+        <div class="shell__core blog-item">
+          <span class="blog-item-index">{{ printf "%02d" (add $i 1) }}</span>
+          <div style="flex:1;min-width:0;">
+            <h3>{{ $p.Title }}</h3>
+            <div class="blog-meta">
+              <span>{{ $p.Date.Format "Jan 2, 2006" }}</span>
+              <span class="blog-meta-dot">·</span>
+              <span>{{ $p.ReadingTime }} min read</span>
+              {{ with $p.Params.tags }}{{ range first 1 . }}<span class="blog-tag">{{ . }}</span>{{ end }}{{ end }}
+            </div>
+            {{ with $p.Summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+          </div>
+          <span class="blog-arrow">→</span>
         </div>
-        <span class="post-arrow">→</span>
-      </div>
+      </a>
       {{ end }}
     </div>
+    {{ else }}
+    <div class="shell empty-state">
+      <div class="shell__core">
+        <div class="empty-state-icon">{{ partial "icon" (dict "name" "search") }}</div>
+        <h3>No articles yet</h3>
+        <p>Check back soon for Magento 2 tutorials, module walkthroughs, and e-commerce insights.</p>
+      </div>
+    </div>
     {{ end }}
-    <div style="margin-top:2rem;">
-      <a href="/blog/" class="btn btn-outline">All articles →</a>
+
+    <div style="margin-top:1.5rem;">
+      <a href="/blog/" class="btn btn--outline group">
+        <span>All articles</span>
+        <span class="btn__icon">→</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section cta-section">
+<section class="section reveal has-bg">
+  <div class="section__bg">
+    <img src="https://picsum.photos/seed/magento-cta/1920/1080" alt="" aria-hidden="true" loading="lazy">
+  </div>
   <div class="container">
-    <div class="cta-box">
-      <div>
-        <p class="section-label">// let's build something</p>
+    <div class="shell">
+      <div class="shell__core cta-box">
         <h2>Have a Magento 2 project?</h2>
         <p>Tell me what you're building. I'll tell you if I can help and what it'll cost — no commitment required.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="/contact/" class="btn btn-primary">Get a free quote →</a>
-        <a href="/services/#pricing" class="btn btn-outline">See pricing & packages</a>
+        <div class="cta-actions">
+          <a href="/contact/" class="btn btn--primary group">
+            <span>Get a free quote</span>
+            <span class="btn__icon">↗</span>
+          </a>
+          <a href="/services/#pricing" class="btn btn--outline group">
+            <span>See pricing &amp; packages</span>
+            <span class="btn__icon">→</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>

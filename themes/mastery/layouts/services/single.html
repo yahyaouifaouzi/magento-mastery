@@ -1,171 +1,187 @@
 {{ define "main" }}
-<div class="container svc-page">
+<div class="container svc-single">
 
-    {{/* ── Breadcrumb ── */}}
-    <nav class="svc-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span>›</span>
-        <a href="/services/">Services</a>
-        <span>›</span>
-        <span>{{ .Title }}</span>
-    </nav>
+  <nav class="svc-breadcrumb reveal" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span>›</span>
+    <a href="/services/">Services</a>
+    <span>›</span>
+    <span>{{ .Title }}</span>
+  </nav>
 
-    {{/* ── Hero ── */}}
-    <div class="svc-hero">
-        <div class="svc-hero-left">
-            <p class="svc-label">{{ .Params.label | default "service" }}</p>
-            <h1 class="svc-title">{{ .Params.hero_title | default .Title | safeHTML }}</h1>
-            <p class="svc-desc">{{ .Params.summary }}</p>
-            <div class="svc-actions">
-                <a href="/contact/" class="btn btn-primary">Start a project →</a>
-                <a href="/services/" class="btn btn-outline">View all services</a>
-            </div>
-        </div>
-        <div class="svc-hero-right">
-            {{ range .Params.stats }}
-            <div class="svc-stat">
-                <div class="svc-stat-num">{{ .num | safeHTML }}</div>
-                <div class="svc-stat-label">{{ .label }}</div>
-            </div>
-            {{ end }}
-            <div class="svc-avail">
-                <div class="svc-avail-status"><span class="svc-avail-dot"></span>{{ .Params.avail_status | default "Available for new projects" }}</div>
-                <div class="svc-avail-sub">// {{ .Params.avail_sub | default "contact me to check availability" }}</div>
-            </div>
-        </div>
+  <div class="svc-hero reveal">
+    <div class="svc-hero-left">
+      <span class="section-label">{{ .Params.label | default "service" }}</span>
+      <h1>{{ .Params.hero_title | default .Title | safeHTML }}</h1>
+      <p>{{ .Params.summary }}</p>
+      <div class="hero-actions">
+        <a href="/contact/" class="btn btn--primary group">
+          <span>Start a project</span>
+          <span class="btn__icon">↗</span>
+        </a>
+        <a href="/services/" class="btn btn--outline group">
+          <span>View all services</span>
+          <span class="btn__icon">→</span>
+        </a>
+      </div>
     </div>
-
-    {{/* ── Features grid ── */}}
-    {{ with .Params.features }}
-    <section class="svc-section">
-        <p class="svc-section-label">what's included</p>
-        <div class="svc-features-grid">
-            {{ range . }}
-            <div class="svc-feature-card">
-                <div class="svc-feature-icon">{{ .icon }}</div>
-                <h3>{{ .title }}</h3>
-                <p>{{ .desc }}</p>
-            </div>
-            {{ end }}
+    <div class="svc-stats">
+      {{ range .Params.stats }}
+      <div class="shell svc-stat-card">
+        <div class="shell__core">
+          <div class="svc-stat-num">{{ .num | safeHTML }}</div>
+          <div class="svc-stat-label">{{ .label }}</div>
         </div>
-    </section>
+      </div>
+      {{ end }}
+      <div class="shell svc-stat-card svc-avail">
+        <div class="shell__core">
+          <div class="svc-avail-status"><span class="svc-avail-dot"></span>{{ .Params.avail_status | default "Available for new projects" }}</div>
+          <div class="svc-avail-sub">// {{ .Params.avail_sub | default "contact me to check availability" }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{ with .Params.features }}
+  <section class="svc-section reveal">
+    <span class="svc-section-label">What's included</span>
+    <div class="svc-features-grid reveal-stagger">
+      {{ range . }}
+      <div class="shell">
+        <div class="shell__core svc-feature-card" style="padding:0;">
+          <span class="bento-icon" style="margin-bottom:0.75rem;">{{ .icon }}</span>
+          <h3>{{ .title }}</h3>
+          <p>{{ .desc }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <section class="svc-section svc-two-col reveal">
+
+    {{ with .Params.process }}
+    <div>
+      <span class="svc-section-label">How it works</span>
+      <div class="svc-process-list">
+        {{ range $i, $step := . }}
+        <div class="svc-process-item">
+          <span class="svc-process-num">{{ printf "%02d" (add $i 1) }}</span>
+          <div>
+            <h4>{{ .title }}</h4>
+            <p>{{ .desc }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
     {{ end }}
 
-    {{/* ── Process + Why me ── */}}
-    <section class="svc-section svc-two-col">
-
-        {{ with .Params.process }}
-        <div>
-            <p class="svc-section-label">how it works</p>
-            <div class="svc-process-list">
-                {{ range $i, $step := . }}
-                <div class="svc-process-item">
-                    <span class="svc-process-num">{{ printf "%02d" (add $i 1) }}</span>
-                    <div>
-                        <h4>{{ .title }}</h4>
-                        <p>{{ .desc }}</p>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-        </div>
-        {{ end }}
-
-        {{ with .Params.why }}
-        <div>
-            <p class="svc-section-label">why work with me</p>
-            <div class="svc-why-list">
-                {{ range . }}
-                <div class="svc-why-item">
-                    <div class="svc-why-icon">{{ .icon }}</div>
-                    <div>
-                        <h4>{{ .title }}</h4>
-                        <p>{{ .desc }}</p>
-                    </div>
-                </div>
-                {{ end }}
-            </div>
-        </div>
-        {{ end }}
-
-    </section>
-
-    {{/* ── Testimonial ── */}}
-    {{ with .Params.testimonial }}
-    <div class="svc-testimonial">
-        <p class="svc-testimonial-text">"{{ .quote }}"</p>
-        <div class="svc-testimonial-meta">
-            <div class="svc-testimonial-avatar">{{ .initials }}</div>
+    {{ with .Params.why }}
+    <div>
+      <span class="svc-section-label">Why work with me</span>
+      <div class="svc-why-list">
+        {{ range . }}
+        <div class="shell">
+          <div class="shell__core svc-why-item" style="padding:0;">
+            <div class="svc-why-icon">{{ .icon }}</div>
             <div>
-                <div class="svc-testimonial-name">{{ .name }}</div>
-                <div class="svc-testimonial-role">// {{ .role }}</div>
+              <h4>{{ .title }}</h4>
+              <p>{{ .desc }}</p>
             </div>
+          </div>
         </div>
+        {{ end }}
+      </div>
     </div>
     {{ end }}
 
-    {{/* ── Body content (markdown) ── */}}
-    {{ with .Content }}
-    <section class="svc-section post-body" style="max-width:720px;">
-        {{ . }}
-    </section>
-    {{ end }}
+  </section>
 
-    {{/* ── Stack ── */}}
-    {{ with .Params.stack }}
-    <section class="svc-section">
-        <p class="svc-section-label">tech & tools</p>
-        <div class="svc-stack">
-            {{ range $i, $tag := . }}
-            <span class="svc-tag{{ if lt $i 4 }} svc-tag--primary{{ end }}">{{ $tag }}</span>
-            {{ end }}
-        </div>
-    </section>
-    {{ end }}
-
-    {{/* ── FAQ ── */}}
-    {{ with .Params.faq }}
-    <section class="svc-section">
-        <p class="svc-section-label">common questions</p>
-        <div class="svc-faq">
-            {{ range . }}
-            <div class="svc-faq-item">
-                <div class="svc-faq-q">{{ .q }}</div>
-                <div class="svc-faq-a">{{ .a }}</div>
-            </div>
-            {{ end }}
-        </div>
-    </section>
-    {{ end }}
-
-    {{/* ── CTA ── */}}
-    <div class="svc-cta">
+  {{ with .Params.testimonial }}
+  <div class="shell svc-testimonial reveal">
+    <div class="shell__core">
+      <p class="svc-testimonial-text">"{{ .quote }}"</p>
+      <div class="svc-testimonial-meta">
+        <div class="svc-testimonial-avatar">{{ .initials }}</div>
         <div>
-            <h3>{{ .Params.cta_title | default "Ready to get started?" }}</h3>
-            <p>{{ .Params.cta_desc | default "Tell me about your project and I'll get back to you within 24 hours." }}</p>
+          <div class="svc-testimonial-name">{{ .name }}</div>
+          <div class="svc-testimonial-role">// {{ .role }}</div>
         </div>
-        <div class="svc-cta-actions">
-            <a href="/contact/" class="btn btn-primary">Contact Me →</a>
-            <a href="/services/" class="btn btn-outline">All services</a>
-        </div>
+      </div>
     </div>
+  </div>
+  {{ end }}
 
-    {{/* ── Related services ── */}}
-    {{ with .Params.related }}
-    <section class="svc-related">
-        <p class="svc-section-label">related services</p>
-        <div class="svc-related-grid">
-            {{ range . }}
-            <a href="{{ .url }}" class="svc-related-card">
-                <div class="svc-related-icon">{{ .icon }}</div>
-                <h4>{{ .title }}</h4>
-                <p>{{ .desc }}</p>
-                <span class="svc-related-link">View service →</span>
-            </a>
-            {{ end }}
+  {{ with .Content }}
+  <section class="svc-section post-body reveal" style="max-width:720px;">
+    {{ . }}
+  </section>
+  {{ end }}
+
+  {{ with .Params.stack }}
+  <section class="svc-section reveal">
+    <span class="svc-section-label">Tech &amp; tools</span>
+    <div class="svc-stack">
+      {{ range $i, $tag := . }}
+      <span class="svc-tag{{ if lt $i 4 }} svc-tag--primary{{ end }}">{{ $tag }}</span>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  {{ with .Params.faq }}
+  <section class="svc-section reveal">
+    <span class="svc-section-label">Common questions</span>
+    <div class="svc-faq">
+      {{ range . }}
+      <div class="svc-faq-item">
+        <div class="svc-faq-q">{{ .q }}</div>
+        <div class="svc-faq-a">{{ .a }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <div class="shell svc-cta reveal">
+    <div class="shell__core" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+      <div>
+        <h3>{{ .Params.cta_title | default "Ready to get started?" }}</h3>
+        <p>{{ .Params.cta_desc | default "Tell me about your project and I'll get back to you within 24 hours." }}</p>
+      </div>
+      <div class="svc-cta-actions">
+        <a href="/contact/" class="btn btn--primary group">
+          <span>Contact Me</span>
+          <span class="btn__icon">↗</span>
+        </a>
+        <a href="/services/" class="btn btn--outline group">
+          <span>All services</span>
+          <span class="btn__icon">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {{ with .Params.related }}
+  <section class="svc-related reveal">
+    <span class="svc-section-label">Related services</span>
+    <div class="svc-related-grid reveal-stagger">
+      {{ range . }}
+      <a href="{{ .url }}" class="shell svc-related-card" style="text-decoration:none;color:inherit;">
+        <div class="shell__core" style="padding:1.25rem;">
+          <div class="svc-related-icon">{{ .icon }}</div>
+          <h4>{{ .title }}</h4>
+          <p>{{ .desc }}</p>
+          <span class="svc-related-link">View service →</span>
         </div>
-    </section>
-    {{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
 
 </div>
 {{ end }}

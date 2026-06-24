@@ -1,35 +1,44 @@
 {{ define "main" }}
-<div class="container" style="padding-top:4rem; padding-bottom:5rem;">
+<div class="container blog-page">
 
-    <div class="blog-header reveal">
-        <p class="section-label">// articles</p>
-        <h1 style="font-size:clamp(2rem,5vw,3rem); font-weight:600; letter-spacing:-0.02em; margin-bottom:0.75rem;">Magento 2 Development Blog & Insights</h1>
-        <p style="color:var(--text-2); max-width:520px; font-size:1.05rem;">Magento 2 development tips, module walkthroughs, and e-commerce insights.</p>
-        <div style="width:48px; height:3px; background:var(--accent); border-radius:2px; margin-top:1.75rem; opacity:0.7;"></div>
-    </div>
+  <div class="blog-page-header reveal">
+    <span class="section-label">Articles</span>
+    <h1>Magento 2 Development Blog &amp; Insights</h1>
+    <p>Magento 2 development tips, module walkthroughs, and e-commerce insights.</p>
+  </div>
 
-    <div style="margin:2.5rem 0 1.5rem; display:flex; align-items:center;">
-        <span style="font-family:var(--font-mono); font-size:0.78rem; color:var(--text-3);">{{ len .Pages }} articles</span>
-    </div>
+  <div class="blog-count reveal">{{ len .Pages }} articles</div>
 
-    <div class="post-list reveal-stagger">
-        {{ range $i, $p := .Pages }}
-        <a href="{{ $p.Permalink }}" class="post-item post-item-link {{ if eq $i 0 }}post-item-featured{{ end }}">
-            <div class="post-item-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</div>
-            <div class="post-item-body">
-                <h3>{{ $p.Title }}</h3>
-                <p class="post-meta">
-                    <span>{{ $p.Date.Format "Jan 2, 2006" }}</span>
-                    <span class="post-meta-dot">·</span>
-                    <span>{{ $p.ReadingTime }} min read</span>
-                    {{ with $p.Params.tags }}{{ range first 2 . }}<span class="post-tag">{{ . }}</span>{{ end }}{{ end }}
-                </p>
-                {{ with $p.Summary }}<p class="post-summary">{{ . }}</p>{{ end }}
-            </div>
-            <span class="post-arrow" aria-hidden="true">→</span>
-        </a>
-        {{ end }}
+  {{ if .Pages }}
+  <div class="blog-list reveal-stagger">
+    {{ range $i, $p := .Pages }}
+    <a href="{{ $p.Permalink }}" class="shell blog-item-link">
+      <div class="shell__core blog-item">
+        <span class="blog-item-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <div style="flex:1;min-width:0;">
+          <h3>{{ $p.Title }}</h3>
+          <div class="blog-meta">
+            <span>{{ $p.Date.Format "Jan 2, 2006" }}</span>
+            <span class="blog-meta-dot">·</span>
+            <span>{{ $p.ReadingTime }} min read</span>
+            {{ with $p.Params.tags }}{{ range first 2 . }}<span class="blog-tag">{{ . }}</span>{{ end }}{{ end }}
+          </div>
+          {{ with $p.Summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+        </div>
+        <span class="blog-arrow" aria-hidden="true">→</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <div class="shell empty-state">
+    <div class="shell__core">
+      <div class="empty-state-icon">{{ partial "icon" (dict "name" "search") }}</div>
+      <h3>No articles yet</h3>
+      <p>Check back soon for Magento 2 tutorials, module walkthroughs, and e-commerce insights.</p>
     </div>
+  </div>
+  {{ end }}
 
 </div>
 {{ end }}
