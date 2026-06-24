@@ -326,3 +326,5 @@ A **preference** (`<preference>`) entirely replaces the target class. A **plugin
 | The `di.xml` syntax and `sortOrder` | Create your first plugin on a test environment |
 | Limitations and performance pitfalls | Audit your existing plugins — replace unnecessary `around` plugins |
 | The difference between Plugin and Observer | Document your architectural choice |
+
+Need custom modules with clean plugin implementations? Check out my [custom module development services](/services/custom-modules/).

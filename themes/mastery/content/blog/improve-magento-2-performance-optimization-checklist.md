@@ -233,9 +233,12 @@ Marketing tags, tracking pixels, and chat widgets are the #1 cause of poor INP s
 
 Magento 2 performance optimization in 2026 is not about one silver bullet—it's about **systematic layering**: Varnish for TTFB, Redis for session speed, Hyvä for frontend bloat, and disciplined script management for INP. Start with the 🔴 Immediate items this week; they require minimal effort and deliver the highest ROI. Then progressively tackle the 🟡 and 🟢 items to build a store that ranks faster, converts better, and scales effortlessly.
 
+Need hands-on help? Check out my [performance optimization service](/services/performance-optimization/) and [VPS optimization service](/services/vps-optimization/).
+
 ---
 
 ## Related Articles
 
 - [Building a Custom Magento 2 Module from Scratch](/blog/building-custom-magento-2-module/)
 - [How to Configure Varnish Cache for Magento 2](/blog/configure-varnish-cache-magento-2/)
+- [Magento 2 Checkout Customization Guide](/blog/magento-2-checkout-customization/)

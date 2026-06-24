@@ -426,5 +426,7 @@ Configuring Varnish Cache in Magento 2 is one of the highest-ROI performance opt
 
 The result: faster pages, better Core Web Vitals, higher Google rankings, and a better user experience that converts.
 
+Need help tuning your Varnish setup or optimizing your Magento FPC? Check out my [performance optimization service](/services/performance-optimization/) and [VPS optimization service](/services/vps-optimization/).
+
 ---
 

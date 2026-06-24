@@ -187,3 +187,6 @@ Next steps:
 - Build custom REST APIs
 - Explore GraphQL resolvers
 - Add integration tests
+- [Customize the Magento 2 checkout](/blog/magento-2-checkout-customization/) — add fields, override Knockout components, and build custom steps
+
+Need a production-ready module built to Magento standards? See my [custom module development services](/services/custom-modules/).

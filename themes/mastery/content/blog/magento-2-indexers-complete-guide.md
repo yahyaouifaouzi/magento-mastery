@@ -356,4 +356,4 @@ Price and catalog rule indexers load large product collections into memory. Incr
 
 Magento 2 indexers are the backbone of storefront performance and data accuracy. Treat **Update on Schedule + healthy cron** as non-negotiable in production, monitor changelog backlogs, and know how to reset stuck indexers before they affect customers.
 
-Need help tuning indexers or fixing a production indexing crisis? [Get in touch](/contact/) — I work with Magento 2 and Adobe Commerce stores on performance, DevOps, and custom module development.
+Need help tuning indexers or fixing a production indexing crisis? [Get in touch](/contact/) — I work with Magento 2 and Adobe Commerce stores on [performance optimization](/services/performance-optimization/), DevOps, and custom module development.

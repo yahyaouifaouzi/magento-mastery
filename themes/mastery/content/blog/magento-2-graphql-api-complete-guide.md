@@ -519,7 +519,7 @@ Enable developer mode and check `var/log/exception.log`. GraphQL returns errors 
 
 ### Does GraphQL replace Knockout.js checkout?
 
-Not automatically. The Luma checkout is still Knockout-based. Headless checkout requires a frontend that consumes GraphQL mutations (React, Vue, Hyvä Checkout, etc.).
+Not automatically. The Luma checkout is still Knockout-based. Headless checkout requires a frontend that consumes GraphQL mutations (React, Vue, Hyvä Checkout, etc.). See the [checkout customization guide](/blog/magento-2-checkout-customization/) for working with the Knockout.js checkout or building a headless alternative.
 
 ### Is GraphQL available in Magento Open Source?
 
@@ -531,4 +531,4 @@ Yes. GraphQL has been part of Magento Open Source since 2.3.x. Some advanced fea
 
 GraphQL is the standard API layer for modern Magento 2 storefronts. Master the built-in product and cart schema first, then extend with custom resolvers when business logic demands it. Keep queries lean, indexers current, and authentication tokens fresh — and your headless storefront will stay fast and reliable.
 
-Building a headless Magento 2 storefront or need custom GraphQL endpoints? [Contact me](/contact/) for architecture reviews, custom module development, and performance optimization.
+Building a headless Magento 2 storefront or need custom GraphQL endpoints? [Contact me](/contact/) for architecture reviews, [custom module development](/services/custom-modules/), and performance optimization.
