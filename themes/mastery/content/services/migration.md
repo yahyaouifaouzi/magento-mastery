@@ -1,6 +1,9 @@
 ---
 title: "Migration & Version Upgrades"
 description: "Magento version upgrades, platform migrations, data migration, and Composer dependency resolution. Minimal downtime, maximum stability."
+seo_title: "Magento 2 Migration & Version Upgrades | Magento Mastery"
+date: 2026-06-10
+lastmod: 2026-06-15
 label: "migration & upgrades"
 hero_title: "Upgrades done right — <em>no surprises mid-process</em>"
 summary: "Upgrading Magento is not a one-click operation. I handle the full process: dependency resolution, third-party compatibility, data migration, and post-upgrade stabilisation — with a rollback plan tested before we touch production."

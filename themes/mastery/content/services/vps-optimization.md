@@ -1,6 +1,9 @@
 ---
 title: "VPS & Server Optimization"
 description: "LEMP stack tuning, Redis and Varnish configuration, PHP-FPM optimization, and server hardening for Magento 2 production environments."
+seo_title: "Magento 2 VPS & Server Optimization | Magento Mastery"
+date: 2026-06-10
+lastmod: 2026-06-15
 label: "vps optimization"
 hero_title: "Your Magento store is only as fast <em>as the server running it</em>"
 summary: "I tune LEMP stacks specifically for Magento 2 — from PHP-FPM pool sizing to Varnish VCL to Redis eviction policies. Data-driven changes, staged implementation, before/after benchmarks."

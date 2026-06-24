@@ -1,6 +1,9 @@
 ---
 title: "Custom Module Packages"
 description: "Purpose-built Magento 2 modules for checkout, tax, localisation, catalog, and store-specific business logic. Clean code, upgrade-safe."
+seo_title: "Custom Magento 2 Module Packages | Magento Mastery"
+date: 2026-06-10
+lastmod: 2026-06-15
 label: "custom modules"
 hero_title: "Purpose-built modules for <em>your business logic</em>"
 summary: "When no extension fits your exact requirement, I build it from scratch — following Magento's native patterns so it installs cleanly, compiles without errors, and survives future upgrades."

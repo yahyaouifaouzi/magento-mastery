@@ -2,6 +2,8 @@
 title: "Privacy Policy"
 seo_title: "Privacy Policy — Magento Mastery"
 description: "Privacy Policy for Magento Mastery — how we handle your data, cookies, and analytics."
+date: 2026-06-10
+lastmod: 2026-06-15
 ---
 
 ## Information We Collect

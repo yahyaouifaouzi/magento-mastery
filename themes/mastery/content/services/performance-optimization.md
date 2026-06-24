@@ -1,6 +1,9 @@
 ---
 title: "Performance Optimization"
 description: "Full-page cache, Varnish, JS/CSS optimisation, database query analysis, and Core Web Vitals improvement for Magento 2 stores."
+seo_title: "Magento 2 Performance Optimization Services | Magento Mastery"
+date: 2026-06-10
+lastmod: 2026-06-15
 label: "performance optimization"
 hero_title: "Find the real bottlenecks. <em>Fix them with data.</em>"
 summary: "Slow stores lose customers. I audit your Magento 2 stack end-to-end — from database queries to browser rendering — and fix the actual bottlenecks, not the obvious ones."

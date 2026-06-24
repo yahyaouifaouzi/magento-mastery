@@ -2,6 +2,7 @@
 title: "Magento 2 Varnish Cache Configuration Guide"
 date: 2026-06-10
 lastmod: 2026-06-10
+description: "Step-by-step guide to configuring Varnish Cache for Magento 2 — VCL tuning, TTL, cache hit rate, purging, SSL termination, and Core Web Vitals improvement."
 summary: "Learn how to configure Varnish Cache in Magento 2 for ultra-fast page load times, improved TTFB, and better Core Web Vitals scores."
 slug: "configure-varnish-cache-magento-2"
 tags:

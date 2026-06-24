@@ -2,6 +2,8 @@
 title: "Terms of Service"
 seo_title: "Terms of Service — Magento Mastery"
 description: "Terms of Service for Magento Mastery — site usage, intellectual property, and liability."
+date: 2026-06-10
+lastmod: 2026-06-15
 ---
 
 ## Use of Content

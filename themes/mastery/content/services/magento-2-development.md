@@ -1,6 +1,9 @@
 ---
 title: "Magento 2 Development"
 description: "Custom Magento 2 development: modules, themes, integrations, and architecture. Built to Magento standards, tested in production."
+seo_title: "Magento 2 Development Services | Custom Modules & Themes"
+date: 2026-06-10
+lastmod: 2026-06-15
 label: "magento 2 development"
 hero_title: "Magento 2 development that <em>survives upgrades</em>"
 summary: "Full-stack Magento 2 development for merchants who need more than a plugin. From architecture decisions to production deployment — built to Magento's native patterns."
