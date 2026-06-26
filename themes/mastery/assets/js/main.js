@@ -25,7 +25,7 @@
   }
 
   /* ─── Scroll Reveal (IntersectionObserver) ─── */
-  const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-stagger');
+  const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-stagger, .reveal-right, .reveal-scale-in');
   if (revealElements.length) {
     const io = new IntersectionObserver(
       (entries) => {

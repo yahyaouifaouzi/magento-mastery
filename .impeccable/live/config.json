@@ -1,0 +1,6 @@
+{
+  "files": ["themes/mastery/layouts/baseof.html"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "cspChecked": true
+}

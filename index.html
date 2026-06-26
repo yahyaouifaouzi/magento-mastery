@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Magento 2 Specialist — Custom Modules, Performance &amp; Consulting | Magento Mastery</title>
+<meta name="description" content="Magento 2 specialist with 14+ years of deep expertise. Custom module development, performance optimization, n8n automation, and e-commerce consulting.">
+<meta property="og:title" content="Magento Mastery — Magento 2 Specialist">
+<meta property="og:description" content="Custom modules, performance optimization, and e-commerce automation. 14+ years, Magento 2 only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.magento-mastery.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Magento Mastery — Magento 2 Specialist">
+<meta name="twitter:description" content="Custom modules, performance optimization, and e-commerce automation. 14+ years, Magento 2 only.">
+<link rel="canonical" href="https://www.magento-mastery.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+<style>
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+  --primary: #1E1B4B;
+  --accent: #059669;
+  --accent-hover: #047857;
+  --bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-tertiary: #94A3B8;
+  --border: #E2E8F0;
+  --border-light: #F1F5F9;
+  --code-bg-start: #1E1B4B;
+  --code-bg-end: #2D1B69;
+  --code-text: #E0E7FF;
+  --on-accent: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --shadow-hover: 0 8px 12px rgba(5,150,105,0.12);
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-display: 'Lexend Deca', sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', monospace;
+  --nav-height: 64px;
+  --max-width: 1200px;
+}
+
+[data-theme="dark"] {
+  --bg: #0F172A;
+  --card-bg: #1E293B;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-tertiary: #64748B;
+  --border: #334155;
+  --border-light: #1E293B;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-hover: 0 8px 12px rgba(5,150,105,0.2);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   SKIP LINK
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  font-size: 14px;
+  font-weight: 500;
+}
+.skip-link:focus { top: 8px; }
+
+/* ============================================
+   FOCUS VISIBLE
+   ============================================ */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   SECTION BASE
+   ============================================ */
+.section {
+  padding: 80px 0;
+}
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+.section-label::before {
+  content: '// ';
+  opacity: 0.5;
+}
+.section-header {
+  margin-bottom: 48px;
+}
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 100;
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+[data-theme="dark"] .site-header {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+[data-theme="dark"] .logo { color: #E0E7FF; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  position: relative;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s var(--ease-out);
+}
+.nav-links a:hover::after { width: 100%; }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.availability-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 18px;
+}
+.theme-toggle:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+.hamburger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+.hamburger:hover { background: var(--border); }
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+.hamburger.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.is-active span:nth-child(2) { opacity: 0; }
+.hamburger.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 98;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+}
+.nav-overlay.is-visible { opacity: 1; }
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  padding: calc(var(--nav-height) + 60px) 0 80px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--bg), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Hero Code Block */
+.hero-code {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--code-bg-start), var(--code-bg-end));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 20px 60px rgba(30, 27, 75, 0.3);
+  will-change: transform;
+}
+.hero-code-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.hero-code-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.hero-code-dot:nth-child(1) { background: #EF4444; }
+.hero-code-dot:nth-child(2) { background: #F59E0B; }
+.hero-code-dot:nth-child(3) { background: #10B981; }
+.hero-code-label {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+}
+.hero-code pre {
+  padding: 24px;
+  margin: 0;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.6;
+  font-family: var(--font-mono);
+}
+.hero-code pre code {
+  background: none !important;
+  color: var(--code-text);
+  padding: 0;
+  font-size: inherit;
+}
+.hero-code .line-number {
+  display: inline-block;
+  width: 24px;
+  margin-right: 16px;
+  color: rgba(255,255,255,0.2);
+  text-align: right;
+  user-select: none;
+  font-size: 11px;
+}
+.code-line {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Hero Text */
+.hero-text {
+  position: relative;
+  z-index: 2;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.hero-badge svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+[data-theme="dark"] .hero-title { color: #E0E7FF; }
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all 0.2s var(--ease-out);
+  white-space: nowrap;
+  cursor: pointer;
+  min-height: 44px;
+}
+.btn--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
+}
+.btn--primary:hover {
+  background: var(--accent-hover);
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
+}
+.btn--outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--primary);
+}
+.btn--outline:hover {
+  background: rgba(5, 150, 105, 0.06);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.btn--indigo {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+[data-theme="dark"] .btn--indigo {
+  color: #CBD5E1;
+  border-color: #475569;
+}
+.btn--indigo:hover {
+  background: var(--primary);
+  color: var(--on-accent);
+}
+[data-theme="dark"] .btn--indigo:hover {
+  background: #334155;
+  border-color: #64748B;
+}
+
+/* ============================================
+   EXPERTISE GRID
+   ============================================ */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--accent);
+  transition: height 0.3s var(--ease-out);
+}
+.service-card:hover::before { height: 100%; }
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 150, 105, 0.08);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+.service-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+
+.service-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.service-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.service-card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease;
+}
+.service-card-link:hover { gap: 8px; }
+.service-card-link svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+/* ============================================
+   PROOF SECTION
+   ============================================ */
+.section--proof {
+  background: var(--primary);
+  color: var(--on-accent);
+}
+[data-theme="dark"] .section--proof {
+  background: #0C0A23;
+}
+
+.section--proof .section-title { color: var(--on-accent); }
+.section--proof .section-subtitle { color: rgba(255,255,255,0.7); }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 32px 20px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 500;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  transition: transform 0.3s var(--ease-out);
+  opacity: 0;
+  transform: scale(0.95);
+}
+.testimonial-card.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.testimonial-card:hover { transform: translateY(-2px) scale(1.01); }
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  flex-shrink: 0;
+}
+.testimonial-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-accent);
+}
+.testimonial-company {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+.testimonial-quote {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+
+/* ============================================
+   PROCESS SECTION
+   ============================================ */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.process-step {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.process-step.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  background: rgba(5, 150, 105, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.process-icon svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+
+.process-step-number {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.process-step-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.process-step-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.process-note {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(5, 150, 105, 0.06);
+  border: 1px solid rgba(5, 150, 105, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ============================================
+   N8N AUTOMATION SECTION
+   ============================================ */
+.automation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.automation-diagram {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  box-shadow: var(--shadow-sm);
+}
+.flow-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.flow-node {
+  text-align: center;
+  padding: 16px;
+  opacity: 0;
+}
+.flow-node-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 8px;
+  background: rgba(5, 150, 105, 0.1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.flow-node-icon svg { width: 26px; height: 26px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+.flow-node-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.flow-arrow {
+  flex-shrink: 0;
+  color: var(--accent);
+  opacity: 0;
+}
+.flow-arrow svg { width: 32px; height: 32px; stroke: currentColor; stroke-width: 2; fill: none; }
+.flow-labels {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 16px;
+}
+.flow-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+.automation-usecases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.usecase-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease;
+}
+.usecase-card:hover { border-color: var(--accent); }
+.usecase-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: rgba(5, 150, 105, 0.08);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+.usecase-icon svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.5; fill: none; }
+.usecase-text h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.usecase-text p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ============================================
+   BLOG PREVIEW
+   ============================================ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.blog-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+}
+.blog-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.blog-category {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 100px;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+.blog-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+.blog-card:hover .blog-card-title { color: var(--accent); }
+.blog-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+}
+.blog-excerpt {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease;
+}
+.blog-link:hover { gap: 8px; }
+.blog-link svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.section--cta {
+  text-align: center;
+  background: var(--primary);
+  position: relative;
+  overflow: hidden;
+}
+[data-theme="dark"] .section--cta {
+  background: #0C0A23;
+}
+.section--cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(5,150,105,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--on-accent);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+.cta-subtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.7);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+  position: relative;
+}
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.cta-actions .btn--primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
+}
+.cta-actions .btn--primary:hover {
+  background: var(--accent-hover);
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
+}
+.cta-actions .btn--outline-white {
+  background: transparent;
+  color: var(--on-accent);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.cta-actions .btn--outline-white:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--accent);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-top: 12px;
+  max-width: 320px;
+}
+.footer-heading {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+  margin-bottom: 14px;
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+.footer-links a:hover { color: var(--accent); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-bottom-links a {
+  color: var(--text-tertiary);
+  transition: color 0.2s ease;
+}
+.footer-bottom-links a:hover { color: var(--accent); }
+
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 100px;
+  margin-top: 12px;
+}
+.footer-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--text-tertiary);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+.footer-social a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(5, 150, 105, 0.06);
+}
+.footer-social svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+/* ============================================
+   SCROLL REVEAL (fallback)
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .process-step,
+  .testimonial-card,
+  .code-line,
+  .flow-node,
+  .flow-arrow {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .btn--primary:hover { transform: none !important; }
+  .service-card:hover { transform: none !important; }
+  .site-header { backdrop-filter: none !important; }
+  .hero-code { will-change: auto !important; }
+  .availability-badge::before { display: none; }
+  .footer-badge::before { display: none; }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero-inner { gap: 40px; }
+  .hero-title { font-size: 36px; }
+  .expertise-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .stats-grid { gap: 16px; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+  .automation-grid { gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+@media (max-width: 768px) {
+  .section { padding: 60px 0; }
+  .section-title { font-size: 26px; }
+
+  .hero { min-height: auto; padding: calc(var(--nav-height) + 40px) 0 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .hero-code { order: -1; }
+  .hero-code pre { padding: 16px; font-size: 12px; }
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 15px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { justify-content: center; }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    z-index: 99;
+    box-shadow: var(--shadow-md);
+  }
+  .nav-links.is-open { display: flex; }
+  .hamburger { display: flex; }
+  .availability-badge { display: none; }
+
+  .expertise-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+  .stat-number { font-size: 36px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .process-grid { grid-template-columns: 1fr; gap: 28px; }
+  .process-step { text-align: left; display: flex; gap: 16px; align-items: flex-start; }
+  .process-icon { margin: 0; flex-shrink: 0; }
+
+  .automation-grid { grid-template-columns: 1fr; gap: 32px; }
+  .flow-nodes { flex-wrap: wrap; gap: 8px; }
+
+  .blog-grid { grid-template-columns: 1fr; }
+
+  .cta-title { font-size: 28px; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn { width: 100%; max-width: 320px; justify-content: center; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .footer-bottom-links { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .hero-title { font-size: 28px; }
+  .hero-code pre { font-size: 11px; padding: 12px; }
+}
+
+/* ============================================
+   HIGHLIGHT.JS OVERRIDES
+   ============================================ */
+.hljs { background: none !important; padding: 0 !important; color: var(--code-text) !important; }
+.hljs-keyword { color: #10B981 !important; }
+.hljs-string { color: #38BDF8 !important; }
+.hljs-comment { color: #64748B !important; }
+.hljs-function { color: #A78BFA !important; }
+.hljs-title { color: #A78BFA !important; }
+.hljs-type { color: #F59E0B !important; }
+.hljs-number { color: #F59E0B !important; }
+.hljs-variable { color: var(--code-text) !important; }
+.hljs-attr { color: #38BDF8 !important; }
+.hljs-built_in { color: #10B981 !important; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<header class="site-header" role="banner">
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="Magento Mastery home">Mastery</a>
+
+    <nav class="nav-links" id="navLinks" role="navigation" aria-label="Main navigation">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#proof">Portfolio</a>
+      <a href="#blog">Blog</a>
+      <a href="#cta">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span id="themeIcon">&#9790;</span>
+      </button>
+      <span class="availability-badge">Available for projects</span>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ============================================
+     MAIN CONTENT
+     ============================================ -->
+<main id="main">
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero" id="hero" aria-label="Hero introduction">
+    <div class="container hero-inner">
+
+      <!-- Left: Code Block -->
+      <div class="hero-code" id="heroCodeBlock">
+        <div class="hero-code-header">
+          <span class="hero-code-dot"></span>
+          <span class="hero-code-dot"></span>
+          <span class="hero-code-dot"></span>
+          <span class="hero-code-label">Plugin.php</span>
+        </div>
+        <pre><code class="language-php"><?php
+declare(strict_types=1);
+
+namespace Mastery\Module\Plugin;
+
+use Magento\Checkout\Model\ShippingInformationManagement;
+use Magento\Checkout\Api\Data\ShippingInformationInterface;
+use Mastery\Module\Model\CustomRepository;
+
+class SaveCustomData
+{
+    public function __construct(
+        private readonly CustomRepository $customRepo
+    ) {}
+
+    public function beforeSaveAddressInformation(
+        ShippingInformationManagement $subject,
+        int $cartId,
+        ShippingInformationInterface $shippingInfo
+    ): array {
+        $extAttributes = $shippingInfo->getExtensionAttributes();
+
+        if ($extAttributes && $extAttributes->getDeliveryDate()) {
+            $this->customRepo->saveDeliveryDate(
+                $cartId,
+                $extAttributes->getDeliveryDate()
+            );
+        }
+
+        return [$cartId, $shippingInfo];
+    }
+}</code></pre>
+      </div>
+
+      <!-- Right: Headline -->
+      <div class="hero-text" id="heroText">
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          14+ years, Magento 2 only
+        </div>
+
+        <h1 class="hero-title">Your Magento 2 problems, solved permanently.</h1>
+
+        <p class="hero-subtitle">
+          I build custom modules, fix what others can&rsquo;t, and optimize stores losing revenue to slow load times.
+          No agencies. No ticket queues. Just deep Magento 2 expertise.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn--primary">Start a project &nearr;</a>
+          <a href="#proof" class="btn btn--outline">View portfolio &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       EXPERTISE GRID
+       ============================================ -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Services</p>
+        <h2 class="section-title" id="services-title">How I can help</h2>
+        <p class="section-subtitle">Four areas of deep expertise. Each grounded in real Magento 2 projects, not theory.</p>
+      </div>
+
+      <div class="expertise-grid" id="expertiseGrid">
+        <!-- Card 1 -->
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="service-card-title">Custom Module Development</h3>
+          <p class="service-card-desc">
+            Tailor-made modules following M2 best practices &mdash; DI, plugins, observers, layout XML. Architecture that scales through upgrades.
+          </p>
+          <a href="#" class="service-card-link" aria-label="Learn more about custom module development">
+            Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="service-card-title">Performance Optimization</h3>
+          <p class="service-card-desc">
+            FPC tuning, Varnish config, JS/CSS bundling, database query profiling. Measurable improvements to your bottom line.
+          </p>
+          <a href="#" class="service-card-link" aria-label="Learn more about performance optimization">
+            Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          </div>
+          <h3 class="service-card-title">n8n Automation</h3>
+          <p class="service-card-desc">
+            Magento + n8n workflows for order sync, inventory management, CRM integration. Automate your ecommerce stack end to end.
+          </p>
+          <a href="#" class="service-card-link" aria-label="Learn more about n8n automation">
+            Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/></svg>
+          </div>
+          <h3 class="service-card-title">Frontend &amp; Theme</h3>
+          <p class="service-card-desc">
+            Custom themes, Hyv&auml; &amp; Breeze, responsive design. Core Web Vitals compliant, accessible, conversion-focused.
+          </p>
+          <a href="#" class="service-card-link" aria-label="Learn more about frontend and theme development">
+            Learn more <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROOF SECTION
+       ============================================ -->
+  <section class="section section--proof" id="proof" aria-labelledby="proof-title">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" style="justify-content:center">Track record</p>
+        <h2 class="section-title" id="proof-title">Why work with me</h2>
+        <p class="section-subtitle" style="margin:12px auto 0">
+          No theory. Just results from real Magento 2 projects.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-number"><span data-count="1000">0</span>+</div>
+          <p class="stat-label">Modules Built</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span data-count="14">0</span>+</div>
+          <p class="stat-label">Years Magento 2</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span data-count="100">0</span>%</div>
+          <p class="stat-label">Best Practices</p>
+        </div>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="testimonials-grid" id="testimonialsGrid">
+        <blockquote class="testimonial-card">
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">GH</div>
+            <div>
+              <div class="testimonial-name">Great Hire UK</div>
+              <a href="#" class="testimonial-company">greathire.co.uk</a>
+            </div>
+          </div>
+          <p class="testimonial-quote">
+            &ldquo;Fixed a critical checkout bug in under 2 hours that 3 other developers couldn&rsquo;t solve in a week. Exceptional Magento 2 knowledge.&rdquo;
+          </p>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">QJ</div>
+            <div>
+              <div class="testimonial-name">Qartaj</div>
+              <a href="#" class="testimonial-company">qartaj.com</a>
+            </div>
+          </div>
+          <p class="testimonial-quote">
+            &ldquo;Built a complete custom module with admin grid, frontend widget, and API integration &mdash; delivered on time, zero rework needed.&rdquo;
+          </p>
+        </blockquote>
+
+        <blockquote class="testimonial-card">
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">LI</div>
+            <div>
+              <div class="testimonial-name">Librairie Imen</div>
+              <a href="#" class="testimonial-company">librairieimen.com</a>
+            </div>
+          </div>
+          <p class="testimonial-quote">
+            &ldquo;Migrated 519 redirects, cleaned up the database, and boosted our SEO rankings significantly. Knows Magento inside out.&rdquo;
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       PROCESS SECTION
+       ============================================ -->
+  <section class="section" id="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-header" style="text-align:center">
+        <p class="section-label" style="justify-content:center">Process</p>
+        <h2 class="section-title" id="process-title">Simple process, no surprises</h2>
+        <p class="section-subtitle" style="margin:12px auto 0">
+          Fixed price, clear scope, no hourly billing. Every project starts with a written spec.
+        </p>
+      </div>
+
+      <div class="process-grid" id="processGrid">
+        <div class="process-step">
+          <div class="process-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div>
+            <p class="process-step-number">01</p>
+            <h3 class="process-step-title">Discovery</h3>
+            <p class="process-step-desc">Free 30-min call to discuss your project, requirements, and timeline.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <div>
+            <p class="process-step-number">02</p>
+            <h3 class="process-step-title">Spec &amp; Quote</h3>
+            <p class="process-step-desc">Clear scope of work and fixed price. No hourly surprises, ever.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v4M12 22v-4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M22 12h-4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <div>
+            <p class="process-step-number">03</p>
+            <h3 class="process-step-title">Development</h3>
+            <p class="process-step-desc">Built on staging, tested thoroughly, and you get regular updates along the way.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="process-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.86 2h8.28a2 2 0 0 1 1.41.59L21 6.45a2 2 0 0 1 .59 1.41v8.28a2 2 0 0 1-.59 1.41l-3.45 3.45a2 2 0 0 1-1.41.59H7.86a2 2 0 0 1-1.41-.59L3 17.55a2 2 0 0 1-.59-1.41V7.86a2 2 0 0 1 .59-1.41L6.45 2.6A2 2 0 0 1 7.86 2z"/></svg>
+          </div>
+          <div>
+            <p class="process-step-number">04</p>
+            <h3 class="process-step-title">Delivery</h3>
+            <p class="process-step-desc">Clean code, documented, deployed. 30-day bug-fix guarantee included.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="process-note">Most projects: 1&ndash;2 weeks. Limited projects at a time for full attention.</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       N8N AUTOMATION SECTION
+       ============================================ -->
+  <section class="section" id="automation" aria-labelledby="automation-title" style="background:var(--border-light)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">n8n automation</p>
+        <h2 class="section-title" id="automation-title">Automate your entire ecommerce stack</h2>
+        <p class="section-subtitle">Custom n8n workflows for inventory, orders, CRM, and shipping &mdash; no duct tape required.</p>
+      </div>
+
+      <div class="automation-grid">
+        <div class="automation-diagram">
+          <div class="flow-nodes">
+            <div class="flow-node" data-flow="1">
+              <div class="flow-node-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <p class="flow-node-label">Magento 2</p>
+            </div>
+
+            <div class="flow-arrow" data-flow="2">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <div class="flow-node" data-flow="3">
+              <div class="flow-node-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+              </div>
+              <p class="flow-node-label">n8n</p>
+            </div>
+
+            <div class="flow-arrow" data-flow="4">
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+
+            <div class="flow-node" data-flow="5">
+              <div class="flow-node-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <p class="flow-node-label">ERP / CRM</p>
+            </div>
+          </div>
+          <div class="flow-labels">
+            <span class="flow-label">Orders &rarr;</span>
+            <span class="flow-label">&larr; Sync</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="automation-usecases">
+            <div class="usecase-card reveal">
+              <div class="usecase-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+              </div>
+              <div class="usecase-text">
+                <h4>Order sync to accounting</h4>
+                <p>New orders in Magento automatically create invoices in your accounting system. No manual entry, no reconciliation errors.</p>
+              </div>
+            </div>
+
+            <div class="usecase-card reveal">
+              <div class="usecase-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div class="usecase-text">
+                <h4>Multi-channel inventory</h4>
+                <p>Sync stock levels across Magento, Amazon, eBay, and your warehouse. Prevent overselling in real time.</p>
+              </div>
+            </div>
+
+            <div class="usecase-card reveal">
+              <div class="usecase-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="usecase-text">
+                <h4>Customer data unification</h4>
+                <p>Merge customer profiles from Magento, CRM, and email platforms into a single source of truth.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:24px">
+            <a href="#cta" class="btn btn--primary">Explore automation &nearr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       BLOG PREVIEW
+       ============================================ -->
+  <section class="section" id="blog" aria-labelledby="blog-title">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Blog</p>
+        <h2 class="section-title" id="blog-title">Latest from the lab</h2>
+        <p class="section-subtitle">Deep dives into Magento 2 development, performance, and architecture. No fluff, just code.</p>
+      </div>
+
+      <div class="blog-grid" id="blogGrid">
+        <article class="blog-card reveal">
+          <span class="blog-category">Magento 2</span>
+          <h3 class="blog-card-title">Magento 2 Checkout Customization: Step-by-Step Guide (2026)</h3>
+          <p class="blog-meta">7 min read &middot; June 24, 2026</p>
+          <p class="blog-excerpt">A complete walkthrough of Magento 2 checkout customization covering layout XML, Knockout component extending, custom fields, steps, and upgrade-safe practices.</p>
+          <a href="#" class="blog-link" aria-label="Read article about Magento 2 checkout customization">
+            Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="blog-card reveal">
+          <span class="blog-category">Magento 2</span>
+          <h3 class="blog-card-title">Complete Guide: bin/magento setup:upgrade vs setup:di:compile</h3>
+          <p class="blog-meta">8 min read &middot; June 23, 2026</p>
+          <p class="blog-excerpt">Understand the exact role of each command, the correct deployment sequence, production vs developer mode behavior, and when to run what.</p>
+          <a href="#" class="blog-link" aria-label="Read article about setup upgrade vs di compile">
+            Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+
+        <article class="blog-card reveal">
+          <span class="blog-category">Magento 2</span>
+          <h3 class="blog-card-title">Magento 2 GraphQL API: Complete Developer Guide (2026)</h3>
+          <p class="blog-meta">7 min read &middot; June 20, 2026</p>
+          <p class="blog-excerpt">From endpoint setup to custom resolvers and mutations. Covers cart operations, customer authentication, and performance optimization for headless stores.</p>
+          <a href="#" class="blog-link" aria-label="Read article about Magento 2 GraphQL API">
+            Read <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FINAL CTA
+       ============================================ -->
+  <section class="section section--cta" id="cta" aria-labelledby="cta-title">
+    <div class="container">
+      <h2 class="cta-title reveal" id="cta-title">Have a Magento 2 project?</h2>
+      <p class="cta-subtitle reveal">
+        Tell me what you&rsquo;re building. I&rsquo;ll tell you if I can help and what it&rsquo;ll cost &mdash; no commitment required.
+      </p>
+      <div class="cta-actions reveal">
+        <a href="mailto:faouzi.yahyaoui@gmail.com" class="btn btn--primary">Get a free quote &nearr;</a>
+        <a href="#services" class="btn btn--outline-white">See pricing &amp; packages &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Mastery</a>
+        <p>Magento 2 specialist &mdash; custom modules, performance &amp; e-commerce consulting. No agencies, no ticket queues, just deep expertise.</p>
+        <div class="footer-badge">Available for new projects</div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Navigation</h4>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#hero">Home</a>
+          <a href="#services">Services</a>
+          <a href="#proof">Portfolio</a>
+          <a href="#blog">Blog</a>
+          <a href="#cta">Contact</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Services</h4>
+        <nav class="footer-links" aria-label="Services navigation">
+          <a href="#services">Custom Modules</a>
+          <a href="#services">Performance</a>
+          <a href="#automation">n8n Automation</a>
+          <a href="#services">Frontend &amp; Theme</a>
+        </nav>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Connect</h4>
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/yahyaouifaouzi" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:faouzi.yahyaoui@gmail.com">faouzi.yahyaoui@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Magento Mastery. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     SCRIPTS
+     ============================================ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ==========================================
+     DARK MODE TOGGLE
+     ========================================== */
+  const html = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+
+  function setTheme(theme) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeIcon.textContent = theme === 'dark' ? '\u2606' : '\u266F';
+  }
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    setTheme(savedTheme);
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    setTheme('dark');
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const current = html.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  /* ==========================================
+     MOBILE NAV
+     ========================================== */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      const isOpen = navLinks.classList.toggle('is-open');
+      hamburger.classList.toggle('is-active');
+      hamburger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      navOverlay.style.display = isOpen ? 'block' : 'none';
+      setTimeout(function() { navOverlay.classList.toggle('is-visible', isOpen); }, 10);
+    });
+
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('is-open');
+        hamburger.classList.remove('is-active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        navOverlay.classList.remove('is-visible');
+        navOverlay.style.display = 'none';
+      });
+    });
+
+    navOverlay.addEventListener('click', function() {
+      navLinks.classList.remove('is-open');
+      hamburger.classList.remove('is-active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      navOverlay.classList.remove('is-visible');
+      navOverlay.style.display = 'none';
+    });
+  }
+
+  /* ==========================================
+     SMOOTH SCROLL
+     ========================================== */
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ==========================================
+     INTERSECTION OBSERVER — SCROLL REVEALS
+     ========================================== */
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('is-visible');
+    });
+  }
+
+  /* ==========================================
+     STATS COUNTER
+     ========================================== */
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    if (isNaN(target)) return;
+
+    const duration = 1500;
+    const start = performance.now();
+    let current = 0;
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      current = Math.floor(eased * target);
+      el.textContent = current;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach(function(el) {
+      counterObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('[data-count]').forEach(function(el) {
+      el.textContent = el.getAttribute('data-count');
+    });
+  }
+
+  /* ==========================================
+     GSAP ANIMATIONS
+     ========================================== */
+  if (!reducedMotion && typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero: Code lines stagger-in
+    const codeBlock = document.querySelector('.hero-code');
+    if (codeBlock) {
+      const codeLines = codeBlock.querySelectorAll('.language-php .hljs-ln-code, .language-php .hljs-ln-line');
+      if (!codeLines.length) {
+        // Fallback: select all lines manually
+        const codeEl = codeBlock.querySelector('code');
+        if (codeEl) {
+          const lines = codeEl.innerHTML.split('\n');
+          // Wrap each line in a span for animation
+          codeEl.innerHTML = lines.map(function(line, i) {
+            return '<span class="code-line" style="display:block">' + (line || '&nbsp;') + '</span>';
+          }).join('');
+        }
+      }
+
+      gsap.fromTo('.code-line', {
+        opacity: 0,
+        y: 8
+      }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        stagger: 0.06,
+        ease: 'power2.out',
+        delay: 0.3
+      });
+    }
+
+    // Hero: Headline slide-in
+    gsap.fromTo('.hero-title', {
+      opacity: 0,
+      x: -30
+    }, {
+      opacity: 1,
+      x: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      delay: 0.2
+    });
+
+    gsap.fromTo('.hero-subtitle', {
+      opacity: 0,
+      x: -20
+    }, {
+      opacity: 1,
+      x: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+      delay: 0.35
+    });
+
+    gsap.fromTo('.hero-badge', {
+      opacity: 0,
+      y: -10
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      ease: 'power2.out',
+      delay: 0.1
+    });
+
+    gsap.fromTo('.hero-actions', {
+      opacity: 0,
+      y: 10
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+      delay: 0.5
+    });
+
+    // Hero: Parallax on code block
+    gsap.to('.hero-code', {
+      y: function() { return window.innerHeight * 0.08; },
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.5
+      }
+    });
+
+    // Expertise cards stagger
+    gsap.fromTo('.service-card', {
+      opacity: 0,
+      y: 40
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#expertiseGrid',
+        start: 'top 85%'
+      }
+    });
+
+    // Stats counter trigger
+    gsap.fromTo('.stat-card', {
+      opacity: 0,
+      y: 30
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#statsGrid',
+        start: 'top 85%'
+      }
+    });
+
+    // Testimonial cards stagger
+    gsap.fromTo('.testimonial-card', {
+      opacity: 0,
+      scale: 0.95,
+      y: 20
+    }, {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.12,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#testimonialsGrid',
+        start: 'top 85%'
+      }
+    });
+
+    // Process steps stagger
+    gsap.fromTo('.process-step', {
+      opacity: 0,
+      y: 30
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#processGrid',
+        start: 'top 85%'
+      }
+    });
+
+    // Flow diagram nodes
+    gsap.fromTo('.flow-node', {
+      opacity: 0,
+      scale: 0.9
+    }, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.4,
+      stagger: 0.15,
+      ease: 'back.out(1.7)',
+      scrollTrigger: {
+        trigger: '.automation-diagram',
+        start: 'top 85%'
+      }
+    });
+
+    gsap.fromTo('.flow-arrow', {
+      opacity: 0,
+      x: -10
+    }, {
+      opacity: 1,
+      x: 0,
+      duration: 0.3,
+      stagger: 0.1,
+      delay: 0.3,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.automation-diagram',
+        start: 'top 85%'
+      }
+    });
+
+    // Blog cards stagger
+    gsap.fromTo('.blog-card', {
+      opacity: 0,
+      y: 30
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      stagger: 0.12,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#blogGrid',
+        start: 'top 85%'
+      }
+    });
+
+    // CTA fade
+    gsap.fromTo('.cta-title', {
+      opacity: 0,
+      y: 20
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#cta',
+        start: 'top 85%'
+      }
+    });
+
+    gsap.fromTo('.cta-subtitle', {
+      opacity: 0,
+      y: 15
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      delay: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#cta',
+        start: 'top 85%'
+      }
+    });
+
+    gsap.fromTo('.cta-actions', {
+      opacity: 0,
+      y: 15
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.4,
+      delay: 0.3,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '#cta',
+        start: 'top 85%'
+      }
+    });
+  }
+
+  /* ==========================================
+     HIGHLIGHT.JS (run before GSAP line wrapping)
+     ========================================== */
+  if (typeof hljs !== 'undefined') {
+    hljs.highlightAll();
+  }
+
+  /* ==========================================
+     3D TILT ON CARDS (desktop only)
+     ========================================== */
+  if (!reducedMotion && window.innerWidth > 768) {
+    document.querySelectorAll('.service-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / centerY * -5;
+        const rotateY = (x - centerX) / centerX * 5;
+        card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
+      });
+
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
+      });
+    });
+  }
+
+  /* ==========================================
+     REDUCED MOTION FALLBACK for GSAP elements
+     ========================================== */
+  if (reducedMotion) {
+    document.querySelectorAll('.service-card, .testimonial-card, .process-step, .flow-node, .flow-arrow, .blog-card, .cta-title, .cta-subtitle, .cta-actions').forEach(function(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

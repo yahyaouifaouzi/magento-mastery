@@ -23,20 +23,21 @@
         </a>
       </div>
 
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num" data-count="50">0+</span>
-          <div class="hero-stat-lbl">Modules built</div>
+      <div class="hero-evidence">
+        <div class="evidence-line">
+          <span class="evidence-prompt">$</span>
+          <span class="evidence-cmd">count --modules</span>
+          <span class="evidence-result" data-count="50">0+</span>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-num" data-count="13">0+</span>
-          <div class="hero-stat-lbl">Years Magento 2</div>
+        <div class="evidence-line">
+          <span class="evidence-prompt">$</span>
+          <span class="evidence-cmd">experience --years</span>
+          <span class="evidence-result" data-count="13">0+</span>
         </div>
-        <div class="hero-stat-divider"></div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">100%</span>
-          <div class="hero-stat-lbl">Best practices</div>
+        <div class="evidence-line">
+          <span class="evidence-prompt">$</span>
+          <span class="evidence-cmd">quality --check</span>
+          <span class="evidence-result">best practices</span>
         </div>
       </div>
     </div>
@@ -46,54 +47,46 @@
 <!-- Services -->
 <section class="section reveal">
   <div class="container">
+    <span class="section-entry-mono">// services</span>
     <div class="section-header">
-      <span class="section-label">What I do</span>
       <h2>How I can help</h2>
       <p>From a single bug fix to a full custom module — I cover the full Magento 2 stack.</p>
     </div>
 
     <div class="bento reveal-stagger">
       <div class="bento__item bento__item--col-2">
-        <div class="shell">
-          <div class="shell__core">
-            <span class="bento-icon">{{ partial "icon" (dict "name" "puzzle") }}</span>
-            <h3>Custom module development</h3>
-            <p>Tailor-made modules following M2 best practices — DI, plugins, observers, EAV, layout XML, RequireJS AMD. I architect solutions that survive Magento upgrades and scale with your store.</p>
-            <a href="/services/#custom-modules" class="bento-link">Explore module development →</a>
-          </div>
+        <div class="surface">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "puzzle") }}</span>
+          <h3>Custom module development</h3>
+          <p>Tailor-made modules following M2 best practices — DI, plugins, observers, EAV, layout XML, RequireJS AMD. I architect solutions that survive Magento upgrades and scale with your store.</p>
+          <a href="/services/#custom-modules" class="bento-link">Explore module development →</a>
         </div>
       </div>
 
       <div class="bento__item">
-        <div class="shell">
-          <div class="shell__core">
-            <span class="bento-icon">{{ partial "icon" (dict "name" "lightning") }}</span>
-            <h3>Performance optimization</h3>
-            <p>Full-stack store audits — FPC, Varnish, JS/CSS bundling, database query profiling, server-level tuning delivering measurable improvements.</p>
-            <a href="/services/#performance" class="bento-link">See performance →</a>
-          </div>
+        <div class="surface">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "lightning") }}</span>
+          <h3>Performance optimization</h3>
+          <p>Full-stack store audits — FPC, Varnish, JS/CSS bundling, database query profiling, server-level tuning delivering measurable improvements.</p>
+          <a href="/services/#performance" class="bento-link">See performance →</a>
         </div>
       </div>
 
       <div class="bento__item">
-        <div class="shell">
-          <div class="shell__core">
-            <span class="bento-icon">{{ partial "icon" (dict "name" "palette") }}</span>
-            <h3>Theme &amp; frontend</h3>
-            <p>Custom themes, Hyvä &amp; Breeze Evolution integration, responsive and accessible UI that passes Core Web Vitals with room to spare.</p>
-            <a href="/services/#frontend" class="bento-link">View frontend →</a>
-          </div>
+        <div class="surface">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "palette") }}</span>
+          <h3>Theme &amp; frontend</h3>
+          <p>Custom themes, Hyvä &amp; Breeze Evolution integration, responsive and accessible UI that passes Core Web Vitals with room to spare.</p>
+          <a href="/services/#frontend" class="bento-link">View frontend →</a>
         </div>
       </div>
 
       <div class="bento__item bento__item--col-2">
-        <div class="shell">
-          <div class="shell__core">
-            <span class="bento-icon">{{ partial "icon" (dict "name" "link") }}</span>
-            <h3>API &amp; integrations</h3>
-            <p>Payment gateways, ERP/CRM, shipping providers — REST and GraphQL, clean service layer architecture with proper error handling and documentation.</p>
-            <a href="/services/#integrations" class="bento-link">Discover integrations →</a>
-          </div>
+        <div class="surface">
+          <span class="bento-icon">{{ partial "icon" (dict "name" "link") }}</span>
+          <h3>API &amp; integrations</h3>
+          <p>Payment gateways, ERP/CRM, shipping providers — REST and GraphQL, clean service layer architecture with proper error handling and documentation.</p>
+          <a href="/services/#integrations" class="bento-link">Discover integrations →</a>
         </div>
       </div>
     </div>
@@ -101,72 +94,59 @@
 </section>
 
 <!-- Why Me -->
-<section class="section reveal">
+<section class="section-bg-tint section reveal-right">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">Why me</span>
+    <div class="section-header no-kicker">
       <h2>Why work with me</h2>
       <p>There are agencies, offshore teams, and generalist freelancers. Here's how working with a dedicated Magento 2 specialist is different.</p>
     </div>
 
     <div class="why-grid reveal-stagger">
-      <div class="shell">
-        <div class="shell__core why-item">
-          <span class="why-item-icon">{{ partial "icon" (dict "name" "target") }}</span>
-          <div>
-            <h3>Magento 2 only</h3>
-            <p>I don't split my focus across five platforms. Magento 2 is all I do.</p>
-          </div>
+      <div class="surface surface--sm why-item">
+        <span class="why-item-icon">{{ partial "icon" (dict "name" "target") }}</span>
+        <div>
+          <h3>Magento 2 only</h3>
+          <p>I don't split my focus across five platforms. Magento 2 is all I do.</p>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core why-item">
-          <span class="why-item-icon">{{ partial "icon" (dict "name" "chat") }}</span>
-          <div>
-            <h3>You talk to the developer</h3>
-            <p>No account managers, no ticket queues. You communicate directly with the person writing the code.</p>
-          </div>
+      <div class="surface surface--sm why-item">
+        <span class="why-item-icon">{{ partial "icon" (dict "name" "chat") }}</span>
+        <div>
+          <h3>You talk to the developer</h3>
+          <p>No account managers, no ticket queues. You communicate directly with the person writing the code.</p>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core why-item">
-          <span class="why-item-icon">{{ partial "icon" (dict "name" "clipboard") }}</span>
-          <div>
-            <h3>Fixed price, clear scope</h3>
-            <p>Every project starts with a written spec and a fixed quote. No hourly billing.</p>
-          </div>
+      <div class="surface surface--sm why-item">
+        <span class="why-item-icon">{{ partial "icon" (dict "name" "clipboard") }}</span>
+        <div>
+          <h3>Fixed price, clear scope</h3>
+          <p>Every project starts with a written spec and a fixed quote. No hourly billing.</p>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core why-item">
-          <span class="why-item-icon">{{ partial "icon" (dict "name" "shield") }}</span>
-          <div>
-            <h3>Code that survives upgrades</h3>
-            <p>Plugins over rewrites, proper DI, no core hacks — your store upgrades without breaking.</p>
-          </div>
+      <div class="surface surface--sm why-item">
+        <span class="why-item-icon">{{ partial "icon" (dict "name" "shield") }}</span>
+        <div>
+          <h3>Code that survives upgrades</h3>
+          <p>Plugins over rewrites, proper DI, no core hacks — your store upgrades without breaking.</p>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core why-item">
-          <span class="why-item-icon">{{ partial "icon" (dict "name" "clock") }}</span>
-          <div>
-            <h3>Fast turnaround</h3>
-            <p>Most projects delivered in 1–2 weeks. Limited projects at a time for full attention.</p>
-          </div>
+      <div class="surface surface--sm why-item">
+        <span class="why-item-icon">{{ partial "icon" (dict "name" "clock") }}</span>
+        <div>
+          <h3>Fast turnaround</h3>
+          <p>Most projects delivered in 1–2 weeks. Limited projects at a time for full attention.</p>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core why-item">
-          <span class="why-item-icon">{{ partial "icon" (dict "name" "check") }}</span>
-          <div>
-            <h3>30-day bug-fix guarantee</h3>
-            <p>If something I built breaks within 30 days, I fix it at no charge.</p>
-          </div>
+      <div class="surface surface--sm why-item">
+        <span class="why-item-icon">{{ partial "icon" (dict "name" "check") }}</span>
+        <div>
+          <h3>30-day bug-fix guarantee</h3>
+          <p>If something I built breaks within 30 days, I fix it at no charge.</p>
         </div>
       </div>
     </div>
@@ -174,45 +154,36 @@
 </section>
 
 <!-- Process -->
-<section class="section reveal">
+<section class="section reveal-scale-in">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">How it works</span>
       <h2>Simple process, no surprises</h2>
       <p>I keep every engagement straightforward and transparent — from the first call to final deployment.</p>
     </div>
 
     <div class="process reveal-stagger">
-      <div class="shell">
-        <div class="shell__core process-step">
-          <span class="process-step-num">01</span>
-          <h3>Discovery</h3>
-          <p>We talk about your project, requirements, and timeline. Free 30-min call.</p>
-        </div>
+      <div class="surface surface--sm process-step">
+        <span class="process-step-num">01</span>
+        <h3>Discovery</h3>
+        <p>We talk about your project, requirements, and timeline. Free 30-min call.</p>
       </div>
 
-      <div class="shell">
-        <div class="shell__core process-step">
-          <span class="process-step-num">02</span>
-          <h3>Spec &amp; quote</h3>
-          <p>I send a clear scope of work and fixed price. No hourly surprises.</p>
-        </div>
+      <div class="surface surface--sm process-step">
+        <span class="process-step-num">02</span>
+        <h3>Spec &amp; quote</h3>
+        <p>I send a clear scope of work and fixed price. No hourly surprises.</p>
       </div>
 
-      <div class="shell">
-        <div class="shell__core process-step">
-          <span class="process-step-num">03</span>
-          <h3>Development</h3>
-          <p>I build it, test it on a staging environment, and keep you updated.</p>
-        </div>
+      <div class="surface surface--sm process-step">
+        <span class="process-step-num">03</span>
+        <h3>Development</h3>
+        <p>I build it, test it on a staging environment, and keep you updated.</p>
       </div>
 
-      <div class="shell">
-        <div class="shell__core process-step">
-          <span class="process-step-num">04</span>
-          <h3>Delivery</h3>
-          <p>Clean code, documented, deployed. 30-day bug-fix guarantee included.</p>
-        </div>
+      <div class="surface surface--sm process-step">
+        <span class="process-step-num">04</span>
+        <h3>Delivery</h3>
+        <p>Clean code, documented, deployed. 30-day bug-fix guarantee included.</p>
       </div>
     </div>
 
@@ -223,47 +194,41 @@
 <!-- Testimonials -->
 <section class="section reveal">
   <div class="container">
+    <span class="section-entry-rule"></span>
     <div class="section-header">
-      <span class="section-label">Client feedback</span>
       <h2>What clients say</h2>
     </div>
 
     <div class="testimonials reveal-stagger">
-      <div class="shell">
-        <div class="shell__core">
-          <p class="testimonial-text">"Fixed a critical checkout bug in under 2 hours that 3 other developers couldn't solve in a week. Exceptional Magento 2 knowledge."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">GH</div>
-            <div>
-              <div class="testimonial-name">Great Hire UK</div>
-              <div class="testimonial-company">options-greathire.co.uk</div>
-            </div>
+      <div class="surface">
+        <p class="testimonial-text">"Fixed a critical checkout bug in under 2 hours that 3 other developers couldn't solve in a week. Exceptional Magento 2 knowledge."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">GH</div>
+          <div>
+            <div class="testimonial-name">Great Hire UK</div>
+            <div class="testimonial-company">options-greathire.co.uk</div>
           </div>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core">
-          <p class="testimonial-text">"Built a complete custom module with admin grid, frontend widget, and API integration — delivered on time, zero rework needed."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">QJ</div>
-            <div>
-              <div class="testimonial-name">Qartaj</div>
-              <div class="testimonial-company">qartaj.com</div>
-            </div>
+      <div class="surface">
+        <p class="testimonial-text">"Built a complete custom module with admin grid, frontend widget, and API integration — delivered on time, zero rework needed."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">QJ</div>
+          <div>
+            <div class="testimonial-name">Qartaj</div>
+            <div class="testimonial-company">qartaj.com</div>
           </div>
         </div>
       </div>
 
-      <div class="shell">
-        <div class="shell__core">
-          <p class="testimonial-text">"Migrated 519 redirects, cleaned up the database, and boosted our SEO rankings significantly. Knows Magento inside out."</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">LI</div>
-            <div>
-              <div class="testimonial-name">Librairie Imen</div>
-              <div class="testimonial-company">librairie-imen.tn</div>
-            </div>
+      <div class="surface">
+        <p class="testimonial-text">"Migrated 519 redirects, cleaned up the database, and boosted our SEO rankings significantly. Knows Magento inside out."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LI</div>
+          <div>
+            <div class="testimonial-name">Librairie Imen</div>
+            <div class="testimonial-company">librairie-imen.tn</div>
           </div>
         </div>
       </div>
@@ -274,8 +239,8 @@
 <!-- Blog -->
 <section class="section reveal">
   <div class="container">
+    <span class="section-entry-mono">// blog</span>
     <div class="section-header">
-      <span class="section-label">Latest articles</span>
       <h2>From the blog</h2>
       <p>Magento 2 tips, module walkthroughs, and e-commerce insights.</p>
     </div>
@@ -305,12 +270,10 @@
       {{ end }}
     </div>
     {{ else }}
-    <div class="shell empty-state">
-      <div class="shell__core">
-        <div class="empty-state-icon">{{ partial "icon" (dict "name" "search") }}</div>
-        <h3>No articles yet</h3>
-        <p>Check back soon for Magento 2 tutorials, module walkthroughs, and e-commerce insights.</p>
-      </div>
+    <div class="surface empty-state">
+      <div class="empty-state-icon">{{ partial "icon" (dict "name" "search") }}</div>
+      <h3>No articles yet</h3>
+      <p>Check back soon for Magento 2 tutorials, module walkthroughs, and e-commerce insights.</p>
     </div>
     {{ end }}
 
@@ -324,24 +287,20 @@
 </section>
 
 <!-- CTA -->
-<section class="section reveal has-bg">
-  <div class="section__bg" style="background:linear-gradient(135deg, #0d0d0d 0%, #1a0a0a 30%, #2d1f1f 60%, #1a1a1a 100%);">
-  </div>
+<section class="section-bg-tint section reveal">
   <div class="container">
-    <div class="shell">
-      <div class="shell__core cta-box">
-        <h2>Have a Magento 2 project?</h2>
-        <p>Tell me what you're building. I'll tell you if I can help and what it'll cost — no commitment required.</p>
-        <div class="cta-actions">
-          <a href="/contact/" class="btn btn--primary group">
-            <span>Get a free quote</span>
-            <span class="btn__icon">↗</span>
-          </a>
-          <a href="/services/#pricing" class="btn btn--outline group">
-            <span>See pricing &amp; packages</span>
-            <span class="btn__icon">→</span>
-          </a>
-        </div>
+    <div class="surface cta-box">
+      <h2>Have a Magento 2 project?</h2>
+      <p>Tell me what you're building. I'll tell you if I can help and what it'll cost — no commitment required.</p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn--primary group">
+          <span>Get a free quote</span>
+          <span class="btn__icon">↗</span>
+        </a>
+        <a href="/services/#pricing" class="btn btn--outline group">
+          <span>See pricing &amp; packages</span>
+          <span class="btn__icon">→</span>
+        </a>
       </div>
     </div>
   </div>
