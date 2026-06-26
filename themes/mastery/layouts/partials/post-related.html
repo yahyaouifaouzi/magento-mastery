@@ -1,0 +1,23 @@
+{{ $related := where (where .Site.RegularPages "Section" "blog") "Permalink" "!=" .Permalink }}
+{{ $related = where $related "Params.tags" "intersect" (.Params.tags | default slice) }}
+{{ $related = first 3 $related }}
+{{ if $related }}
+<section class="post-related reveal">
+  <span class="svc-section-label">Related articles</span>
+  <div class="post-related-grid">
+    {{ range $related }}
+    <a href="{{ .Permalink }}" class="shell">
+      <div class="shell__core post-related-card">
+        <h3>{{ .Title }}</h3>
+        <div class="blog-meta">
+          <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+          <span class="blog-meta-dot">·</span>
+          <span>{{ .ReadingTime }} min read</span>
+        </div>
+        <span class="post-related-link">Read article →</span>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

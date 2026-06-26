@@ -1,24 +1,19 @@
 {{ define "main" }}
-<div class="container" style="padding-top:8rem;padding-bottom:5rem;">
+<div class="container tag-page">
 
-  <div class="reveal" style="margin-bottom:3rem;">
+  <div class="page-header reveal">
     <span class="section-label">Tag</span>
-    <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:700;letter-spacing:-0.03em;margin-bottom:0.75rem;">
-      {{ .Title }}
-    </h1>
-    <p style="color:var(--text-2);max-width:520px;font-size:1.05rem;">
-      Articles tagged with <strong>{{ .Title }}</strong> — Magento 2 tutorials and development insights.
-    </p>
+    <h1>{{ .Title }}</h1>
+    <p>Articles tagged with <strong>{{ .Title }}</strong> — Magento 2 tutorials and development insights.</p>
   </div>
 
-  <div class="blog-count reveal" style="margin-bottom:1.5rem;">{{ len .Pages }} articles</div>
+  <div class="blog-count reveal">{{ len .Pages }} articles</div>
 
   <div class="blog-list reveal-stagger">
-    {{ range $i, $p := .Pages }}
+    {{ range $p := .Pages }}
     <a href="{{ $p.Permalink }}" class="shell blog-item-link">
       <div class="shell__core blog-item">
-        <span class="blog-item-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
-        <div style="flex:1;min-width:0;">
+        <div>
           <h3>{{ $p.Title }}</h3>
           <div class="blog-meta">
             <span>{{ $p.Date.Format "Jan 2, 2006" }}</span>

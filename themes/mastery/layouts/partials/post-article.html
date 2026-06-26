@@ -1,0 +1,134 @@
+{{ $isBlog := eq .Section "blog" }}
+
+{{ if $isBlog }}<div class="post-layout">{{ end }}
+
+  {{ if $isBlog }}
+  <aside class="post-toc" id="postToc">
+    <div class="post-toc-inner">
+      <span class="post-toc-label">On this page</span>
+      {{ .TableOfContents }}
+    </div>
+  </aside>
+  {{ end }}
+
+  <article class="{{ if $isBlog }}post-content post-content--with-toc{{ else }}post-content{{ end }}">
+
+    {{ if $isBlog }}
+    <div class="post-progress-bar" id="postProgressBar"></div>
+
+    <a href="/blog/" class="post-back reveal">
+      ← Back to articles
+    </a>
+    {{ end }}
+
+    <header class="post-header reveal">
+      {{ with .Params.tags }}
+      <div class="post-header-tags">
+        {{ range . }}<span class="blog-tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+
+      <h1>{{ .Title }}</h1>
+
+      {{ if $isBlog }}
+      <div class="post-author-bar">
+        <div class="post-author-avatar">{{ with .Params.author }}{{ substr . 0 1 }}{{ else }}F{{ end }}</div>
+        <div class="post-author-info">
+          <span class="post-author-name">{{ .Params.author | default site.Params.author }}</span>
+          <span class="post-author-meta">
+            <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+            <span class="blog-meta-dot">·</span>
+            <span>{{ .ReadingTime }} min read</span>
+            {{ with .Params.lastmod }}
+            {{ $lastmod := time . }}
+            {{ $date := time $.Date }}
+            {{ if ne ($lastmod.Format "2006-01-02") ($date.Format "2006-01-02") }}
+            <span class="blog-meta-dot">·</span>
+            <span>Updated {{ $lastmod.Format "Jan 2, 2006" }}</span>
+            {{ end }}
+            {{ end }}
+          </span>
+        </div>
+      </div>
+      {{ else }}
+      <div class="post-header-meta">
+        <span>{{ .Date.Format "January 2, 2006" }}</span>
+        <span class="blog-meta-dot">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+      {{ end }}
+
+      <div class="post-share">
+        <span class="post-share-label">Share:</span>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">LinkedIn</a>
+        <a href="https://twitter.com/intent/tweet?url={{ .Permalink | urlquery }}&text={{ .Title | urlquery }}" target="_blank" rel="noopener noreferrer" aria-label="Share on X">X</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">Facebook</a>
+        <button onclick="copyPostLink()" class="share-copy-btn" type="button">Copy Link</button>
+      </div>
+    </header>
+
+    <div class="post-body">
+      {{ .Content }}
+    </div>
+
+    {{ if $isBlog }}
+    <div class="post-footer-tags">
+      {{ with .Params.tags }}
+      <span class="post-tags-label">Tags:</span>
+      <div class="post-header-tags">
+        {{ range . }}<a href="/tags/{{ . | urlize }}/" class="blog-tag">{{ . }}</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <footer class="post-footer reveal">
+      <div class="post-footer-inner">
+        {{ with .Params.tags }}
+        <div class="post-header-tags">
+          {{ range . }}<span class="blog-tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+        <a href="/blog/" class="btn btn--outline group">
+          <span>← All articles</span>
+        </a>
+      </div>
+
+      <nav class="post-nav">
+        {{ with .PrevInSection }}
+        <a href="{{ .Permalink }}" class="shell post-nav-item post-nav-prev">
+          <div class="shell__core">
+            <span class="post-nav-label">← Previous</span>
+            <span class="post-nav-title">{{ .Title }}</span>
+          </div>
+        </a>
+        {{ else }}<div></div>{{ end }}
+        {{ with .NextInSection }}
+        <a href="{{ .Permalink }}" class="shell post-nav-item post-nav-next">
+          <div class="shell__core">
+            <span class="post-nav-label">Next →</span>
+            <span class="post-nav-title">{{ .Title }}</span>
+          </div>
+        </a>
+        {{ end }}
+      </nav>
+    </footer>
+
+    {{ if $isBlog }}
+    {{ partial "post-related.html" . }}
+    {{ end }}
+
+  </article>
+{{ if $isBlog }}</div>{{ end }}
+
+<script>
+function copyPostLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const btn = document.querySelector('.share-copy-btn');
+    if (!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+</script>

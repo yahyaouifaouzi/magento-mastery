@@ -1,0 +1,45 @@
+<section class="section reveal">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Latest articles</span>
+      <h2>From the blog</h2>
+      <p>Magento 2 tips, module walkthroughs, and e-commerce insights.</p>
+    </div>
+
+    {{ $posts := first 3 (where .Site.RegularPages "Section" "blog") }}
+    {{ if $posts }}
+    <div class="blog-list reveal-stagger">
+      {{ range $p := $posts }}
+      <a href="{{ $p.Permalink }}" class="shell blog-item-link">
+        <div class="shell__core blog-item">
+          <h3>{{ $p.Title }}</h3>
+          <div class="blog-meta">
+            <span>{{ $p.Date.Format "Jan 2, 2006" }}</span>
+            <span class="blog-meta-dot">·</span>
+            <span>{{ $p.ReadingTime }} min read</span>
+            {{ with $p.Params.tags }}{{ range first 1 . }}<span class="blog-tag">{{ . }}</span>{{ end }}{{ end }}
+          </div>
+          {{ with $p.Summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+          <span class="blog-arrow">→</span>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+    {{ else }}
+    <div class="shell empty-state">
+      <div class="shell__core">
+        <div class="empty-state-icon">{{ partial "icon" (dict "name" "search") }}</div>
+        <h3>No articles yet</h3>
+        <p>Check back soon for Magento 2 tutorials, module walkthroughs, and e-commerce insights.</p>
+      </div>
+    </div>
+    {{ end }}
+
+    <div style="margin-top:1.5rem;">
+      <a href="/blog/" class="btn btn--outline group">
+        <span>All articles</span>
+        <span class="btn__icon">→</span>
+      </a>
+    </div>
+  </div>
+</section>

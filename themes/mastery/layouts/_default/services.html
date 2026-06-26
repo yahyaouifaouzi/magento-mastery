@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="container svc-page">
 
-  <div class="svc-header reveal">
+  <div class="page-header reveal">
     <span class="section-label">What I offer</span>
     <h1>Magento 2 Development Services</h1>
     <p>End-to-end development — from architecture to deployment.</p>
   </div>
 
   <div class="bento reveal-stagger">
-    <a href="/services/magento-2-development/" class="bento__item bento__item--col-2" style="text-decoration:none;color:inherit;">
+    <a href="/services/magento-2-development/" class="bento__item bento__item--col-2 bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "puzzle") }}</span>
@@ -19,7 +19,7 @@
       </div>
     </a>
 
-    <a href="/services/performance-optimization/" class="bento__item" style="text-decoration:none;color:inherit;">
+    <a href="/services/performance-optimization/" class="bento__item bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "lightning") }}</span>
@@ -30,7 +30,7 @@
       </div>
     </a>
 
-    <a href="/services/magento-2-development/" class="bento__item" style="text-decoration:none;color:inherit;">
+    <a href="/services/magento-2-development/" class="bento__item bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "palette") }}</span>
@@ -41,7 +41,7 @@
       </div>
     </a>
 
-    <a href="/services/magento-2-development/" class="bento__item" style="text-decoration:none;color:inherit;">
+    <a href="/services/magento-2-development/" class="bento__item bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "link") }}</span>
@@ -52,7 +52,7 @@
       </div>
     </a>
 
-    <a href="/services/magento-2-development/" class="bento__item" style="text-decoration:none;color:inherit;">
+    <a href="/services/magento-2-development/" class="bento__item bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "tools") }}</span>
@@ -63,7 +63,7 @@
       </div>
     </a>
 
-    <a href="/services/migration/" class="bento__item bento__item--col-2" style="text-decoration:none;color:inherit;">
+    <a href="/services/migration/" class="bento__item bento__item--col-2 bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "package") }}</span>
@@ -74,7 +74,7 @@
       </div>
     </a>
 
-    <a href="/services/vps-optimization/" class="bento__item bento__item--col-2" style="text-decoration:none;color:inherit;">
+    <a href="/services/vps-optimization/" class="bento__item bento__item--col-2 bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "monitor") }}</span>
@@ -85,7 +85,7 @@
       </div>
     </a>
 
-    <a href="/services/custom-modules/" class="bento__item" style="text-decoration:none;color:inherit;">
+    <a href="/services/custom-modules/" class="bento__item bento__item-link">
       <div class="shell">
         <div class="shell__core">
           <span class="bento-icon">{{ partial "icon" (dict "name" "gear") }}</span>
@@ -97,13 +97,13 @@
     </a>
   </div>
 
-  <div class="shell reveal" style="margin-top:3rem;max-width:600px;">
-    <div class="shell__core" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;">
+  <div class="shell reveal svc-cta-card">
+    <div class="shell__core cta-row">
       <div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;">Ready to start?</h3>
-        <p style="color:var(--text-2);font-size:0.9rem;">Tell me about your project and I'll get back to you within 24 hours.</p>
+        <h3>Ready to start?</h3>
+        <p>Tell me about your project and I'll get back to you within 24 hours.</p>
       </div>
-      <a href="/contact/" class="btn btn--primary group" style="flex-shrink:0;">
+      <a href="/contact/" class="btn btn--primary group">
         <span>Contact Me</span>
         <span class="btn__icon">↗</span>
       </a>

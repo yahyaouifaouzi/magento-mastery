@@ -49,8 +49,8 @@
     <div class="svc-features-grid reveal-stagger">
       {{ range . }}
       <div class="shell">
-        <div class="shell__core svc-feature-card" style="padding:0;">
-          <span class="bento-icon" style="margin-bottom:0.75rem;">{{ .icon }}</span>
+        <div class="shell__core svc-feature-card">
+          <div class="bento-icon">{{ .icon }}</div>
           <h3>{{ .title }}</h3>
           <p>{{ .desc }}</p>
         </div>
@@ -85,7 +85,7 @@
       <div class="svc-why-list">
         {{ range . }}
         <div class="shell">
-          <div class="shell__core svc-why-item" style="padding:0;">
+          <div class="shell__core svc-why-item">
             <div class="svc-why-icon">{{ .icon }}</div>
             <div>
               <h4>{{ .title }}</h4>
@@ -103,7 +103,7 @@
   {{ with .Params.testimonial }}
   <div class="shell svc-testimonial reveal">
     <div class="shell__core">
-      <p class="svc-testimonial-text">"{{ .quote }}"</p>
+      <p class="svc-testimonial-text">{{ .quote }}</p>
       <div class="svc-testimonial-meta">
         <div class="svc-testimonial-avatar">{{ .initials }}</div>
         <div>
@@ -116,7 +116,7 @@
   {{ end }}
 
   {{ with .Content }}
-  <section class="svc-section post-body reveal" style="max-width:720px;">
+  <section class="svc-section post-body reveal">
     {{ . }}
   </section>
   {{ end }}
@@ -147,7 +147,7 @@
   {{ end }}
 
   <div class="shell svc-cta reveal">
-    <div class="shell__core" style="display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;">
+    <div class="shell__core cta-row">
       <div>
         <h3>{{ .Params.cta_title | default "Ready to get started?" }}</h3>
         <p>{{ .Params.cta_desc | default "Tell me about your project and I'll get back to you within 24 hours." }}</p>
@@ -170,8 +170,8 @@
     <span class="svc-section-label">Related services</span>
     <div class="svc-related-grid reveal-stagger">
       {{ range . }}
-      <a href="{{ .url }}" class="shell svc-related-card" style="text-decoration:none;color:inherit;">
-        <div class="shell__core" style="padding:1.25rem;">
+      <a href="{{ .url }}" class="shell svc-related-card">
+        <div class="shell__core">
           <div class="svc-related-icon">{{ .icon }}</div>
           <h4>{{ .title }}</h4>
           <p>{{ .desc }}</p>

@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container blog-page">
 
-  <div class="blog-page-header reveal">
+  <div class="page-header reveal">
     <span class="section-label">Articles</span>
     <h1>Magento 2 Development Blog &amp; Insights</h1>
     <p>Magento 2 development tips, module walkthroughs, and e-commerce insights.</p>
@@ -11,11 +11,10 @@
 
   {{ if .Pages }}
   <div class="blog-list reveal-stagger">
-    {{ range $i, $p := .Pages }}
+    {{ range $p := .Pages }}
     <a href="{{ $p.Permalink }}" class="shell blog-item-link">
       <div class="shell__core blog-item">
-        <span class="blog-item-index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
-        <div style="flex:1;min-width:0;">
+        <div>
           <h3>{{ $p.Title }}</h3>
           <div class="blog-meta">
             <span>{{ $p.Date.Format "Jan 2, 2006" }}</span>

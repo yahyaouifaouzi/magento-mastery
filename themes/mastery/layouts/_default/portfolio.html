@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="container portfolio-page">
 
-  <div class="portfolio-header reveal">
+  <div class="page-header reveal">
     <span class="section-label">Selected work</span>
     <h1>Magento 2 Portfolio — Custom Modules &amp; E-commerce Solutions</h1>
     <p>
@@ -15,98 +15,195 @@
     <h2 class="portfolio-section-title">Custom Magento 2 Modules</h2>
   </div>
 
-  <div class="bento reveal-stagger">
+  <div class="casestudy-grid reveal-stagger">
 
-    <div class="bento__item bento__item--col-2">
-      <div class="shell">
-        <div class="shell__core">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;">
-            <span class="portfolio-tag">Custom Module</span>
+    <article class="casestudy-card">
+      <div class="casestudy-visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+        <span class="casestudy-initials">SL</span>
+      </div>
+      <div class="casestudy-body">
+        <div class="casestudy-tags">
+          <span class="portfolio-tag">Custom Module</span>
+          <span class="portfolio-tag">Admin Grid</span>
+        </div>
+        <h3 class="casestudy-title">Store Locator &amp; Booking</h3>
+        <p class="casestudy-desc">Admin-managed store locator with jQuery UI datepicker integration, configurable congé date-range blocking, and a full Magento admin grid.</p>
+        <div class="casestudy-metrics">
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">15+</span>
+            <span class="casestudy-metric-lbl">Locations managed</span>
           </div>
-          <h3>Store Locator &amp; Booking</h3>
-          <p>Admin-managed store locator with jQuery UI datepicker integration, configurable congé date-range blocking, and a full Magento admin grid for managing location entries and unavailable periods.</p>
-          <div class="portfolio-meta">PHP · Magento 2 · jQuery UI</div>
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">100%</span>
+            <span class="casestudy-metric-lbl">Booking uptime</span>
+          </div>
+        </div>
+        <div class="casestudy-tech">
+          <span class="casestudy-tech-tag">PHP</span>
+          <span class="casestudy-tech-tag">Magento 2</span>
+          <span class="casestudy-tech-tag">jQuery UI</span>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="bento__item">
-      <div class="shell">
-        <div class="shell__core">
-          <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem;">
-            <span class="portfolio-tag">Security Integration</span>
+    <article class="casestudy-card">
+      <div class="casestudy-visual" style="background:linear-gradient(135deg,#1e3a2e,#2d5a3d)">
+        <span class="casestudy-initials">CF</span>
+      </div>
+      <div class="casestudy-body">
+        <div class="casestudy-tags">
+          <span class="portfolio-tag">Security Integration</span>
+        </div>
+        <h3 class="casestudy-title">Cloudflare Turnstile CAPTCHA</h3>
+        <p class="casestudy-desc">Full replacement for Google reCAPTCHA using Cloudflare's Turnstile API — integrated on registration, contact, and checkout forms.</p>
+        <div class="casestudy-metrics">
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">99.9%</span>
+            <span class="casestudy-metric-lbl">Spam blocked</span>
           </div>
-          <h3>Cloudflare Turnstile CAPTCHA</h3>
-          <p>Full replacement for Google reCAPTCHA using Cloudflare's Turnstile API — integrated on registration, contact, and checkout forms.</p>
-          <div class="portfolio-meta">PHP · Magento 2 · Cloudflare API</div>
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">2s</span>
+            <span class="casestudy-metric-lbl">Integration per form</span>
+          </div>
+        </div>
+        <div class="casestudy-tech">
+          <span class="casestudy-tech-tag">PHP</span>
+          <span class="casestudy-tech-tag">Magento 2</span>
+          <span class="casestudy-tech-tag">Cloudflare API</span>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="bento__item">
-      <div class="shell">
-        <div class="shell__core">
-          <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem;">
-            <span class="portfolio-tag">Custom Module</span>
+    <article class="casestudy-card">
+      <div class="casestudy-visual" style="background:linear-gradient(135deg,#2d1b2e,#4a2b4e)">
+        <span class="casestudy-initials">FC</span>
+      </div>
+      <div class="casestudy-body">
+        <div class="casestudy-tags">
+          <span class="portfolio-tag">Custom Module</span>
+          <span class="portfolio-tag">Checkout</span>
+        </div>
+        <h3 class="casestudy-title">Fast Checkout for Breeze</h3>
+        <p class="casestudy-desc">Simplified Breeze Evolution checkout for Tunisian stores — friction fields removed, country locked, COD-only payment.</p>
+        <div class="casestudy-metrics">
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">40%</span>
+            <span class="casestudy-metric-lbl">Faster checkout</span>
           </div>
-          <h3>Fast Checkout for Breeze</h3>
-          <p>Simplified Breeze Evolution checkout for Tunisian stores — friction fields removed, country locked, COD-only payment.</p>
-          <div class="portfolio-meta">PHP · Breeze Evolution · JS</div>
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">3</span>
+            <span class="casestudy-metric-lbl">Fields removed</span>
+          </div>
+        </div>
+        <div class="casestudy-tech">
+          <span class="casestudy-tech-tag">PHP</span>
+          <span class="casestudy-tech-tag">Breeze Evolution</span>
+          <span class="casestudy-tech-tag">JS</span>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="bento__item">
-      <div class="shell">
-        <div class="shell__core">
-          <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem;">
-            <span class="portfolio-tag">Admin Extension</span>
+    <article class="casestudy-card">
+      <div class="casestudy-visual" style="background:linear-gradient(135deg,#1e2a3e,#2a3d5e)">
+        <span class="casestudy-initials">IT</span>
+      </div>
+      <div class="casestudy-body">
+        <div class="casestudy-tags">
+          <span class="portfolio-tag">Admin Extension</span>
+        </div>
+        <h3 class="casestudy-title">International Telephone Input</h3>
+        <p class="casestudy-desc">Per-form phone and mobile field configuration via Magento admin, with intl-tel-input integrated across registration, contact, and checkout.</p>
+        <div class="casestudy-metrics">
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">50+</span>
+            <span class="casestudy-metric-lbl">Country codes</span>
           </div>
-          <h3>International Telephone Input</h3>
-          <p>Per-form phone and mobile field configuration via Magento admin, with intl-tel-input integrated across registration, contact, and checkout.</p>
-          <div class="portfolio-meta">PHP · Magento 2 · intl-tel-input</div>
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">3</span>
+            <span class="casestudy-metric-lbl">Form integrations</span>
+          </div>
+        </div>
+        <div class="casestudy-tech">
+          <span class="casestudy-tech-tag">PHP</span>
+          <span class="casestudy-tech-tag">Magento 2</span>
+          <span class="casestudy-tech-tag">intl-tel-input</span>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="bento__item bento__item--col-2">
-      <div class="shell">
-        <div class="shell__core">
-          <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem;">
-            <span class="portfolio-tag">Custom Module</span>
+    <article class="casestudy-card casestudy-card--wide">
+      <div class="casestudy-visual" style="background:linear-gradient(135deg,#1e2a1e,#2d4a2d)">
+        <span class="casestudy-initials">SA</span>
+      </div>
+      <div class="casestudy-body">
+        <div class="casestudy-tags">
+          <span class="portfolio-tag">Custom Module</span>
+          <span class="portfolio-tag">Frontend</span>
+        </div>
+        <h3 class="casestudy-title">Search Autocomplete</h3>
+        <p class="casestudy-desc">Production-ready search autocomplete built with the <code>x-magento-init</code> pattern and RequireJS AMD define — ensuring reliable script loading across Magento's asset pipeline in production deployments.</p>
+        <div class="casestudy-metrics">
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">0</span>
+            <span class="casestudy-metric-lbl">JS conflicts</span>
           </div>
-          <h3>Search Autocomplete</h3>
-          <p>Production-ready search autocomplete built with the <code>x-magento-init</code> pattern and RequireJS AMD define — ensuring reliable script loading across Magento's asset pipeline in production deployments.</p>
-          <div class="portfolio-meta">RequireJS · Magento 2 · JS</div>
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">100%</span>
+            <span class="casestudy-metric-lbl">AMD compliant</span>
+          </div>
+        </div>
+        <div class="casestudy-tech">
+          <span class="casestudy-tech-tag">RequireJS</span>
+          <span class="casestudy-tech-tag">Magento 2</span>
+          <span class="casestudy-tech-tag">JS</span>
         </div>
       </div>
-    </div>
+    </article>
 
   </div>
 
-  <div class="reveal" style="margin-top:3rem;">
+  <div class="portfolio-section-spacer">
     <h2 class="portfolio-section-title">SEO &amp; Migration</h2>
   </div>
 
-  <div class="bento reveal-stagger" style="margin-top:1rem;">
-    <div class="bento__item bento__item--col-2">
-      <div class="shell">
-        <div class="shell__core">
-          <div style="display:flex;justify-content:space-between;margin-bottom:0.75rem;">
-            <span class="portfolio-tag">SEO</span>
+  <div class="casestudy-grid reveal-stagger">
+
+    <article class="casestudy-card casestudy-card--wide">
+      <div class="casestudy-visual" style="background:linear-gradient(135deg,#2e1a1a,#4a2d2d)">
+        <span class="casestudy-initials">301</span>
+      </div>
+      <div class="casestudy-body">
+        <div class="casestudy-tags">
+          <span class="portfolio-tag">SEO</span>
+          <span class="portfolio-tag">Migration</span>
+        </div>
+        <h3 class="casestudy-title">Bulk 301 Redirect Migration Script</h3>
+        <p class="casestudy-desc">MySQL script that processed 519 URL redirects sourced from Google Search Console data for the qartaj.com replatforming. Preserved organic rankings and eliminated crawl errors during a full Magento 2 site migration.</p>
+        <div class="casestudy-metrics">
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">519</span>
+            <span class="casestudy-metric-lbl">Redirects migrated</span>
           </div>
-          <h3>Bulk 301 Redirect Migration Script</h3>
-          <p>MySQL script that processed 519 URL redirects sourced from Google Search Console data for the qartaj.com replatforming. Preserved organic rankings and eliminated crawl errors during a full Magento 2 site migration.</p>
-          <div class="portfolio-meta">MySQL · Magento 2</div>
+          <div class="casestudy-metric">
+            <span class="casestudy-metric-num">0</span>
+            <span class="casestudy-metric-lbl">Crawl errors</span>
+          </div>
+        </div>
+        <div class="casestudy-tech">
+          <span class="casestudy-tech-tag">MySQL</span>
+          <span class="casestudy-tech-tag">Magento 2</span>
         </div>
       </div>
-    </div>
+    </article>
+
   </div>
 
-  <div class="portfolio-footer reveal">
-    All modules follow Magento 2 coding standards — dependency injection, observer and plugin patterns,
-    and proper <code>di.xml</code> / <code>events.xml</code> declarations. Available for custom module
-    development, code audits, and Magento 2 performance optimization.
+  <div class="casestudy-cta reveal">
+    <p>All modules follow Magento 2 coding standards — dependency injection, observer and plugin patterns, and proper <code>di.xml</code> / <code>events.xml</code> declarations. Available for custom module development, code audits, and Magento 2 performance optimization.</p>
+    <a href="/contact/" class="btn btn--primary group">
+      <span>Start your project</span>
+      <span class="btn__icon">↗</span>
+    </a>
   </div>
 
 </div>
