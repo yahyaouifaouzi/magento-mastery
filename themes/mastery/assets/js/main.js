@@ -49,7 +49,7 @@
   }
 
   /* ─── Scroll Reveal (IntersectionObserver) ─── */
-  const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-stagger, .reveal-right, .reveal-scale-in');
+  const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-stagger, .reveal-right, .reveal-scale-in, .reveal-fade, .reveal-blur, .reveal-scale-zoom, .reveal-clip');
   if (revealElements.length) {
     const io = new IntersectionObserver(
       (entries) => {
