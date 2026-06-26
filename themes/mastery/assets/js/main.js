@@ -50,6 +50,7 @@
 
   /* ─── Scroll Reveal (IntersectionObserver) ─── */
   const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-stagger, .reveal-right, .reveal-scale-in, .reveal-fade, .reveal-blur, .reveal-scale-zoom, .reveal-clip');
+debugger;
   if (revealElements.length) {
     const io = new IntersectionObserver(
         (entries) => {
@@ -64,9 +65,9 @@
     );
 
     revealElements.forEach(el => {
-      // If already in viewport on load, make visible immediately
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
+        // Already visible on load — don't animate, just show
         el.classList.add('visible');
       } else {
         io.observe(el);
