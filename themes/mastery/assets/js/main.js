@@ -52,17 +52,26 @@
   const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale, .reveal-stagger, .reveal-right, .reveal-scale-in, .reveal-fade, .reveal-blur, .reveal-scale-zoom, .reveal-clip');
   if (revealElements.length) {
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.06, rootMargin: '0px 0px -40px 0px' }
     );
-    revealElements.forEach(el => io.observe(el));
+
+    revealElements.forEach(el => {
+      // If already in viewport on load, make visible immediately
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible');
+      } else {
+        io.observe(el);
+      }
+    });
   }
 
   /* ─── Stat Counter ─── */
