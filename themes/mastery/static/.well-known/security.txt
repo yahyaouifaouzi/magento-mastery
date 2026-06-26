@@ -1,0 +1,7 @@
+# Security Contact — magento-mastery.com
+# RFC 9116 — https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:faouzi.yahyaoui@gmail.com
+Expires: 2027-06-26T00:00:00.000Z
+Preferred-Languages: en, fr
+Canonical: https://www.magento-mastery.com/.well-known/security.txt
