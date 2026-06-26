@@ -30,6 +30,8 @@
 </div>
 
 <script src="/js/theme.js" defer></script>
+{{ $js := resources.Get "js/main.js" | minify }}
+<script>{{ $js.Content | safeJS }}</script>
 {{ partial "analytics.html" . }}
 </body>
 </html>
