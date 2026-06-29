@@ -13,7 +13,6 @@
   <div class="blog-list reveal-stagger">
     {{ range $p := .Pages }}
     <a href="{{ $p.Permalink }}" class="shell blog-item-link">
-      <div class="blog-hero-img">{{ partial "post-hero-image" $p }}</div>
       <div class="shell__core blog-item">
         <div>
           <h3>{{ $p.Title }}</h3>

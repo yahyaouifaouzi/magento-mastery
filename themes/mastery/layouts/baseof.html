@@ -2,7 +2,6 @@
 <html lang="en" data-theme="dark">
 <head>
   {{ partial "head.html" . }}
-  {{ partial "head/schema.html" . }}
 </head>
 <body>
 
@@ -12,9 +11,9 @@
 
 <main id="main-content">
   {{ block "main" . }}{{ end }}
+  {{ partial "pricing.html" . }}
 </main>
 
-{{ partial "pricing.html" . }}
 {{ partial "footer.html" . }}
 
 <!-- Cookie consent -->

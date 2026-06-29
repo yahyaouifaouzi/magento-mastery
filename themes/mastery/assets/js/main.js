@@ -35,6 +35,7 @@
       const open = overlay.classList.toggle('open');
       burger.classList.toggle('active');
       burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.body.style.overflow = open ? 'hidden' : '';
     });
 

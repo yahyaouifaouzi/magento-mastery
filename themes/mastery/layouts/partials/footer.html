@@ -17,7 +17,7 @@
       </div>
 
       <div class="footer-nav">
-        <span class="footer-nav-label">Navigation</span>
+        <h3 class="footer-nav-label">Navigation</h3>
         <ul>
           {{ range site.Menus.main }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="footer-nav">
-        <span class="footer-nav-label">Latest articles</span>
+        <h3 class="footer-nav-label">Latest articles</h3>
         <ul>
           {{ $posts := first 5 (where .Site.RegularPages "Section" "blog") }}
           {{ if $posts }}
