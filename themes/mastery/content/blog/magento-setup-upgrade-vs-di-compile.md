@@ -9,6 +9,8 @@ tags: ["magento2", "ecommerce", "deployment", "cli", "backend"]
 categories: ["Technical Deep Dives"]
 author: "Faouzi Yahyaoui"
 draft: false
+hub: "core-architecture"
+pillar: false
 ---
 
 # Complete Guide: `bin/magento setup:upgrade` vs `setup:di:compile`

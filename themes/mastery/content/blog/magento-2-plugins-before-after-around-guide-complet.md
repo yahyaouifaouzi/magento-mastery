@@ -11,6 +11,8 @@ tags: ["magento 2", "plugins", "interceptors", "before after around", "magento d
 categories: ["Magento 2", "Développement", "Tutoriels"]
 keywords: ["magento 2 plugin before after around", "magento 2 interceptor", "magento 2 before plugin example", "magento 2 after plugin", "magento 2 around plugin", "magento plugin sortOrder", "create plugin magento 2", "magento 2 interception"]
 slug: "magento-2-plugins-before-after-around-complete-guide"
+hub: "core-architecture"
+pillar: true
 ---
 
 Magento 2 plugins (also called interceptors) let you customize core or third-party behavior without touching the original source code — a critical requirement for staying upgrade-safe. This guide breaks down the three plugin types — **before**, **after**, and **around** — with real-world examples, `di.xml` syntax, common pitfalls, and the rules Magento enforces under the hood.

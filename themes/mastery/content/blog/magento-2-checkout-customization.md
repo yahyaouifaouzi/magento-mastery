@@ -11,6 +11,8 @@ tags: ["magento 2", "checkout", "knockout js", "magento development", "php", "e-
 categories: ["Magento 2", "Développement", "Tutoriels"]
 keywords: ["magento 2 checkout customization", "magento 2 checkout layout", "magento 2 knockout checkout", "magento 2 add shipping field", "magento 2 custom checkout step", "magento 2 checkout extension"]
 slug: "magento-2-checkout-customization"
+hub: "customization-api"
+pillar: true
 ---
 
 Magento 2's checkout is built on a **Knockout.js** single-page application — it's powerful but notoriously complex to customize. This guide covers every major approach: layout XML overrides, Knockout component extensions, adding/removing fields, custom steps, shipping and payment modifications, and best practices to stay upgrade-safe. You can also check out my full [Magento 2 development service](/services/magento-2-development/) if you need a complete checkout implementation.

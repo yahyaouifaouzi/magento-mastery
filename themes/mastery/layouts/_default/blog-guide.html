@@ -1,0 +1,105 @@
+{{ define "main" }}
+<div class="container blog-guide">
+
+  <div class="page-header reveal">
+    <span class="section-label">Reading Guide</span>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+
+  {{ $posts := where site.RegularPages "Section" "blog" }}
+
+  {{/* Define hubs with their metadata */}}
+  {{ $hubs := slice
+    (dict
+      "id" "core-architecture"
+      "num" "01"
+      "title" "Core Magento 2 Architecture"
+      "desc" "Understand Magento 2's extension system — plugins, DI compilation, and the event-driven architecture that powers every custom module."
+      "color" "var(--color-accent)"
+      "pillar" "/blog/magento-2-plugins-before-after-around-complete-guide/"
+      "articles" (slice
+        (dict "url" "/blog/magento-2-plugins-before-after-around-complete-guide/" "pillar" true "title" "Magento 2 Plugins: Before, After & Around" "desc" "Master the 3 interceptor types: when to use each, sort order, and real-world patterns.")
+        (dict "url" "/blog/magento-setup-upgrade-vs-di-compile/" "pillar" false "title" "setup:upgrade vs setup:di:compile" "desc" "Know exactly when to run each command and why during your deployment workflow.")
+        (dict "url" "/blog/magento-2-observers-events/" "pillar" false "title" "Magento 2 Observers & Events" "desc" "Hook into Magento's event system to react to orders, customers, and admin actions without editing core.")
+      )
+    )
+    (dict
+      "id" "performance"
+      "num" "02"
+      "title" "Performance &amp; Optimization"
+      "desc" "Speed drives e-commerce conversions. Learn Magento-specific caching, indexing, and frontend performance strategies that deliver measurable improvements."
+      "color" "#22c55e"
+      "pillar" "/blog/magento-2-caching-strategies/"
+      "articles" (slice
+        (dict "url" "/blog/magento-2-caching-strategies/" "pillar" true "title" "Magento 2 Caching Strategies" "desc" "Full-page cache, Varnish, Redis, and cache tagging — a complete caching architecture guide for Magento 2.")
+        (dict "url" "/blog/magento-2-indexers-complete-guide/" "pillar" false "title" "Magento 2 Indexers Explained" "desc" "How indexers work, mview changelog, and production troubleshooting for stuck or invalid indexers.")
+        (dict "url" "/blog/magento-2-core-web-vitals/" "pillar" false "title" "Core Web Vitals in Magento" "desc" "Optimise LCP, INP, and CLS specifically for Magento 2 stores — from server tuning to frontend asset optimisation.")
+      )
+    )
+    (dict
+      "id" "customization-api"
+      "num" "03"
+      "title" "Customization &amp; API"
+      "desc" "Extend Magento 2 with custom checkout flows, payment integrations, and headless APIs — covering both frontend Knockout.js and API-layer development."
+      "color" "#a78bfa"
+      "pillar" "/blog/magento-2-checkout-customization/"
+      "articles" (slice
+        (dict "url" "/blog/magento-2-checkout-customization/" "pillar" true "title" "Magento 2 Checkout Customization" "desc" "Full checkout customisation: layout XML, Knockout.js components, shipping, payment, and third-party module integration.")
+        (dict "url" "/blog/magento-2-graphql-api-complete-guide/" "pillar" false "title" "Magento 2 GraphQL API Guide" "desc" "Queries, mutations, custom resolvers, authentication, and headless PWA patterns for Magento 2.")
+        (dict "url" "/blog/magento-2-rest-api-best-practices/" "pillar" false "title" "REST API Best Practices" "desc" "Clean REST endpoints, proper error handling, bulk operations, and integration patterns for Magento 2.")
+      )
+    )
+  }}
+
+  <div class="bg-hubs reveal-stagger">
+    {{ range $hubs }}
+    <section class="bg-hub" id="{{ .id }}">
+      <div class="bg-hub-header">
+        <span class="bg-hub-num" style="color:{{ .color }}">{{ .num }}</span>
+        <div>
+          <h2 class="bg-hub-title">{{ .title }}</h2>
+          <p class="bg-hub-desc">{{ .desc }}</p>
+        </div>
+      </div>
+
+      <div class="bg-articles">
+        {{ range .articles }}
+        <a href="{{ .url }}" class="shell bg-article{{ if .pillar }} bg-article--pillar{{ end }}">
+          <div class="shell__core bg-article-body">
+            {{ if .pillar }}<span class="bg-badge">Pillar</span>{{ end }}
+            <h3 class="bg-article-title">{{ .title }}</h3>
+            <p class="bg-article-desc">{{ .desc }}</p>
+            <span class="bg-article-link">Read article →</span>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+  </div>
+
+  <div class="bg-outro reveal">
+    <div class="shell">
+      <div class="shell__core bg-outro-body">
+        <h3>Not sure where to start?</h3>
+        <p>If you're new to Magento 2, begin with Hub 1 — understanding plugins and DI is the prerequisite for everything else. Store owners and merchants may prefer Hub 2 first for quick performance wins. Building a custom feature? Head straight to Hub 3.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell bg-cta reveal">
+    <div class="shell__core cta-row">
+      <div>
+        <h3>Subscribe for new Magento 2 content</h3>
+        <p>Get notified when I publish new articles, guides, and tutorials. No spam — just Magento 2 development content.</p>
+      </div>
+      <a href="/contact/" class="btn btn--primary group">
+        <span>Subscribe</span>
+        <span class="btn__icon">↗</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+{{ end }}

@@ -200,6 +200,27 @@
     document.querySelectorAll('.post-body h2[id], .post-body h3[id]').forEach(h => tocObserver.observe(h));
   }
 
+  /* ─── Pricing → Contact: pre-fill subject from query param ─── */
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    if (!type) return;
+    const subjectMap = {
+      'single-bug': 'Single Bug Fix / Small Task — Quote Request',
+      'custom-module': 'Custom Module Development — Quote Request',
+      'audit': 'Full Store Audit & Optimization — Quote Request',
+      'free-call': 'Free Discovery Call — Not Sure Yet'
+    };
+    const subject = subjectMap[type];
+    if (!subject) return;
+    const subjectInput = document.getElementById('subject');
+    if (subjectInput) subjectInput.value = subject;
+    const msgInput = document.getElementById('message');
+    if (msgInput && type !== 'free-call') {
+      msgInput.focus();
+    }
+  })();
+
   /* ─── Code Block Copy Button ─── */
   document.querySelectorAll('.highlight').forEach(block => {
     const btn = document.createElement('button');

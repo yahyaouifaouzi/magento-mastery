@@ -1,0 +1,55 @@
+{{ define "main" }}
+<div class="container portfolio-page">
+
+  <div class="page-header reveal">
+    <span class="section-label">Case Studies</span>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+
+  <div class="casestudy-grid reveal-stagger">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="casestudy-card casestudy-card--wide">
+      <a href="{{ .RelPermalink }}" class="casestudy-card-link">
+        <div class="casestudy-visual" style="background:linear-gradient(135deg,#1e2a3e,#2a3d5e)">
+          <span class="casestudy-initials">{{ substr .Params.client 0 2 }}</span>
+        </div>
+        <div class="casestudy-body">
+          <div class="casestudy-tags">
+            <span class="portfolio-tag">Case Study</span>
+          </div>
+          <h3 class="casestudy-title">{{ .Params.client }}</h3>
+          <p class="casestudy-desc">{{ .Description }}</p>
+          <div class="casestudy-metrics">
+            <div class="casestudy-metric">
+              <span class="casestudy-metric-num">{{ .Params.key_metric }}</span>
+              <span class="casestudy-metric-lbl">Key result</span>
+            </div>
+          </div>
+          <div class="casestudy-tech">
+            {{ range split .Params.tech_stack "|" }}
+            <span class="casestudy-tech-tag">{{ trim . " " }}</span>
+            {{ end }}
+          </div>
+        </div>
+      </a>
+    </article>
+    {{ else }}
+    <div class="shell">
+      <div class="shell__core">
+        <p>No case studies published yet.</p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="casestudy-cta reveal">
+    <p>Want a detailed case study like this for your project?</p>
+    <a href="/contact/" class="btn btn--primary group">
+      <span>Start your project</span>
+      <span class="btn__icon">↗</span>
+    </a>
+  </div>
+
+</div>
+{{ end }}

@@ -11,6 +11,8 @@ tags: ["magento 2", "magento development", "performance optimization", "devops",
 categories: ["Magento 2", "Développement", "Tutoriels"]
 keywords: ["magento 2 indexers", "magento indexer reindex", "magento indexer status", "magento 2 update on schedule", "magento mview changelog", "stuck indexer magento 2", "catalog_product_price indexer", "magento 2 cron indexers"]
 slug: "magento-2-indexers-complete-guide"
+hub: "performance"
+pillar: false
 ---
 
 Magento 2 indexers keep your storefront fast by pre-computing data that would otherwise require expensive joins at runtime — product prices, stock status, category assignments, and search results. When indexers fall behind or get stuck, you see wrong prices, empty categories, and search that returns nothing. This guide explains how indexers work, how to manage them from the CLI, and how to keep them healthy in production.

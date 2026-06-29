@@ -11,6 +11,8 @@ tags: ["magento 2", "magento development", "php", "e-commerce", "adobe-commerce"
 categories: ["Magento 2", "Développement", "Tutoriels"]
 keywords: ["magento 2 graphql", "magento graphql api", "magento 2 headless", "magento graphql query products", "magento graphql cart mutation", "custom graphql resolver magento 2", "magento 2 pwa studio", "magento graphql authentication"]
 slug: "magento-2-graphql-api-complete-guide"
+hub: "customization-api"
+pillar: false
 ---
 
 Magento 2's GraphQL API is the backbone of modern headless storefronts, PWAs, and mobile apps. Unlike REST — which often requires multiple round-trips — GraphQL lets a client request exactly the fields it needs in a single call. This guide covers the built-in schema, authentication, cart and checkout mutations, custom resolver development, and the performance patterns that matter in production.

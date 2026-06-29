@@ -42,7 +42,7 @@ theme = "mastery"
   [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 5
+    weight = 6
 
 [permalinks]
   posts = "/blog/:slug/"
