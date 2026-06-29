@@ -46,6 +46,37 @@
   --noise-opacity: 0.035;
 }
 
+/* ─── Light Mode ─── */
+[data-theme="light"] {
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #edeef1;
+  --color-text: #1a1d27;
+  --color-text-muted: #64748b;
+  --color-accent-soft: rgba(249, 115, 22, 0.08);
+  --color-accent-glow: rgba(249, 115, 22, 0.15);
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.08);
+  --overlay: rgba(255, 255, 255, 0.88);
+  --noise-opacity: 0.02;
+}
+
+/* ─── Blog Hero Images ─── */
+.blog-hero-img {
+  height: 80px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  line-height: 0;
+}
+.blog-hero-img svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 /* ─── Reset ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -503,7 +534,7 @@ a:not(.btn):not(.tag-link):not(.nav-link):not(.footer-link):not(.post-back):hove
 }
 
 .nav-scrolled .nav-inner {
-  background: rgba(15, 17, 23, 0.9);
+  background: var(--color-bg);
   border-color: var(--color-border);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -549,7 +580,7 @@ a:not(.btn):not(.tag-link):not(.nav-link):not(.footer-link):not(.post-back):hove
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--color-text);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--color-surface-2);
 }
 
 .theme-toggle {
@@ -568,7 +599,7 @@ a:not(.btn):not(.tag-link):not(.nav-link):not(.footer-link):not(.post-back):hove
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--color-surface-2);
   transform: scale(1.05);
 }
 
@@ -658,7 +689,7 @@ a:not(.btn):not(.tag-link):not(.nav-link):not(.footer-link):not(.post-back):hove
 
 .nav-overlay-links a:hover {
   color: var(--color-text);
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--color-surface-2);
 }
 
 .nav-overlay-links li {

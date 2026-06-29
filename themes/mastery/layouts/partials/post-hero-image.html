@@ -1,0 +1,18 @@
+{{ $h := md5 .Title }}
+{{ $h = replace $h "a" "10" }}
+{{ $h = replace $h "b" "11" }}
+{{ $h = replace $h "c" "12" }}
+{{ $h = replace $h "d" "13" }}
+{{ $h = replace $h "e" "14" }}
+{{ $h = replace $h "f" "15" }}
+{{ $h = substr $h 0 9 }}
+{{ $seed := int $h }}
+{{ $s1 := mod $seed 97 }}
+{{ $s2 := mod (mul $seed 7) 113 }}
+{{ $wedge := mod (mul $s1 3) 280 | add 40 }}
+{{ $w := 400 }}
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {{ $w }} 180" fill="none">
+  <rect width="{{ $w }}" height="180" fill="#0f1117"/>
+  <polygon points="0,180 {{ $wedge }},180 {{ $w }},140 {{ $w }},180" fill="rgba(249,115,22,0.06)"/>
+  <rect x="0" y="176" width="{{ $wedge }}" height="4" fill="#f97316" rx="2"/>
+</svg>

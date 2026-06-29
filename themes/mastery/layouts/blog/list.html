@@ -13,6 +13,7 @@
   <div class="blog-list reveal-stagger">
     {{ range $p := .Pages }}
     <a href="{{ $p.Permalink }}" class="shell blog-item-link">
+      <div class="blog-hero-img">{{ partial "post-hero-image" $p }}</div>
       <div class="shell__core blog-item">
         <div>
           <h3>{{ $p.Title }}</h3>
@@ -22,7 +23,7 @@
             <span>{{ $p.ReadingTime }} min read</span>
             {{ with $p.Params.tags }}{{ range first 2 . }}<span class="blog-tag">{{ . }}</span>{{ end }}{{ end }}
           </div>
-          {{ with $p.Summary }}<p class="blog-summary">{{ . }}</p>{{ end }}
+          {{ with $p.Summary }}<p class="blog-summary">{{ . | plainify | truncate 140 }}</p>{{ end }}
         </div>
         <span class="blog-arrow" aria-hidden="true">→</span>
       </div>
