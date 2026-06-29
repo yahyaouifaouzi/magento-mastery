@@ -1,41 +1,51 @@
 # Magento Mastery — AGENTS.md
 
-This is a **Hugo static site** (v0.163.3 extended) for a Magento 2 freelance portfolio. No JS build tools, no tests, no CI.
+**Hugo static site** (v0.163.3 extended, `hugo.toml` at root). Magento 2 freelance portfolio. **No JS build tools, no tests, no CI.**
 
-## Quick commands
+## Commands
 
 | Goal | Command |
 |------|---------|
 | Dev server | `hugo server -D` |
 | Production build | `hugo --minify` |
-| Create new blog post | `hugo new blog/post-name.md` |
+| New blog post | `hugo new content/blog/post-name.md` (creates at root `content/`; the theme's `themes/mastery/content/` also contributes) |
 
-Output goes to `/public` (gitignored).
+Output to `public/` (gitignored).
 
-## Key structure
+## Key structural facts
 
-- **Theme**: `themes/mastery/` — all layouts, assets, content live here
-- **Content**: `themes/mastery/content/` (no root `content/` directory)
-- **CSS**: `themes/mastery/assets/css/style.css` — single file, Hugo Pipes minify + inline
-- **JS**: `themes/mastery/assets/js/main.js` (Hugo Pipes) + `themes/mastery/static/js/theme.js` (plain `<script>`)
-- **Fonts**: Plus Jakarta Sans (Google Fonts, loaded in `partials/head/css.html`), JetBrains Mono (local WOFF2)
-- **Icons**: custom SVG partial at `layouts/partials/icon.html`
-- **Config**: `hugo.toml` (root) + `themes/mastery/hugo.toml` (theme defaults)
+- **Theme** is `themes/mastery/` — THAT is where layouts, assets, and content actually live
+- **Homepage layout**: `themes/mastery/layouts/index.html` (NOT `home.html` — that file exists but is unused)
+- **CSS**: single file `themes/mastery/assets/css/style.css`, minified + inlined via Hugo Pipes. **No Tailwind** — all custom CSS with custom properties
+- **JS**: `assets/js/main.js` (Hugo Pipes, inlined in `<script>`) + `static/js/theme.js` (plain `<script src>`)
+- **Pricing section**: rendered by `partials/pricing.html` in `baseof.html` after `<main>` — appears on every page before the footer
+- **Icons**: partial at `layouts/partials/icon.html` — invoked as `{{ partial "icon" (dict "name" "icon-name") }}`
+- **Config**: root `hugo.toml` overrides `themes/mastery/hugo.toml`; the root has extra menu items (Case Studies, Services) that the theme default lacks
+- **`surface` class** had no CSS definition — was added to match `.shell` styling. If adding bento-style cards, check `.shell` / `.surface` carefully
 
-## Content conventions
+## Content
 
-- Blog posts: `themes/mastery/content/blog/<slug>.md`
-  - Frontmatter uses: `title`, `date`, `lastmod`, `draft`, `description`, `summary`, `tags`, `categories`, `keywords`, `slug`
-  - Permalink: `/blog/:slug/` (note: `slug` in frontmatter must match, not the filename)
-- Service pages: `themes/mastery/content/services/<name>.md` — uses `_index.md` for listing
-- Portfolio, contact, legal: flat Markdown files at `themes/mastery/content/`
-- Taxonomy: categories and tags with `_index.md` pages for descriptions
-- Dark mode default; toggle persisted in `localStorage`
+- **Blog**: posts at `themes/mastery/content/blog/<slug>.md` — currently 13 published. Frontmatter: `title`, `date`, `lastmod`, `draft`, `description`, `summary`, `tags`, `categories`, `keywords`, `slug`. Permalink `/blog/:slug/` (frontmatter `slug` must match, not the filename)
+- **Topic clusters**: some posts use `hub` and `pillar` frontmatter fields for a `/blog-guide/` page. Template at `layouts/_default/blog-guide.html`
+- **Case studies**: `content/case-studies/` with `_index.md` + `single.html` layout. Array-driven frontmatter (`challenge`, `solution`, `results`)
+- **Service pages**: `content/services/<name>.md` with `_index.md` for listing
+- Blog listing template at `layouts/blog/list.html` (no hero images — was removed)
 
-## Agent workflow notes
+## Gotchas & constraints
 
-- **Design quality**: `.claude/settings.local.json` runs an Impeccable hook after edits. Review its feedback.
-- **Analytics**: Google Analytics (`G-PXSV18RMC2`), lazy-loaded after 3s/scroll/click. Excluded in `hugo server` (dev mode).
-- **LLMS output**: custom plain-text output for AI consumption at `/llms.txt` (configured in `hugo.toml`)
-- **Speculation rules**: prefetch/prerender injected only in production builds (`partials/head/js.html`)
-- **No README** in repo; the site is the documentation.
+- **Contact form** uses Formspree with `YOUR_FORM_ID` placeholder — must be replaced for production
+- **Pricing cards** link to `/contact/?type=...` → JS in `main.js` pre-fills the subject field via URL param
+- **Dark mode** is default; toggle persisted in `localStorage`. Page has `data-theme="dark"` on `<html>`; light mode via `[data-theme="light"]` overrides
+- **Analytics** (G-PXSV18RMC2) lazy-loaded after 3s/scroll/click via `partials/analytics.html`; skipped in `hugo server`
+- **Speculation rules** (prefetch/prerender) injected only in production builds (`partials/head/js.html`)
+- **`hugo server`** excludes analytics, speculation rules, and SEO meta additions — test with `hugo --minify` to see full output
+- `main.js` handles: scroll reveal (IntersectionObserver), stat counters, cookie consent, form validation, reading progress bar, TOC active-link tracking, pricing pre-fill, code copy buttons
+- **`.claude/settings.local.json`** runs an Impeccable hook after Edit/Write on UI files — review its feedback
+- LLMS plain-text output at `/llms.txt` (configured in `hugo.toml` `[outputs]`)
+
+## Design conventions
+
+- Accent color: `#f97316` (orange-500)
+- Fonts: Plus Jakarta Sans (Google Fonts, non-blocking load) + JetBrains Mono (local WOFF2)
+- All interactive elements need `:focus-visible` styles and proper ARIA attributes
+- iOS form inputs must use `font-size: 1rem` minimum (prevents auto-zoom)
