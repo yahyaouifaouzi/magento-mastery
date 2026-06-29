@@ -118,38 +118,90 @@
     });
   })();
 
-  /* ─── Form Validation ─── */
+  /* ─── Form Validation & Inline Submit ─── */
   document.querySelectorAll('.contact-form').forEach(form => {
     const inputs = form.querySelectorAll('input, textarea');
-    form.addEventListener('submit', e => {
+    const feedback = form.querySelector('.form-feedback');
+
+    const validate = () => {
       let valid = true;
       inputs.forEach(input => {
-        const error = input.parentElement.querySelector('.form-error');
-        if (error) error.remove();
-        input.style.borderColor = '';
-        if (input.hasAttribute('required') && !input.value.trim()) {
+        const group = input.closest('.form-group');
+        if (!group) return;
+        group.classList.remove('has-error');
+        input.removeAttribute('aria-invalid');
+        const existing = group.querySelector('.form-error');
+        if (existing) existing.remove();
+        const errorId = input.id + '-error';
+        input.removeAttribute('aria-describedby');
+
+        const showError = (message) => {
           valid = false;
-          input.style.borderColor = '#ef4444';
+          group.classList.add('has-error');
+          input.setAttribute('aria-invalid', 'true');
           const msg = document.createElement('span');
           msg.className = 'form-error';
-          msg.style.cssText = 'font-size:0.75rem;color:#ef4444;margin-top:0.25rem;display:block;';
-          msg.textContent = input.name === 'email' ? 'Email is required' : `${input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required`;
-          input.parentElement.appendChild(msg);
-        }
-        if (input.type === 'email' && input.value.trim()) {
-          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!re.test(input.value.trim())) {
-            valid = false;
-            input.style.borderColor = '#ef4444';
-            const msg = document.createElement('span');
-            msg.className = 'form-error';
-            msg.style.cssText = 'font-size:0.75rem;color:#ef4444;margin-top:0.25rem;display:block;';
-            msg.textContent = 'Please enter a valid email address';
-            input.parentElement.appendChild(msg);
+          msg.id = errorId;
+          msg.textContent = message;
+          group.appendChild(msg);
+          input.setAttribute('aria-describedby', errorId);
+        };
+
+        if (input.hasAttribute('required') && !input.value.trim()) {
+          const labels = {
+            name: 'Name is required',
+            email: 'Email is required',
+            message: 'Message is required'
+          };
+          showError(labels[input.name] || `${input.name.charAt(0).toUpperCase() + input.name.slice(1)} is required`);
+        } else if (input.type === 'email' && input.value.trim()) {
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) {
+            showError('Please enter a valid email address');
           }
         }
       });
-      if (!valid) e.preventDefault();
+      return valid;
+    };
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      if (feedback) {
+        feedback.className = 'form-feedback';
+        feedback.textContent = '';
+      }
+
+      if (!validate()) return;
+
+      const replyto = document.getElementById('_replyto');
+      const emailInput = document.getElementById('email');
+      if (replyto && emailInput) replyto.value = emailInput.value;
+
+      const data = new FormData(form);
+      data.append('_redirect', 'false');
+
+      fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(r => r.ok ? r.json() : Promise.reject(r))
+        .then(() => {
+          if (feedback) {
+            feedback.className = 'form-feedback is-success';
+            feedback.textContent = 'Message sent! I\'ll get back to you within 24 hours.';
+          }
+          form.querySelectorAll('input, textarea').forEach(i => i.value = '');
+        })
+        .catch(() => {
+          if (feedback) {
+            feedback.className = 'form-feedback is-error';
+            feedback.textContent = 'Something went wrong. Please try again or email me directly at hi@magento-mastery.com.';
+          }
+        })
+        .finally(() => {
+          const btn = form.querySelector('button[type="submit"]');
+          if (btn) btn.disabled = false;
+        });
+
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) btn.disabled = true;
     });
   });
 

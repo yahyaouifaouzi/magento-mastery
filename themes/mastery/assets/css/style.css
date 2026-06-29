@@ -3483,6 +3483,27 @@ article h1 {
   }
 }
 
+.form-group.has-error input,
+.form-group.has-error textarea {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.form-feedback {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  min-height: 0;
+  transition: min-height var(--duration-fast) var(--ease-smooth);
+}
+
+.form-feedback.is-error {
+  color: #ef4444;
+}
+
+.form-feedback.is-success {
+  color: #22c55e;
+}
+
 /* ─── Tag / Category pages ─── */
 .tag-page,
 .taxonomy-page {

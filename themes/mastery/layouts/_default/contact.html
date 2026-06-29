@@ -36,13 +36,18 @@
     </aside>
 
     <div class="contact-form-wrap">
+      <!-- Replace YOUR_FORM_ID with a real Formspree endpoint for production -->
       <form
         class="contact-form"
         action="https://formspree.io/f/YOUR_FORM_ID"
         method="POST"
+        novalidate
         toolname="submit_contact_request"
         tooldescription="Submit a project inquiry to Magento Mastery"
       >
+
+        <input type="hidden" name="_gotcha">
+        <input type="hidden" name="_replyto" id="_replyto">
 
         <div class="form-group">
           <label for="name">Name <span class="form-required">*</span></label>
@@ -50,6 +55,7 @@
             type="text"
             id="name"
             name="name"
+            autocomplete="name"
             placeholder="Your name"
             toolparamtitle="Full Name"
             toolparamdescription="The full name of the contact person"
@@ -62,6 +68,7 @@
             type="email"
             id="email"
             name="email"
+            autocomplete="email"
             placeholder="your@email.com"
             toolparamtitle="Email Address"
             toolparamdescription="The email address to reply to"
@@ -74,6 +81,7 @@
             type="text"
             id="subject"
             name="subject"
+            autocomplete="off"
             placeholder="Project type or question"
             toolparamtitle="Inquiry Subject"
             toolparamdescription="The main topic or project scope description">
@@ -94,6 +102,8 @@
           <span>Send Message</span>
           <span class="btn__icon">↗</span>
         </button>
+
+        <div class="form-feedback" aria-live="polite"></div>
 
       </form>
     </div>
