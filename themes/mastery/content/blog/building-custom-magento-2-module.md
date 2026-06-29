@@ -1,5 +1,6 @@
 ---
 title: "Build a Magento 2 Module from Scratch (2026 Guide)"
+seo_title: "Build a Magento 2 Module from Scratch | Magento Mastery"
 date: 2026-06-10
 lastmod: 2026-06-10
 summary: "Learn how to build a production-ready Magento 2 custom module step by step."

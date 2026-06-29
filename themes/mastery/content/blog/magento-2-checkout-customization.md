@@ -1,5 +1,6 @@
 ---
 title: "Magento 2 Checkout Customization: Step-by-Step Guide (2026)"
+seo_title: "Magento 2 Checkout Customization Guide | Magento Mastery"
 date: 2026-06-24
 lastmod: 2026-06-24
 draft: false

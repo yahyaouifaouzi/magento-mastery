@@ -1,5 +1,6 @@
 ---
 title: "Magento 2 Indexers Explained: Complete Developer Guide (2026)"
+seo_title: "Magento 2 Indexers Complete Guide | Magento Mastery"
 date: 2026-06-19
 lastmod: 2026-06-19
 draft: false

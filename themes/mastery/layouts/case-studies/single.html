@@ -1,0 +1,97 @@
+{{ define "main" }}
+<div class="container cs-single">
+
+  <nav class="svc-breadcrumb reveal" aria-label="Breadcrumb">
+    <a href="/">Home</a>
+    <span>›</span>
+    <a href="/portfolio/">Portfolio</a>
+    <span>›</span>
+    <span>{{ .Title }}</span>
+  </nav>
+
+  <div class="cs-hero reveal">
+    <div class="cs-hero-left">
+      <span class="section-label">case study</span>
+      <h1>{{ .Params.client }}</h1>
+      <p class="cs-url">
+        <a href="{{ .Params.website_url }}" target="_blank" rel="noopener noreferrer">{{ replace .Params.website_url "https://" "" }}</a>
+      </p>
+      <p class="cs-summary">{{ .Description }}</p>
+      <a href="{{ .Params.website_url }}" class="btn btn--primary group" target="_blank" rel="noopener noreferrer">
+        <span>Visit Website</span>
+        <span class="btn__icon">↗</span>
+      </a>
+    </div>
+    <div class="cs-hero-right">
+      <div class="shell">
+        <div class="shell__core cs-hero-stat">
+          <span class="cs-hero-num">{{ .Params.key_metric }}</span>
+          <span class="cs-hero-lbl">Key result</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section reveal">
+    <span class="svc-section-label">The Challenge</span>
+    <div class="cs-body">
+      <ul class="cs-list">
+        {{ range .Params.challenge }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+  <div class="cs-section reveal">
+    <span class="svc-section-label">The Solution</span>
+    <div class="cs-body">
+      <ul class="cs-list">
+        {{ range .Params.solution }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+  <div class="cs-section reveal">
+    <span class="svc-section-label">Results</span>
+    <div class="cs-results-grid">
+      {{ range .Params.results }}
+      <div class="shell">
+        <div class="shell__core cs-result-card">
+          <span class="cs-result-num">{{ .metric }}</span>
+          <span class="cs-result-lbl">{{ .detail }}</span>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="shell cs-testimonial reveal">
+    <div class="shell__core">
+      <p class="cs-testimonial-text">{{ .Params.testimonial_quote }}</p>
+      <p class="cs-testimonial-credit">{{ .Params.testimonial_credit }}</p>
+    </div>
+  </div>
+
+  <div class="cs-section reveal">
+    <span class="svc-section-label">Tech Stack</span>
+    <p class="cs-tech-stack">{{ .Params.tech_stack }}</p>
+  </div>
+
+  <div class="shell cs-cta reveal">
+    <div class="shell__core cta-row">
+      <div>
+        <h3>Need something similar?</h3>
+        <p>Tell me about your project and I'll get back to you within 24 hours.</p>
+      </div>
+      <a href="/contact/" class="btn btn--primary group">
+        <span>Start a project</span>
+        <span class="btn__icon">↗</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+{{ end }}

@@ -32,9 +32,13 @@ theme = "mastery"
     url = "/portfolio/"
     weight = 3
   [[menu.main]]
+    name = "Case Studies"
+    url = "/case-studies/"
+    weight = 4
+  [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 4
+    weight = 5
   [[menu.main]]
     name = "Contact"
     url = "/contact/"

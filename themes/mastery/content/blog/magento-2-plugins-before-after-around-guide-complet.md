@@ -1,5 +1,6 @@
 ---
 title: "Magento 2 Plugins: Before, After & Around Methods Explained"
+seo_title: "Magento 2 Plugins: Before, After & Around | Magento Mastery"
 date: 2026-06-12
 lastmod: 2026-06-17
 draft: false

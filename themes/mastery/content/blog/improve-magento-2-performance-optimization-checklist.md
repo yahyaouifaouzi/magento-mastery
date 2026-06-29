@@ -1,5 +1,6 @@
 ---
 title: "Magento 2 Performance Optimization Checklist (2026)"
+seo_title: "Magento 2 Performance Optimization Checklist | Magento Mastery"
 date: 2026-06-10
 lastmod: 2026-06-15
 description: "Magento 2 performance optimization checklist covering caching, image compression, database tuning, and Core Web Vitals for 2026."

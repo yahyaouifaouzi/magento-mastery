@@ -1,5 +1,6 @@
 ---
 title: "Magento 2 GraphQL API: Complete Developer Guide (2026)"
+seo_title: "Magento 2 GraphQL API Complete Guide | Magento Mastery"
 date: 2026-06-20
 lastmod: 2026-06-20
 draft: false

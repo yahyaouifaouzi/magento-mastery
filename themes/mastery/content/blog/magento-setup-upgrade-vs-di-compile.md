@@ -1,12 +1,13 @@
 ---
 title: "Complete Guide: bin/magento setup:upgrade vs setup:di:compile"
+seo_title: "setup:upgrade vs setup:di:compile | Magento Mastery"
 date: 2026-06-23
 lastmod: 2026-06-23
 description: "A no-fluff breakdown of Magento 2's two most misunderstood CLI commands. Understand the architecture, know exactly when to run what, and stop guessing during deployments."
 summary: "A no-fluff breakdown of Magento 2's two most misunderstood CLI commands. Understand the architecture, know exactly when to run what, and stop guessing during deployments."
 tags: ["magento2", "ecommerce", "deployment", "cli", "backend"]
 categories: ["Technical Deep Dives"]
-author: "Dr. Firas"
+author: "Faouzi Yahyaoui"
 draft: false
 ---
 

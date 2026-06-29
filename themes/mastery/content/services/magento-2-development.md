@@ -1,6 +1,6 @@
 ---
 title: "Magento 2 Development"
-description: "Custom Magento 2 development: modules, themes, integrations, and architecture. Built to Magento standards, tested in production."
+description: "Custom Magento 2 development: modules, themes, integrations, and architecture. Built to Magento standards, tested in production environments."
 seo_title: "Magento 2 Development Services | Custom Modules & Themes"
 date: 2026-06-10
 lastmod: 2026-06-15
