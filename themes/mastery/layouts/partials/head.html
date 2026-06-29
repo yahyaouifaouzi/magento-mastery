@@ -27,13 +27,15 @@
 <meta property="og:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "/images/og-default.jpg" | absURL }}{{ end }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ with .Params.image_alt }}{{ . }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}">
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
 <meta name="twitter:image" content="{{ with .Params.image }}{{ . | absURL }}{{ else }}{{ "/images/og-default.jpg" | absURL }}{{ end }}">
-{{ with site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
+{{ with site.Params.twitter }}<meta name="twitter:site" content="@{{ . }}">
+<meta name="twitter:creator" content="@{{ . }}">{{ end }}
 
 <!-- Article specific -->
 {{ if eq .Section "blog" }}
